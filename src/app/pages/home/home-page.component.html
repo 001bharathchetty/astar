@@ -1,0 +1,180 @@
+<main id="main-content" class="min-h-screen bg-stone-50 dark:bg-stone-950 text-stone-900 dark:text-stone-100 transition-colors">
+  
+  <!-- Hero Section -->
+  <section class="relative pt-12 sm:pt-20 pb-16 sm:pb-24 border-b border-stone-200 dark:border-stone-800" aria-labelledby="hero-title">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="max-w-3xl space-y-6">
+        <!-- Verified GSTIN Badge -->
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-amber-500/10 dark:bg-amber-400/15 border border-amber-500/30 text-amber-800 dark:text-amber-300 text-xs font-semibold tracking-wide shadow-sm">
+          <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+          <span>GSTIN: {{ businessService.business.gstin }}</span>
+          <span class="text-stone-300 dark:text-stone-600">|</span>
+          <span class="font-mono uppercase text-[11px]">Bengaluru</span>
+        </div>
+
+        <!-- H1 Brand Title -->
+        <h1 id="hero-title" class="text-4xl sm:text-6xl font-extrabold text-stone-950 dark:text-white font-heading tracking-tight leading-[1.1]">
+          ASTAR <span class="text-amber-600 dark:text-amber-400">Electricals</span>
+        </h1>
+
+        <!-- H2 Subtitle -->
+        <h2 class="text-xl sm:text-2xl font-bold text-stone-700 dark:text-stone-300 font-heading">
+          {{ businessService.business.tagline }}
+        </h2>
+
+        <!-- Description -->
+        <p class="text-base sm:text-lg text-stone-700 dark:text-stone-300 leading-relaxed">
+          {{ businessService.business.description }} Supplying high-grade copper wires, cables, switches, switchgear, distribution boards, conduits, and modern lighting systems for projects across Karnataka.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+          <a
+            [href]="'tel:' + businessService.business.phoneRaw"
+            mat-flat-button
+            class="!bg-amber-500 hover:!bg-amber-600 !text-stone-950 !font-extrabold !px-8 !py-4 !rounded-xl text-base shadow-sm inline-flex items-center justify-center gap-2 transition"
+            [attr.aria-label]="'Call ASTAR Electricals at ' + businessService.business.phone"
+          >
+            <mat-icon class="!w-5 !h-5 !text-[20px] leading-none">call</mat-icon>
+            <span>Call {{ businessService.business.phone }}</span>
+          </a>
+
+          <button
+            type="button"
+            (click)="scrollToLocation()"
+            class="px-6 py-3.5 rounded-xl border border-stone-300 dark:border-stone-700 hover:border-stone-400 dark:hover:border-stone-600 bg-white dark:bg-stone-900 text-stone-800 dark:text-stone-200 font-semibold text-sm transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 text-center"
+            aria-label="View store address and location details"
+          >
+            Visit Store & Location &rarr;
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 3 Pillar Services / Highlights -->
+  <section class="py-16 sm:py-20 border-b border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900/50 transition-colors" aria-labelledby="offerings-title">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="mb-10">
+        <span class="text-xs font-mono font-bold uppercase tracking-widest text-amber-600 dark:text-amber-400 block mb-2">
+          Capabilities & Supply
+        </span>
+        <h2 id="offerings-title" class="text-2xl sm:text-3xl font-extrabold text-stone-900 dark:text-stone-100 font-heading">
+          Comprehensive Electrical Solutions
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+        <!-- Pillar 1 -->
+        <article class="p-6 sm:p-8 rounded-2xl bg-stone-50 dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-amber-500/10 dark:bg-amber-400/15 border border-amber-500/20 text-amber-600 dark:text-amber-400 flex items-center justify-center mb-6">
+              <mat-icon class="!text-3xl !w-8 !h-8 !leading-none text-amber-500">inventory_2</mat-icon>
+            </div>
+            <h3 class="text-xl font-bold text-stone-900 dark:text-stone-100 font-heading mb-3">
+              Wholesale & Retail Supplies
+            </h3>
+            <p class="text-sm text-stone-700 dark:text-stone-300 leading-relaxed">
+              Supplying industrial-grade wires, PVC conduits, MCBs, RCCBs, modular switches, and electrical hardware directly to retail customers, contractors, and builders.
+            </p>
+          </div>
+        </article>
+
+        <!-- Pillar 2 -->
+        <article class="p-6 sm:p-8 rounded-2xl bg-stone-50 dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-amber-500/10 dark:bg-amber-400/15 border border-amber-500/20 text-amber-600 dark:text-amber-400 flex items-center justify-center mb-6">
+              <mat-icon class="!text-3xl !w-8 !h-8 !leading-none text-amber-500">verified</mat-icon>
+            </div>
+            <h3 class="text-xl font-bold text-stone-900 dark:text-stone-100 font-heading mb-3">
+              Certified Brands & Standards
+            </h3>
+            <p class="text-sm text-stone-700 dark:text-stone-300 leading-relaxed">
+              We stock certified, ISI-marked, and rigorously tested electrical products that meet safety standards for heavy load operations and residential safety.
+            </p>
+          </div>
+        </article>
+
+        <!-- Pillar 3 -->
+        <article class="p-6 sm:p-8 rounded-2xl bg-stone-50 dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-amber-500/10 dark:bg-amber-400/15 border border-amber-500/20 text-amber-600 dark:text-amber-400 flex items-center justify-center mb-6">
+              <mat-icon class="!text-3xl !w-8 !h-8 !leading-none text-amber-500">local_shipping</mat-icon>
+            </div>
+            <h3 class="text-xl font-bold text-stone-900 dark:text-stone-100 font-heading mb-3">
+              Bengaluru Fast Dispatch
+            </h3>
+            <p class="text-sm text-stone-700 dark:text-stone-300 leading-relaxed">
+              Conveniently located in Saraipalya, Thanisandra, ensuring responsive order readiness and prompt logistics for local project timelines.
+            </p>
+          </div>
+        </article>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Location & Verification Card Section -->
+  <section id="location-section" class="py-16 sm:py-24" aria-labelledby="location-title">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="p-8 sm:p-12 rounded-3xl bg-stone-900 text-white border border-stone-800 shadow-xl">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          
+          <div class="lg:col-span-7 space-y-4">
+            <span class="text-xs font-mono font-bold tracking-widest text-amber-400 uppercase">
+              Physical Location & Business Verification
+            </span>
+            <h2 id="location-title" class="text-2xl sm:text-4xl font-extrabold text-white font-heading">
+              Visit ASTAR Electricals
+            </h2>
+            <address class="not-italic text-stone-300 text-base leading-relaxed space-y-1">
+              <p class="text-white font-medium">{{ businessService.business.address.street }}</p>
+              <p class="text-amber-400 font-semibold">{{ businessService.business.address.landmark }}</p>
+              <p>{{ businessService.business.address.area }}</p>
+              <p>{{ businessService.business.address.city }} - {{ businessService.business.address.state }}, {{ businessService.business.address.pincode }}</p>
+            </address>
+
+            <div class="pt-4 flex items-center gap-3 flex-wrap">
+              <div class="text-xs uppercase font-mono tracking-wider text-stone-300">GSTIN:</div>
+              <code class="px-3 py-1.5 rounded-lg bg-stone-800 font-mono text-sm text-amber-400 font-bold select-all border border-stone-700">
+                {{ businessService.business.gstin }}
+              </code>
+              <button
+                type="button"
+                (click)="copyGstin()"
+                class="px-3 py-1 rounded bg-stone-800 hover:bg-stone-700 text-stone-300 text-xs font-medium transition cursor-pointer"
+                aria-label="Copy GSTIN to clipboard"
+              >
+                {{ copiedGstin() ? 'Copied!' : 'Copy GSTIN' }}
+              </button>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5 flex flex-col gap-4 p-6 rounded-2xl bg-stone-800/60 border border-stone-700/80">
+            <h3 class="text-lg font-bold text-white font-heading">Direct Contact</h3>
+            <p class="text-xs text-stone-300 leading-relaxed">
+              Call or message for quotation requests, bulk inquiries, or technical product specifications:
+            </p>
+            <a
+              [href]="'tel:' + businessService.business.phoneRaw"
+              class="text-2xl font-black text-amber-400 hover:text-amber-300 font-mono tracking-tight transition"
+              [attr.aria-label]="'Call ' + businessService.business.phone"
+            >
+              {{ businessService.business.phone }}
+            </a>
+            <p class="text-xs text-stone-300 font-mono pt-2 border-t border-stone-700">
+              Timings: Mon – Sat, 9:30 AM to 8:30 PM IST
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>

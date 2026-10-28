@@ -1,0 +1,42 @@
+@import "tailwindcss";
+@import "@angular/material/prebuilt-themes/azure-blue.css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-heading: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Roboto", system-ui, sans-serif;
+  --font-body: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Roboto", "Helvetica Neue", system-ui, sans-serif;
+}
+
+@layer base {
+  :root {
+    --font-heading: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Roboto", system-ui, sans-serif;
+    --font-body: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Roboto", "Helvetica Neue", system-ui, sans-serif;
+    --color-electric-amber: #f59e0b;
+    --color-electric-blue: #0284c7;
+  }
+
+  html {
+    font-family: var(--font-body);
+    scroll-behavior: smooth;
+    color: #1c1917;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, .font-heading {
+    font-family: var(--font-heading);
+    letter-spacing: -0.025em;
+  }
+}
+
+/* Material Design Overrides */
+.mat-mdc-button-base {
+  letter-spacing: normal !important;
+}
+
+/* Smooth Focus Rings */
+:focus-visible {
+  outline: 2px solid #0284c7;
+  outline-offset: 2px;
+}

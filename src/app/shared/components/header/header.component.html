@@ -1,0 +1,48 @@
+<header class="sticky top-0 z-40 w-full backdrop-blur-md bg-white/90 dark:bg-stone-900/90 border-b border-stone-200 dark:border-stone-800 transition-colors">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
+    <!-- Brand / Logo -->
+    <a
+      href="/"
+      class="flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 rounded-lg p-1"
+      aria-label="ASTAR Electricals — Home"
+    >
+      <div class="w-10 h-10 rounded-xl bg-amber-500/10 dark:bg-amber-400/15 border border-amber-500/30 flex items-center justify-center text-amber-600 dark:text-amber-400 shadow-sm group-hover:scale-105 transition-transform">
+        <mat-icon class="!text-amber-500">bolt</mat-icon>
+      </div>
+      <div>
+        <span class="text-lg sm:text-xl font-extrabold tracking-tight text-stone-900 dark:text-stone-100 font-heading">
+          ASTAR <span class="text-amber-600 dark:text-amber-400 font-medium">Electricals</span>
+        </span>
+        <span class="hidden sm:block text-[11px] text-stone-700 dark:text-stone-300 font-mono tracking-wider uppercase">
+          Bengaluru · Est. Trust
+        </span>
+      </div>
+    </a>
+
+    <!-- Action Bar -->
+    <div class="flex items-center gap-2 sm:gap-3">
+      <!-- Call Action -->
+      <a
+        [href]="'tel:' + businessService.business.phoneRaw"
+        mat-flat-button
+        class="!bg-stone-900 dark:!bg-stone-100 !text-white dark:!text-stone-900 hover:!bg-stone-800 dark:hover:!bg-stone-200 !rounded-full !font-semibold text-xs sm:text-sm !px-4 !py-2 inline-flex items-center gap-2 transition"
+        [attr.aria-label]="'Call ASTAR Electricals at ' + businessService.business.phone"
+      >
+        <mat-icon class="!w-4 !h-4 !text-base leading-none">call</mat-icon>
+        <span class="hidden sm:inline">{{ businessService.business.phone }}</span>
+        <span class="sm:hidden">Call Now</span>
+      </a>
+
+      <!-- Dark / Light Theme Toggle -->
+      <button
+        type="button"
+        mat-icon-button
+        (click)="themeService.toggleTheme()"
+        [attr.aria-label]="themeService.isDark() ? 'Switch to light theme' : 'Switch to dark theme'"
+        class="!w-10 !h-10 text-stone-700 dark:text-stone-300 hover:text-stone-950 dark:hover:text-white rounded-full transition-colors"
+      >
+        <mat-icon>{{ themeService.isDark() ? 'light_mode' : 'dark_mode' }}</mat-icon>
+      </button>
+    </div>
+  </div>
+</header>

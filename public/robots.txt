@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://astarelectricals.com/sitemap.xml

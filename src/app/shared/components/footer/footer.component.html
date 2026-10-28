@@ -1,0 +1,81 @@
+<footer class="w-full bg-stone-900 text-stone-300 border-t border-stone-800 transition-colors" role="contentinfo">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-start">
+      
+      <!-- Brand & Mission (5 cols) -->
+      <div class="md:col-span-5 space-y-4">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400">
+            <mat-icon class="!text-amber-400 !text-xl !w-5 !h-5 !leading-none">bolt</mat-icon>
+          </div>
+          <span class="text-xl font-extrabold text-white tracking-tight font-heading">
+            ASTAR <span class="text-amber-400 font-medium">Electricals</span>
+          </span>
+        </div>
+        <p class="text-sm text-stone-400 leading-relaxed max-w-sm">
+          {{ businessService.business.tagline }}
+        </p>
+        <div class="pt-2">
+          <span class="text-xs uppercase font-mono tracking-widest text-stone-300 block mb-1">Government Registered GSTIN</span>
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-stone-800/80 border border-stone-700 font-mono text-xs text-amber-400 select-all font-semibold">
+            <span>{{ businessService.business.gstin }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Verified Office Address & Landmark (4 cols) -->
+      <div class="md:col-span-4 space-y-3">
+        <h3 class="text-xs uppercase font-mono font-bold tracking-widest text-stone-300">
+          Store & Office Location
+        </h3>
+        <address class="not-italic text-sm text-stone-300 leading-relaxed space-y-1" itemscope itemtype="https://schema.org/PostalAddress">
+          <div itemprop="streetAddress">{{ businessService.business.address.street }}</div>
+          <div class="text-amber-400/90 text-xs font-medium">{{ businessService.business.address.landmark }}</div>
+          <div>{{ businessService.business.address.area }}</div>
+          <div>
+            <span itemprop="addressLocality">{{ businessService.business.address.city }}</span>,
+            <span itemprop="addressRegion">{{ businessService.business.address.state }}</span> -
+            <span itemprop="postalCode">{{ businessService.business.address.pincode }}</span>,
+            <span itemprop="addressCountry">{{ businessService.business.address.country }}</span>
+          </div>
+        </address>
+      </div>
+
+      <!-- Direct Contact & Hours (3 cols) -->
+      <div class="md:col-span-3 space-y-3">
+        <h3 class="text-xs uppercase font-mono font-bold tracking-widest text-stone-300">
+          Direct Inquiries
+        </h3>
+        <div class="space-y-2">
+          <div>
+            <span class="text-xs text-stone-300 block">Phone & WhatsApp:</span>
+            <a
+              [href]="'tel:' + businessService.business.phoneRaw"
+              class="text-base font-semibold text-white hover:text-amber-400 transition inline-flex items-center gap-1.5 focus-visible:outline-none focus-visible:underline"
+              [attr.aria-label]="'Call ' + businessService.business.phone"
+            >
+              {{ businessService.business.phone }}
+            </a>
+          </div>
+          <div class="pt-2 text-xs text-stone-300">
+            <span class="text-stone-300 block">Business Hours:</span>
+            <span>Monday – Saturday: 9:30 AM – 8:30 PM</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="mt-12 pt-8 border-t border-stone-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-stone-300 font-mono">
+      <p>&copy; {{ currentYear }} ASTAR Electricals. All rights reserved. <span class="text-stone-400">· v{{ version }}</span></p>
+      <button
+        type="button"
+        (click)="scrollToTop()"
+        class="hover:text-white transition focus-visible:outline-none focus-visible:underline cursor-pointer"
+        aria-label="Scroll back to top of the page"
+      >
+        Back to top &uarr;
+      </button>
+    </div>
+  </div>
+</footer>
