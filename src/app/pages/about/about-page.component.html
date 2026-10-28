@@ -1,0 +1,144 @@
+<div class="relative overflow-x-clip transition-colors duration-200">
+  
+  <!-- Hero Section -->
+  <section class="relative pt-12 pb-16 sm:pt-16 sm:pb-20 lg:pt-20 lg:pb-24 border-b border-stone-200 dark:border-stone-800" aria-labelledby="about-title">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-center">
+        
+        <!-- Left Hero Narrative (7 cols on md, 7 cols on lg) -->
+        <div class="md:col-span-7 lg:col-span-7 max-w-3xl">
+          
+          <!-- Subtle Tagline Badge -->
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-stone-200/90 dark:bg-stone-800 text-stone-900 dark:text-stone-100 text-xs font-bold uppercase tracking-wider mb-5">
+            <span class="w-2 h-2 rounded-full bg-[#ea1c24] animate-pulse"></span>
+            <span>{{ content.about.badge }}</span>
+          </div>
+
+          <!-- Big Bad Blunt Bold Display H1 -->
+          <h1 id="about-title" class="text-3xl sm:text-4xl lg:text-5xl font-bold text-stone-900 dark:text-stone-50 font-heading tracking-tight leading-tight mb-4">
+            Commercial Contracting for the <span class="text-[#ea1c24]">Built Environment.</span>
+          </h1>
+
+          <!-- H2 Subtitle -->
+          <h2 class="text-lg sm:text-xl font-medium text-stone-700 dark:text-stone-300 font-heading mb-6">
+            {{ content.about.subtitle }}
+          </h2>
+
+          <!-- Editorial Lead with Red Accent Border -->
+          <div class="space-y-4 text-base sm:text-lg text-stone-700 dark:text-stone-300 leading-relaxed pl-4 border-l-2 border-[#ea1c24]">
+            @for (p of content.about.intro; track p) {
+              <p>{{ p }}</p>
+            }
+          </div>
+
+          <!-- CTAs -->
+          <div class="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+            <button
+              type="button"
+              (click)="openInquiryDialog()"
+              mat-flat-button
+              class="!bg-[#ea1c24] hover:!bg-[#b91c1c] !text-white !font-semibold !px-8 !py-3.5 !rounded-full text-base shadow-md transition text-center"
+            >
+              {{ content.about.cta.actionText }} &rarr;
+            </button>
+            <a
+              routerLink="/services"
+              mat-stroked-button
+              class="!border-stone-300 dark:!border-stone-700 hover:!bg-stone-200 dark:hover:!bg-stone-800 !text-stone-900 dark:text-stone-100 !font-semibold !px-6 !py-3.5 !rounded-full text-sm text-center transition"
+            >
+              View Capabilities
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Relational Showcase Card -->
+        <div class="mt-8 md:mt-0 flex md:col-span-5 lg:col-span-5 justify-center md:justify-end items-center">
+          <div class="relative w-full max-w-[340px] sm:max-w-[380px] md:max-w-[420px] lg:max-w-[460px] aspect-square rounded-3xl p-2 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-xl flex items-center justify-center text-center group hover:scale-[1.01] transition-all duration-300">
+            <app-commercial-showcase></app-commercial-showcase>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 2: What Guides Our Work (4 Core Perspectives) -->
+  <section class="py-16 sm:py-24 bg-white dark:bg-stone-900/40 border-b border-stone-200 dark:border-stone-800" aria-labelledby="values-title">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="max-w-2xl mb-12">
+        <span class="text-xs font-mono font-bold tracking-widest text-[#ea1c24] uppercase block mb-2">
+          Guiding Standards
+        </span>
+        <h2 id="values-title" class="text-2xl sm:text-3xl lg:text-4xl font-bold font-heading text-stone-900 dark:text-stone-50 tracking-tight">
+          What Guides Our Work
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+        @for (val of content.about.values; track val.title; let idx = $index) {
+          <article class="p-8 sm:p-10 rounded-3xl bg-stone-50 dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-sm flex flex-col justify-between">
+            <div>
+              <span class="text-xs font-mono font-bold text-[#ea1c24] tracking-widest block mb-3">
+                PERSPECTIVE 0{{ idx + 1 }}
+              </span>
+              <h3 class="text-xl sm:text-2xl font-bold text-stone-900 dark:text-white font-heading mb-3 tracking-tight">
+                {{ val.title }}
+              </h3>
+              <p class="text-base text-stone-600 dark:text-stone-300 leading-relaxed">
+                {{ val.description }}
+              </p>
+            </div>
+          </article>
+        }
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 3: Where We Work & Government Registration -->
+  <section class="py-16 sm:py-20 border-b border-stone-200 dark:border-stone-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="p-8 sm:p-12 rounded-3xl bg-stone-900 text-white border border-stone-800 shadow-xl">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-8 space-y-4">
+            <span class="text-xs font-mono uppercase tracking-widest text-[#ea1c24] font-bold">
+              Operating Footprint
+            </span>
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold font-heading text-white tracking-tight">
+              {{ content.about.footprint.title }}
+            </h2>
+            <p class="text-base sm:text-lg text-stone-300 leading-relaxed max-w-2xl">
+              {{ content.about.footprint.description }}
+            </p>
+            <div class="pt-2 flex items-center gap-3 flex-wrap">
+              <span class="text-xs uppercase font-mono tracking-wider text-stone-400">GSTIN:</span>
+              <code class="px-3 py-1.5 rounded-lg bg-stone-800 font-mono text-sm text-[#ea1c24] font-bold select-all border border-stone-700">
+                {{ content.brand.gstin }}
+              </code>
+            </div>
+          </div>
+          <div class="lg:col-span-4 flex justify-start lg:justify-end">
+            <button
+              type="button"
+              (click)="openInquiryDialog()"
+              mat-flat-button
+              class="!bg-[#ea1c24] hover:!bg-[#b91c1c] !text-white !font-semibold !px-8 !py-3.5 !rounded-full text-base shadow-md"
+            >
+              {{ content.about.cta.actionText }} &rarr;
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Next Logical Paths -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+    <app-explore-next page="about"></app-explore-next>
+  </div>
+
+</div>

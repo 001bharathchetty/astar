@@ -1,0 +1,191 @@
+<div class="relative overflow-x-clip transition-colors duration-200">
+  
+  <!-- Hero Section -->
+  <section class="relative pt-12 pb-16 sm:pt-16 sm:pb-20 lg:pt-20 lg:pb-24 border-b border-stone-200 dark:border-stone-800" aria-labelledby="projects-title">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="max-w-3xl">
+        <!-- Eyebrow Badge -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-stone-200/90 dark:bg-stone-800 text-stone-900 dark:text-stone-100 text-xs font-bold uppercase tracking-wider mb-5">
+          <span class="w-2 h-2 rounded-full bg-[#ea1c24] animate-pulse"></span>
+          <span>{{ content.projects.badge }}</span>
+        </div>
+
+        <!-- Big Bad Blunt Bold H1 -->
+        <h1 id="projects-title" class="text-3xl sm:text-4xl lg:text-5xl font-bold text-stone-900 dark:text-stone-50 font-heading tracking-tight leading-tight mb-4">
+          Commercial Projects. <span class="text-[#ea1c24]">Clearly Documented.</span>
+        </h1>
+
+        <!-- H2 Subtitle -->
+        <h2 class="text-lg sm:text-xl font-medium text-stone-700 dark:text-stone-300 font-heading mb-6">
+          {{ content.projects.subtitle }}
+        </h2>
+
+        <!-- Editorial Lead with Red Accent Border -->
+        <div class="space-y-4 text-base sm:text-lg text-stone-700 dark:text-stone-300 leading-relaxed pl-4 border-l-2 border-[#ea1c24]">
+          <p>{{ content.projects.lead }}</p>
+        </div>
+
+        <!-- Hero CTAs -->
+        <div class="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+          <button
+            type="button"
+            (click)="openInquiryDialog()"
+            mat-flat-button
+            class="!bg-[#ea1c24] hover:!bg-[#b91c1c] !text-white !font-semibold !px-8 !py-3.5 !rounded-full text-base shadow-md transition text-center"
+          >
+            {{ content.projects.cta.actionText }} &rarr;
+          </button>
+          <a
+            routerLink="/services"
+            mat-stroked-button
+            class="!border-stone-300 dark:!border-stone-700 hover:!bg-stone-200 dark:hover:!bg-stone-800 !text-stone-900 dark:text-stone-100 !font-semibold !px-6 !py-3.5 !rounded-full text-sm text-center transition"
+          >
+            Review Service Scopes
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Commercial Typologies (Categories) -->
+  <section class="py-16 sm:py-24 bg-white dark:bg-stone-900/40 border-b border-stone-200 dark:border-stone-800" aria-labelledby="typologies-title">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="max-w-2xl mb-12">
+        <span class="text-xs font-mono font-bold tracking-widest text-[#ea1c24] uppercase block mb-2">
+          Sector Experience
+        </span>
+        <h2 id="typologies-title" class="text-2xl sm:text-3xl lg:text-4xl font-bold font-heading text-stone-900 dark:text-stone-50 tracking-tight">
+          Commercial Environments We Serve
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+        @for (cat of content.projects.categories; track cat.id) {
+          <article class="p-8 rounded-3xl bg-stone-50 dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-2xl bg-black text-[#ea1c24] border border-stone-800 flex items-center justify-center mb-6">
+                <mat-icon class="!text-2xl leading-none">
+                  {{ cat.id === 'workplace' ? 'business' : cat.id === 'retail' ? 'storefront' : 'warehouse' }}
+                </mat-icon>
+              </div>
+              <h3 class="text-xl font-bold text-stone-900 dark:text-white font-heading mb-3 tracking-tight">
+                {{ cat.name }}
+              </h3>
+              <p class="text-sm text-stone-600 dark:text-stone-300 leading-relaxed">
+                {{ cat.description }}
+              </p>
+            </div>
+          </article>
+        }
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Documented Project Case Scopes -->
+  <section class="py-16 sm:py-24 border-b border-stone-200 dark:border-stone-800" aria-labelledby="cases-title">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="max-w-2xl mb-12">
+        <span class="text-xs font-mono font-bold tracking-widest text-[#ea1c24] uppercase block mb-2">
+          Case Studies
+        </span>
+        <h2 id="cases-title" class="text-2xl sm:text-3xl lg:text-4xl font-bold font-heading text-stone-900 dark:text-stone-50 tracking-tight">
+          Representative Project Scopes
+        </h2>
+      </div>
+
+      <div class="space-y-8">
+        @for (item of content.projects.sampleCases; track item.title; let idx = $index) {
+          <article class="p-8 sm:p-10 rounded-3xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-sm hover:shadow-md transition">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+              
+              <!-- Left: Project Scope Detail -->
+              <div class="lg:col-span-7 space-y-4">
+                <div class="flex items-center gap-3 flex-wrap">
+                  <span class="text-xs font-mono font-bold text-[#ea1c24] tracking-widest uppercase">
+                    PROJECT 0{{ idx + 1 }}
+                  </span>
+                  <span class="px-2.5 py-0.5 rounded-full text-[11px] font-mono font-bold bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-300 border border-stone-200 dark:border-stone-700">
+                    {{ item.category }}
+                  </span>
+                </div>
+                <h3 class="text-xl sm:text-2xl font-bold text-stone-900 dark:text-white font-heading tracking-tight">
+                  {{ item.title }}
+                </h3>
+                <div class="flex items-center gap-2 text-xs font-mono text-stone-600 dark:text-stone-400">
+                  <mat-icon class="!w-4 !h-4 !text-base leading-none text-[#ea1c24]">place</mat-icon>
+                  <span>{{ item.location }}</span>
+                </div>
+                <p class="text-base text-stone-700 dark:text-stone-300 leading-relaxed pt-2">
+                  {{ item.scope }}
+                </p>
+              </div>
+
+              <!-- Right: Execution Metrics Card -->
+              <div class="lg:col-span-5 bg-stone-50 dark:bg-stone-800/80 p-6 rounded-2xl border border-stone-200 dark:border-stone-700 space-y-4">
+                <div class="flex items-center justify-between border-b border-stone-200 dark:border-stone-700 pb-3 text-xs font-mono">
+                  <span class="text-stone-500 dark:text-stone-400">Execution Status:</span>
+                  <span class="inline-flex items-center gap-1.5 font-bold text-emerald-600 dark:text-emerald-400">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                    {{ item.status }}
+                  </span>
+                </div>
+                <div class="flex items-center justify-between border-b border-stone-200 dark:border-stone-700 pb-3 text-xs font-mono">
+                  <span class="text-stone-500 dark:text-stone-400">Delivery Milestones:</span>
+                  <span class="font-bold text-stone-900 dark:text-stone-100">{{ item.timeline }}</span>
+                </div>
+                <div class="flex items-center justify-between text-xs font-mono">
+                  <span class="text-stone-500 dark:text-stone-400">Compliance & Sign-off:</span>
+                  <span class="font-bold text-[#ea1c24]">IS / CPWD Aligned</span>
+                </div>
+              </div>
+
+            </div>
+          </article>
+        }
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Discuss Similar Project CTA -->
+  <section class="py-16 sm:py-20 border-b border-stone-200 dark:border-stone-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="p-8 sm:p-12 rounded-3xl bg-stone-900 text-white border border-stone-800 shadow-xl">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-8 space-y-4">
+            <span class="text-xs font-mono uppercase tracking-widest text-[#ea1c24] font-bold">
+              Tendering & Contracting
+            </span>
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold font-heading text-white tracking-tight">
+              {{ content.projects.cta.headline }}
+            </h2>
+            <p class="text-base sm:text-lg text-stone-300 leading-relaxed max-w-2xl">
+              Connect with our contracting team to review project drawings, bill of quantities (BOQ), and sequencing schedules.
+            </p>
+          </div>
+          <div class="lg:col-span-4 flex justify-start lg:justify-end">
+            <button
+              type="button"
+              (click)="openInquiryDialog()"
+              mat-flat-button
+              class="!bg-[#ea1c24] hover:!bg-[#b91c1c] !text-white !font-semibold !px-8 !py-3.5 !rounded-full text-base shadow-md"
+            >
+              {{ content.projects.cta.actionText }} &rarr;
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Next Logical Paths -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+    <app-explore-next page="projects"></app-explore-next>
+  </div>
+
+</div>

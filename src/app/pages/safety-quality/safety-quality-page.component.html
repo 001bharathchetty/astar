@@ -1,0 +1,147 @@
+<div class="relative overflow-x-clip transition-colors duration-200">
+  
+  <!-- Hero Section -->
+  <section class="relative pt-12 pb-16 sm:pt-16 sm:pb-20 lg:pt-20 lg:pb-24 border-b border-stone-200 dark:border-stone-800" aria-labelledby="standards-title">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="max-w-3xl">
+        <!-- Eyebrow Badge -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-stone-200/90 dark:bg-stone-800 text-stone-900 dark:text-stone-100 text-xs font-bold uppercase tracking-wider mb-5">
+          <span class="w-2 h-2 rounded-full bg-[#ea1c24] animate-pulse"></span>
+          <span>{{ content.safetyQuality.badge }}</span>
+        </div>
+
+        <!-- Big Bad Blunt Bold H1 -->
+        <h1 id="standards-title" class="text-3xl sm:text-4xl lg:text-5xl font-bold text-stone-900 dark:text-stone-50 font-heading tracking-tight leading-tight mb-4">
+          Quality Is in <span class="text-[#ea1c24]">the Execution.</span>
+        </h1>
+
+        <!-- H2 Subtitle -->
+        <h2 class="text-lg sm:text-xl font-medium text-stone-700 dark:text-stone-300 font-heading mb-6">
+          {{ content.safetyQuality.subtitle }}
+        </h2>
+
+        <!-- Editorial Lead with Red Accent Border -->
+        <div class="space-y-4 text-base sm:text-lg text-stone-700 dark:text-stone-300 leading-relaxed pl-4 border-l-2 border-[#ea1c24]">
+          <p>{{ content.safetyQuality.lead }}</p>
+        </div>
+
+        <!-- Hero CTAs -->
+        <div class="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+          <button
+            type="button"
+            (click)="openInquiryDialog()"
+            mat-flat-button
+            class="!bg-[#ea1c24] hover:!bg-[#b91c1c] !text-white !font-semibold !px-8 !py-3.5 !rounded-full text-base shadow-md transition text-center"
+          >
+            Discuss Project Standards &rarr;
+          </button>
+          <a
+            routerLink="/projects"
+            mat-stroked-button
+            class="!border-stone-300 dark:!border-stone-700 hover:!bg-stone-200 dark:hover:!bg-stone-800 !text-stone-900 dark:text-stone-100 !font-semibold !px-6 !py-3.5 !rounded-full text-sm text-center transition"
+          >
+            View Projects
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Two-Column Quality & Safety Pillars -->
+  <section class="py-16 sm:py-24 bg-white dark:bg-stone-900/40 border-b border-stone-200 dark:border-stone-800" aria-labelledby="pillars-title">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+        
+        <!-- Quality Pillar -->
+        <article class="p-8 sm:p-10 rounded-3xl bg-stone-50 dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-black text-[#ea1c24] border border-stone-800 flex items-center justify-center mb-6">
+              <mat-icon class="!text-2xl leading-none">verified</mat-icon>
+            </div>
+            <span class="text-xs font-mono font-bold text-[#ea1c24] tracking-widest uppercase block mb-2">
+              Engineering Compliance
+            </span>
+            <h3 class="text-xl sm:text-2xl font-bold text-stone-900 dark:text-white font-heading mb-3 tracking-tight">
+              {{ content.safetyQuality.qualityFocus.title }}
+            </h3>
+            <p class="text-sm sm:text-base text-stone-600 dark:text-stone-300 mb-6 leading-relaxed">
+              {{ content.safetyQuality.qualityFocus.description }}
+            </p>
+            <ul class="space-y-3 text-sm text-stone-700 dark:text-stone-200 border-t border-stone-200/80 dark:border-stone-800 pt-6">
+              @for (point of content.safetyQuality.qualityFocus.points; track point) {
+                <li class="flex items-start gap-2.5">
+                  <mat-icon class="!w-4 !h-4 !text-base leading-none text-[#ea1c24] flex-shrink-0 mt-0.5">check_circle</mat-icon>
+                  <span>{{ point }}</span>
+                </li>
+              }
+            </ul>
+          </div>
+        </article>
+
+        <!-- Safety Pillar -->
+        <article class="p-8 sm:p-10 rounded-3xl bg-stone-50 dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-black text-[#ea1c24] border border-stone-800 flex items-center justify-center mb-6">
+              <mat-icon class="!text-2xl leading-none">security</mat-icon>
+            </div>
+            <span class="text-xs font-mono font-bold text-[#ea1c24] tracking-widest uppercase block mb-2">
+              Zero Compromise
+            </span>
+            <h3 class="text-xl sm:text-2xl font-bold text-stone-900 dark:text-white font-heading mb-3 tracking-tight">
+              {{ content.safetyQuality.safetyFocus.title }}
+            </h3>
+            <p class="text-sm sm:text-base text-stone-600 dark:text-stone-300 mb-6 leading-relaxed">
+              {{ content.safetyQuality.safetyFocus.description }}
+            </p>
+            <ul class="space-y-3 text-sm text-stone-700 dark:text-stone-200 border-t border-stone-200/80 dark:border-stone-800 pt-6">
+              @for (point of content.safetyQuality.safetyFocus.points; track point) {
+                <li class="flex items-start gap-2.5">
+                  <mat-icon class="!w-4 !h-4 !text-base leading-none text-[#ea1c24] flex-shrink-0 mt-0.5">shield</mat-icon>
+                  <span>{{ point }}</span>
+                </li>
+              }
+            </ul>
+          </div>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Built on Accountability Callout -->
+  <section class="py-16 sm:py-20 border-b border-stone-200 dark:border-stone-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="p-8 sm:p-12 rounded-3xl bg-stone-900 text-white border border-stone-800 text-center space-y-4">
+        <span class="text-xs font-mono uppercase tracking-widest text-[#ea1c24] font-bold">
+          Site Reality
+        </span>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold font-heading text-white tracking-tight">
+          {{ content.safetyQuality.callout.title }}
+        </h2>
+        <p class="text-base sm:text-lg text-stone-300 leading-relaxed max-w-2xl mx-auto">
+          {{ content.safetyQuality.callout.body }}
+        </p>
+        <div class="pt-4">
+          <button
+            type="button"
+            (click)="openInquiryDialog()"
+            mat-flat-button
+            class="!bg-[#ea1c24] hover:!bg-[#b91c1c] !text-white !font-semibold !px-8 !py-3.5 !rounded-full text-base shadow-md"
+          >
+            Discuss Site Safety & Scopes &rarr;
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Next Logical Paths -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+    <app-explore-next page="safety-quality"></app-explore-next>
+  </div>
+
+</div>

@@ -1,38 +1,78 @@
-<header class="sticky top-0 z-40 w-full backdrop-blur-md bg-white/90 dark:bg-stone-900/90 border-b border-stone-200 dark:border-stone-800 transition-colors">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
-    <!-- Brand / Logo -->
+<!-- Sticky Navigation Header with Dark & Light theme support -->
+<header class="sticky top-0 z-40 w-full bg-stone-50/95 dark:bg-stone-950/95 backdrop-blur-md border-b border-stone-200 dark:border-stone-800 transition-colors duration-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+    
+    <!-- Brand Identity (Red, Black, White + Big Bad Blunt Bold Font) -->
     <a
-      href="/"
-      class="flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 rounded-lg p-1"
-      aria-label="ASTAR Electricals — Home"
+      routerLink="/"
+      (click)="closeMobileMenu()"
+      class="flex items-center gap-3.5 group focus:outline-none focus:ring-2 focus:ring-[#ea1c24] rounded-xl p-1"
+      aria-label="AStar Electricals — Home"
     >
-      <div class="w-10 h-10 rounded-xl bg-amber-500/10 dark:bg-amber-400/15 border border-amber-500/30 flex items-center justify-center text-amber-600 dark:text-amber-400 shadow-sm group-hover:scale-105 transition-transform">
-        <mat-icon class="!text-amber-500">bolt</mat-icon>
+      <!-- Distinctive Industrial Emblem (Black box, Red Bolt, White border) -->
+      <div class="w-11 h-11 rounded-xl bg-black border-2 border-stone-800 dark:border-stone-700 flex items-center justify-center text-white shadow-md group-hover:border-[#ea1c24] group-hover:scale-105 transition-all">
+        <mat-icon class="!text-[#ea1c24] !text-2xl !w-6 !h-6 leading-none">bolt</mat-icon>
       </div>
-      <div>
-        <span class="text-lg sm:text-xl font-extrabold tracking-tight text-stone-900 dark:text-stone-100 font-heading">
-          ASTAR <span class="text-amber-600 dark:text-amber-400 font-medium">Electricals</span>
+
+      <div class="flex flex-col">
+        <span class="font-brand font-black text-2xl tracking-tighter leading-none uppercase text-stone-950 dark:text-white">
+          ASTAR <span class="text-[#ea1c24] font-bold text-lg tracking-tight lowercase">electricals</span>
         </span>
-        <span class="hidden sm:block text-[11px] text-stone-700 dark:text-stone-300 font-mono tracking-wider uppercase">
-          Bengaluru · Est. Trust
+        <span class="hidden sm:block text-[10px] font-bold text-stone-700 dark:text-stone-300 font-mono tracking-wider uppercase mt-1">
+          Commercial Contracting · BLR · MAA · HYD
         </span>
       </div>
     </a>
 
-    <!-- Action Bar -->
-    <div class="flex items-center gap-2 sm:gap-3">
-      <!-- Call Action -->
+    <!-- Desktop Navigation Links with Active Highlighting -->
+    <nav class="hidden lg:flex items-center gap-4 xl:gap-6 2xl:gap-8" aria-label="Primary Navigation">
       <a
-        [href]="'tel:' + businessService.business.phoneRaw"
-        mat-flat-button
-        class="!bg-stone-900 dark:!bg-stone-100 !text-white dark:!text-stone-900 hover:!bg-stone-800 dark:hover:!bg-stone-200 !rounded-full !font-semibold text-xs sm:text-sm !px-4 !py-2 inline-flex items-center gap-2 transition"
-        [attr.aria-label]="'Call ASTAR Electricals at ' + businessService.business.phone"
+        routerLink="/"
+        [routerLinkActiveOptions]="{ exact: true }"
+        routerLinkActive="text-stone-950 dark:text-white font-extrabold border-b-2 border-[#ea1c24]"
+        class="text-xs xl:text-sm font-bold text-stone-700 dark:text-stone-300 hover:text-stone-950 dark:hover:text-white pb-1 transition whitespace-nowrap"
       >
-        <mat-icon class="!w-4 !h-4 !text-base leading-none">call</mat-icon>
-        <span class="hidden sm:inline">{{ businessService.business.phone }}</span>
-        <span class="sm:hidden">Call Now</span>
+        Home
       </a>
+      <a
+        routerLink="/about"
+        routerLinkActive="text-stone-950 dark:text-white font-extrabold border-b-2 border-[#ea1c24]"
+        class="text-xs xl:text-sm font-bold text-stone-700 dark:text-stone-300 hover:text-stone-950 dark:hover:text-white pb-1 transition whitespace-nowrap"
+      >
+        About
+      </a>
+      <a
+        routerLink="/services"
+        routerLinkActive="text-stone-950 dark:text-white font-extrabold border-b-2 border-[#ea1c24]"
+        class="text-xs xl:text-sm font-bold text-stone-700 dark:text-stone-300 hover:text-stone-950 dark:hover:text-white pb-1 transition whitespace-nowrap"
+      >
+        Services
+      </a>
+      <a
+        routerLink="/safety-quality"
+        routerLinkActive="text-stone-950 dark:text-white font-extrabold border-b-2 border-[#ea1c24]"
+        class="text-xs xl:text-sm font-bold text-stone-700 dark:text-stone-300 hover:text-stone-950 dark:hover:text-white pb-1 transition whitespace-nowrap"
+      >
+        Safety & Quality
+      </a>
+      <a
+        routerLink="/projects"
+        routerLinkActive="text-stone-950 dark:text-white font-extrabold border-b-2 border-[#ea1c24]"
+        class="text-xs xl:text-sm font-bold text-stone-700 dark:text-stone-300 hover:text-stone-950 dark:hover:text-white pb-1 transition whitespace-nowrap"
+      >
+        Projects
+      </a>
+      <a
+        routerLink="/contact"
+        routerLinkActive="text-stone-950 dark:text-white font-extrabold border-b-2 border-[#ea1c24]"
+        class="text-xs xl:text-sm font-bold text-stone-700 dark:text-stone-300 hover:text-stone-950 dark:hover:text-white pb-1 transition whitespace-nowrap"
+      >
+        Contact
+      </a>
+    </nav>
 
+    <!-- Action Bar (Theme, Call & Discuss Project CTA) -->
+    <div class="flex items-center gap-2 sm:gap-3">
       <!-- Dark / Light Theme Toggle -->
       <button
         type="button"
@@ -43,6 +83,108 @@
       >
         <mat-icon>{{ themeService.isDark() ? 'light_mode' : 'dark_mode' }}</mat-icon>
       </button>
+
+      <!-- Direct Phone Call Link -->
+      <a
+        [href]="'tel:' + content.brand.phoneRaw"
+        mat-stroked-button
+        class="hidden sm:inline-flex !border-stone-300 dark:!border-stone-700 !text-stone-800 dark:!text-stone-200 hover:!bg-stone-200 dark:hover:!bg-stone-800 !rounded-full !font-bold text-xs !px-3.5 !py-2 items-center gap-1.5 transition"
+        [attr.aria-label]="'Call ' + content.brand.phone"
+      >
+        <mat-icon class="!w-4 !h-4 !text-base leading-none text-[#ea1c24]">call</mat-icon>
+        <span class="font-mono">{{ content.brand.phone }}</span>
+      </a>
+
+      <!-- Primary CTA: Discuss a Project -->
+      <button
+        type="button"
+        (click)="openInquiryDialog()"
+        mat-flat-button
+        class="!bg-[#ea1c24] hover:!bg-[#b91c1c] !text-white !rounded-full !font-black text-xs sm:text-sm !px-5 !py-2.5 shadow-md transition whitespace-nowrap"
+        aria-label="Open project inquiry dialog"
+      >
+        Discuss a Project
+      </button>
+
+      <!-- Mobile Hamburger Toggle -->
+      <button
+        type="button"
+        mat-icon-button
+        (click)="toggleMobileMenu()"
+        class="lg:hidden text-stone-800 dark:text-stone-200 focus:outline-none"
+        [attr.aria-label]="mobileMenuOpen() ? 'Close navigation menu' : 'Open navigation menu'"
+      >
+        <mat-icon>{{ mobileMenuOpen() ? 'close' : 'menu' }}</mat-icon>
+      </button>
     </div>
+
   </div>
+
+  <!-- Mobile Drawer Menu -->
+  @if (mobileMenuOpen()) {
+    <div class="lg:hidden bg-stone-50 dark:bg-stone-950 border-b border-stone-200 dark:border-stone-800 px-6 py-6 space-y-4 animate-in slide-in-from-top duration-200">
+      <nav class="flex flex-col space-y-3" aria-label="Mobile Navigation">
+        <a
+          routerLink="/"
+          (click)="closeMobileMenu()"
+          class="text-base font-extrabold text-stone-900 dark:text-stone-100 hover:text-[#ea1c24] py-1 border-b border-stone-200/60 dark:border-stone-800/60"
+        >
+          Home
+        </a>
+        <a
+          routerLink="/about"
+          (click)="closeMobileMenu()"
+          class="text-base font-extrabold text-stone-900 dark:text-stone-100 hover:text-[#ea1c24] py-1 border-b border-stone-200/60 dark:border-stone-800/60"
+        >
+          About AStar
+        </a>
+        <a
+          routerLink="/services"
+          (click)="closeMobileMenu()"
+          class="text-base font-extrabold text-stone-900 dark:text-stone-100 hover:text-[#ea1c24] py-1 border-b border-stone-200/60 dark:border-stone-800/60"
+        >
+          Commercial Services
+        </a>
+        <a
+          routerLink="/safety-quality"
+          (click)="closeMobileMenu()"
+          class="text-base font-extrabold text-stone-900 dark:text-stone-100 hover:text-[#ea1c24] py-1 border-b border-stone-200/60 dark:border-stone-800/60"
+        >
+          Safety & Quality
+        </a>
+        <a
+          routerLink="/projects"
+          (click)="closeMobileMenu()"
+          class="text-base font-extrabold text-stone-900 dark:text-stone-100 hover:text-[#ea1c24] py-1 border-b border-stone-200/60 dark:border-stone-800/60"
+        >
+          Commercial Projects
+        </a>
+        <a
+          routerLink="/contact"
+          (click)="closeMobileMenu()"
+          class="text-base font-extrabold text-stone-900 dark:text-stone-100 hover:text-[#ea1c24] py-1"
+        >
+          Contact & Inquiries
+        </a>
+      </nav>
+
+      <div class="pt-4 border-t border-stone-200 dark:border-stone-800 flex flex-col gap-3">
+        <a
+          [href]="'tel:' + content.brand.phoneRaw"
+          class="text-sm font-bold text-stone-900 dark:text-white flex items-center gap-2"
+        >
+          <mat-icon class="!w-4 !h-4 !text-base leading-none text-[#ea1c24]">call</mat-icon>
+          <span>{{ content.brand.phone }}</span>
+        </a>
+        <button
+          type="button"
+          (click)="openInquiryDialog()"
+          mat-flat-button
+          class="w-full !bg-[#ea1c24] !text-white !font-black !py-3 !rounded-full shadow-md"
+        >
+          Discuss a Project
+        </button>
+      </div>
+    </div>
+  }
 </header>

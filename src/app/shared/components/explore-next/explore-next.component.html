@@ -1,0 +1,93 @@
+@if (variant === 'section') {
+  <section class="py-20 lg:py-24 bg-stone-100/50 dark:bg-stone-950/40 border-b border-stone-200 dark:border-stone-800" aria-label="Explore other areas of AStar Electricals">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="mb-10 sm:mb-12 max-w-2xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-stone-200/80 dark:bg-stone-800 text-stone-800 dark:text-stone-200 text-xs font-bold uppercase tracking-wider mb-4">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#ea1c24]"></span>
+          <span>{{ eyebrow }}</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-black font-heading text-stone-950 dark:text-white tracking-tight">
+          {{ heading }}
+        </h2>
+        <p class="mt-2 text-stone-700 dark:text-stone-300 text-base leading-relaxed">
+          {{ subtitle }}
+        </p>
+      </div>
+
+      <!-- 3-Column Card Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+        @for (item of paths; track item.url) {
+          <a
+            [routerLink]="item.url"
+            class="group p-7 sm:p-8 rounded-3xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-sm hover:shadow-md hover:border-stone-400 dark:hover:border-stone-600 transition-all duration-200 flex flex-col justify-between focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ea1c24]"
+          >
+            <div>
+              <span class="text-[11px] font-mono font-bold tracking-widest uppercase text-stone-700 dark:text-stone-300 block mb-3">
+                {{ item.badge }}
+              </span>
+              <h3 class="text-xl sm:text-2xl font-black font-heading text-stone-950 dark:text-white mb-3 group-hover:text-[#ea1c24] dark:group-hover:text-[#ea1c24] transition-colors">
+                {{ item.title }}
+              </h3>
+              <p class="text-sm sm:text-base text-stone-700 dark:text-stone-300 leading-relaxed">
+                {{ item.description }}
+              </p>
+            </div>
+            
+            <div class="pt-6 mt-6 border-t border-stone-100 dark:border-stone-800 flex items-center justify-between text-sm font-bold text-stone-950 dark:text-white group-hover:text-[#ea1c24] dark:group-hover:text-[#ea1c24] transition-colors">
+              <span>{{ item.actionText }}</span>
+              <span class="transform group-hover:translate-x-1.5 transition-transform duration-200 font-mono text-base">&rarr;</span>
+            </div>
+          </a>
+        }
+      </div>
+
+    </div>
+  </section>
+} @else {
+  <div class="mt-20 pt-16 border-t border-stone-200 dark:border-stone-800" aria-label="Explore other areas of AStar Electricals">
+    
+    <!-- Section Header -->
+    <div class="mb-8 sm:mb-10 max-w-2xl">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-stone-200/80 dark:bg-stone-800 text-stone-800 dark:text-stone-200 text-xs font-bold uppercase tracking-wider mb-3">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#ea1c24]"></span>
+        <span>{{ eyebrow }}</span>
+      </div>
+      <h2 class="text-2xl sm:text-3xl font-black font-heading text-stone-950 dark:text-white tracking-tight">
+        {{ heading }}
+      </h2>
+      <p class="mt-2 text-stone-700 dark:text-stone-300 text-base leading-relaxed">
+        {{ subtitle }}
+      </p>
+    </div>
+
+    <!-- 3-Column Card Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+      @for (item of paths; track item.url) {
+        <a
+          [routerLink]="item.url"
+          class="group p-7 sm:p-8 rounded-3xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-sm hover:shadow-md hover:border-stone-400 dark:hover:border-stone-600 transition-all duration-200 flex flex-col justify-between focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ea1c24]"
+        >
+          <div>
+            <span class="text-[11px] font-mono font-bold tracking-widest uppercase text-stone-700 dark:text-stone-300 block mb-3">
+              {{ item.badge }}
+            </span>
+            <h3 class="text-xl sm:text-2xl font-black font-heading text-stone-950 dark:text-white mb-3 group-hover:text-[#ea1c24] dark:group-hover:text-[#ea1c24] transition-colors">
+              {{ item.title }}
+            </h3>
+            <p class="text-sm sm:text-base text-stone-700 dark:text-stone-300 leading-relaxed">
+              {{ item.description }}
+            </p>
+          </div>
+          
+          <div class="pt-6 mt-6 border-t border-stone-100 dark:border-stone-800 flex items-center justify-between text-sm font-bold text-stone-950 dark:text-white group-hover:text-[#ea1c24] dark:group-hover:text-[#ea1c24] transition-colors">
+            <span>{{ item.actionText }}</span>
+            <span class="transform group-hover:translate-x-1.5 transition-transform duration-200 font-mono text-base">&rarr;</span>
+          </div>
+        </a>
+      }
+    </div>
+
+  </div>
+}

@@ -4,16 +4,21 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --font-heading: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Roboto", system-ui, sans-serif;
-  --font-body: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Roboto", "Helvetica Neue", system-ui, sans-serif;
+  --font-heading: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-body: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-brand: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+  --color-brand-red: #ea1c24;
+  --color-brand-red-dark: #b91c1c;
+  --color-brand-black: #0a0a0a;
 }
 
 @layer base {
   :root {
-    --font-heading: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Roboto", system-ui, sans-serif;
-    --font-body: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Roboto", "Helvetica Neue", system-ui, sans-serif;
-    --color-electric-amber: #f59e0b;
-    --color-electric-blue: #0284c7;
+    --font-heading: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-brand: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-body: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --color-brand-red: #ea1c24;
+    --color-brand-black: #0a0a0a;
   }
 
   html {
@@ -28,15 +33,130 @@
     font-family: var(--font-heading);
     letter-spacing: -0.025em;
   }
+
+  .font-brand {
+    font-family: var(--font-brand);
+  }
+
+  /* Big Bold Blunt Brand Wordmark for "ASTAR" only */
+  .astar-brand-word {
+    font-family: var(--font-brand);
+    font-weight: 900;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+  }
 }
 
-/* Material Design Overrides */
+/* Strict Accessibility: High-contrast keyboard focus indicators */
+*:focus-visible {
+  outline: 3px solid #ea1c24 !important;
+  outline-offset: 3px !important;
+  border-radius: 4px;
+}
+
+html.dark *:focus-visible {
+  outline: 3px solid #fafaf9 !important;
+  outline-offset: 3px !important;
+}
+
+/* Dark mode body */
+html.dark body {
+  background-color: #0c0a09;
+  color: #fafaf9;
+}
+
+/* Accessible Skip-to-content Link */
+.skip-link {
+  position: absolute;
+  top: -999px;
+  left: 1.5rem;
+  background: #0a0a0a;
+  color: #ffffff;
+  padding: 0.75rem 1.5rem;
+  z-index: 99999;
+  border-radius: 0.5rem;
+  font-weight: 700;
+  text-decoration: underline;
+  transition: top 0.2s ease-in-out;
+}
+
+.skip-link:focus {
+  top: 1.5rem;
+}
+
+html.dark .skip-link {
+  background: #ffffff;
+  color: #0a0a0a;
+}
+
+/* Button typography overrides */
 .mat-mdc-button-base {
-  letter-spacing: normal !important;
+  font-family: var(--font-body) !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.01em !important;
 }
 
-/* Smooth Focus Rings */
-:focus-visible {
-  outline: 2px solid #0284c7;
-  outline-offset: 2px;
+/* Accessible form fields contrast */
+.mdc-text-field:not(.mdc-text-field--disabled) .mdc-floating-label {
+  color: #44403c !important;
+}
+
+html.dark .mdc-text-field:not(.mdc-text-field--disabled) .mdc-floating-label {
+  color: #d6d3d1 !important;
+}
+
+.mat-mdc-form-field input::placeholder,
+.mat-mdc-form-field textarea::placeholder {
+  color: #78716c !important;
+}
+
+html.dark .mat-mdc-form-field input::placeholder,
+html.dark .mat-mdc-form-field textarea::placeholder {
+  color: #a8a29e !important;
+}
+
+html.dark .mat-mdc-input-element {
+  color: #fafaf9 !important;
+}
+
+html.dark .mat-mdc-select-value {
+  color: #fafaf9 !important;
+}
+
+/* Material Dialog Shell */
+.mat-mdc-dialog-container .mdc-dialog__surface {
+  border-radius: 1.75rem !important;
+  background-color: #fafaf9 !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35) !important;
+  max-height: 90vh !important;
+  max-height: 90dvh !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+}
+
+.mat-mdc-dialog-container .mdc-dialog__surface > * {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+  max-height: 100% !important;
+  min-height: 0 !important;
+}
+
+html.dark .mat-mdc-dialog-container .mdc-dialog__surface {
+  background-color: #171717 !important;
+  color: #fafaf9 !important;
+  border: 1px solid #262626 !important;
+}
+
+.inquiry-modal-panel.mat-mdc-dialog-panel {
+  max-width: min(94vw, 580px) !important;
+  width: 100% !important;
+  margin: auto !important;
+}
+
+.cdk-overlay-backdrop.cdk-overlay-backdrop-showing {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  background-color: rgba(10, 10, 10, 0.75) !important;
 }

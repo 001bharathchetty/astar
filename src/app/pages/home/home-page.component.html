@@ -1,180 +1,270 @@
-<main id="main-content" class="min-h-screen bg-stone-50 dark:bg-stone-950 text-stone-900 dark:text-stone-100 transition-colors">
+<div class="relative overflow-x-clip transition-colors duration-200">
   
   <!-- Hero Section -->
-  <section class="relative pt-12 sm:pt-20 pb-16 sm:pb-24 border-b border-stone-200 dark:border-stone-800" aria-labelledby="hero-title">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+  <section class="relative pt-12 pb-16 sm:pt-16 sm:pb-20 lg:pt-20 lg:pb-24 border-b border-stone-200 dark:border-stone-800" aria-labelledby="hero-title">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="max-w-3xl space-y-6">
-        <!-- Verified GSTIN Badge -->
-        <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-amber-500/10 dark:bg-amber-400/15 border border-amber-500/30 text-amber-800 dark:text-amber-300 text-xs font-semibold tracking-wide shadow-sm">
-          <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
-          <span>GSTIN: {{ businessService.business.gstin }}</span>
-          <span class="text-stone-300 dark:text-stone-600">|</span>
-          <span class="font-mono uppercase text-[11px]">Bengaluru</span>
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-center">
+        
+        <!-- Left Hero Narrative (7 cols on md, 7 cols on lg) -->
+        <div class="md:col-span-7 lg:col-span-7 max-w-3xl">
+          
+          <!-- Subtle Tagline Eyebrow Badge -->
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-stone-200/90 dark:bg-stone-800 text-stone-900 dark:text-stone-100 text-xs font-bold uppercase tracking-wider mb-5">
+            <span class="w-2 h-2 rounded-full bg-[#ea1c24] animate-pulse"></span>
+            <span>{{ content.home.badge }}</span>
+          </div>
+
+          <!-- Big Bad Blunt Bold Display H1 -->
+          <h1 id="hero-title" class="text-3xl sm:text-4xl lg:text-5xl font-bold text-stone-900 dark:text-stone-50 font-heading tracking-tight leading-tight mb-4">
+            Electrical Expertise for <span class="text-[#ea1c24]">Commercial Spaces.</span>
+          </h1>
+
+          <!-- H2 Subheadline -->
+          <h2 class="text-lg sm:text-xl font-medium text-stone-700 dark:text-stone-300 font-heading mb-6">
+            {{ content.home.hero.subheadline }}
+          </h2>
+
+          <!-- Editorial Lead with Red Accent Border -->
+          <div class="space-y-4 text-base sm:text-lg text-stone-700 dark:text-stone-300 leading-relaxed pl-4 border-l-2 border-[#ea1c24]">
+            <p>
+              <span class="astar-brand-word text-stone-900 dark:text-white">ASTAR</span> Electricals works with commercial property developers, builders, construction companies, and project teams to deliver electrical works aligned with project requirements, specifications, and construction schedules.
+            </p>
+          </div>
+
+          <!-- Hero CTAs -->
+          <div class="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+            <button
+              type="button"
+              (click)="openInquiryDialog()"
+              mat-flat-button
+              class="!bg-[#ea1c24] hover:!bg-[#b91c1c] !text-white !font-semibold !px-8 !py-3.5 !rounded-full text-base shadow-md transition text-center"
+            >
+              {{ content.home.hero.primaryCta }} &rarr;
+            </button>
+
+            <a
+              routerLink="/services"
+              mat-stroked-button
+              class="!border-stone-300 dark:!border-stone-700 hover:!bg-stone-200 dark:hover:!bg-stone-800 !text-stone-900 dark:!text-stone-100 !font-semibold !px-6 !py-3.5 !rounded-full text-sm text-center transition"
+            >
+              {{ content.home.hero.secondaryCta }}
+            </a>
+          </div>
+
+          <!-- Market Indicator -->
+          <div class="mt-6 flex items-center gap-2 text-xs font-mono font-bold text-stone-700 dark:text-stone-300">
+            <mat-icon class="!w-4 !h-4 !text-base leading-none text-[#ea1c24]">place</mat-icon>
+            <span>{{ content.home.hero.marketTag }}</span>
+          </div>
+
         </div>
 
-        <!-- H1 Brand Title -->
-        <h1 id="hero-title" class="text-4xl sm:text-6xl font-extrabold text-stone-950 dark:text-white font-heading tracking-tight leading-[1.1]">
-          ASTAR <span class="text-amber-600 dark:text-amber-400">Electricals</span>
-        </h1>
+        <!-- Right Column: Interactive Commercial Showcase Card -->
+        <div class="mt-8 md:mt-0 flex md:col-span-5 lg:col-span-5 justify-center md:justify-end items-center">
+          <div class="relative w-full max-w-[340px] sm:max-w-[380px] md:max-w-[420px] lg:max-w-[460px] aspect-square rounded-3xl p-2 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-xl flex items-center justify-center text-center group hover:scale-[1.01] transition-all duration-300">
+            <app-commercial-showcase></app-commercial-showcase>
+          </div>
+        </div>
 
-        <!-- H2 Subtitle -->
-        <h2 class="text-xl sm:text-2xl font-bold text-stone-700 dark:text-stone-300 font-heading">
-          {{ businessService.business.tagline }}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 2: Introduction Narrative (The Systems Behind Every Commercial Space) -->
+  <section class="py-16 sm:py-20 lg:py-24 bg-white dark:bg-stone-900/50 border-b border-stone-200 dark:border-stone-800" aria-labelledby="intro-title">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+        <div class="lg:col-span-5">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-300 text-xs font-bold uppercase tracking-wider mb-3">
+            <span>Critical Infrastructure</span>
+          </div>
+          <h2 id="intro-title" class="text-2xl sm:text-3xl lg:text-4xl font-bold font-heading text-stone-900 dark:text-stone-50 tracking-tight">
+            {{ content.home.intro.title }}
+          </h2>
+        </div>
+
+        <div class="lg:col-span-7 space-y-5 text-base sm:text-lg text-stone-700 dark:text-stone-300 leading-relaxed">
+          @for (p of content.home.intro.paragraphs; track p) {
+            <p>{{ p }}</p>
+          }
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 3: Capabilities (5 Core Works) -->
+  <section class="py-16 sm:py-24 border-b border-stone-200 dark:border-stone-800" aria-labelledby="capabilities-title">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
+        <div>
+          <span class="text-xs font-mono font-bold tracking-widest text-[#ea1c24] uppercase block mb-2">
+            {{ content.home.capabilities.eyebrow }}
+          </span>
+          <h2 id="capabilities-title" class="text-2xl sm:text-3xl lg:text-4xl font-bold font-heading text-stone-900 dark:text-stone-50 tracking-tight">
+            {{ content.home.capabilities.title }}
+          </h2>
+        </div>
+        <a
+          routerLink="/services"
+          class="text-sm font-semibold text-stone-900 dark:text-stone-100 hover:text-[#ea1c24] transition inline-flex items-center gap-1.5"
+        >
+          <span>{{ content.home.capabilities.ctaText }}</span>
+          <span>&rarr;</span>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        @for (cap of content.home.capabilities.items; track cap.title) {
+          <article class="p-8 rounded-3xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-sm hover:shadow-md hover:border-stone-400 dark:hover:border-stone-700 transition flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-2xl bg-black text-[#ea1c24] border border-stone-800 flex items-center justify-center mb-6">
+                <mat-icon class="!text-2xl leading-none">{{ cap.icon }}</mat-icon>
+              </div>
+              <h3 class="text-lg sm:text-xl font-bold text-stone-900 dark:text-stone-100 font-heading mb-3 tracking-tight">
+                {{ cap.title }}
+              </h3>
+              <p class="text-sm text-stone-600 dark:text-stone-300 leading-relaxed">
+                {{ cap.description }}
+              </p>
+            </div>
+          </article>
+        }
+
+        <!-- 6th Tile: Discuss Custom Scope -->
+        <article class="p-8 rounded-3xl bg-stone-900 text-white border border-stone-800 shadow-sm flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-mono uppercase tracking-widest text-[#ea1c24] font-bold block mb-4">
+              Project Specific
+            </span>
+            <h3 class="text-lg sm:text-xl font-bold text-white font-heading mb-3 tracking-tight">
+              Have unique specifications or custom schedule?
+            </h3>
+            <p class="text-sm text-stone-300 leading-relaxed">
+              We review architectural and engineering drawings to propose tailored contracting packages.
+            </p>
+          </div>
+          <div class="pt-6">
+            <button
+              type="button"
+              (click)="openInquiryDialog()"
+              mat-flat-button
+              class="!bg-[#ea1c24] hover:!bg-[#b91c1c] !text-white !font-semibold !rounded-full !px-5 !py-2 text-xs"
+            >
+              Discuss Scope &rarr;
+            </button>
+          </div>
+        </article>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 4: Who We Work With -->
+  <section class="py-16 sm:py-24 bg-stone-100/40 dark:bg-stone-950/30 border-b border-stone-200 dark:border-stone-800" aria-labelledby="clients-title">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="max-w-2xl mb-12">
+        <span class="text-xs font-mono font-bold tracking-widest text-[#ea1c24] uppercase block mb-2">
+          {{ content.home.clients.eyebrow }}
+        </span>
+        <h2 id="clients-title" class="text-2xl sm:text-3xl lg:text-4xl font-bold font-heading text-stone-900 dark:text-stone-50 tracking-tight">
+          {{ content.home.clients.title }}
         </h2>
+      </div>
 
-        <!-- Description -->
-        <p class="text-base sm:text-lg text-stone-700 dark:text-stone-300 leading-relaxed">
-          {{ businessService.business.description }} Supplying high-grade copper wires, cables, switches, switchgear, distribution boards, conduits, and modern lighting systems for projects across Karnataka.
-        </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        @for (group of content.home.clients.groups; track group.title) {
+          <div class="p-7 rounded-3xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-sm flex flex-col justify-between">
+            <div>
+              <mat-icon class="!text-3xl !w-8 !h-8 text-[#ea1c24] leading-none mb-4">{{ group.icon }}</mat-icon>
+              <h3 class="text-base sm:text-lg font-bold text-stone-900 dark:text-stone-100 font-heading mb-2">
+                {{ group.title }}
+              </h3>
+              <p class="text-xs sm:text-sm text-stone-600 dark:text-stone-300 leading-relaxed">
+                {{ group.description }}
+              </p>
+            </div>
+          </div>
+        }
+      </div>
 
-        <!-- CTA Buttons -->
-        <div class="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-          <a
-            [href]="'tel:' + businessService.business.phoneRaw"
-            mat-flat-button
-            class="!bg-amber-500 hover:!bg-amber-600 !text-stone-950 !font-extrabold !px-8 !py-4 !rounded-xl text-base shadow-sm inline-flex items-center justify-center gap-2 transition"
-            [attr.aria-label]="'Call ASTAR Electricals at ' + businessService.business.phone"
-          >
-            <mat-icon class="!w-5 !h-5 !text-[20px] leading-none">call</mat-icon>
-            <span>Call {{ businessService.business.phone }}</span>
-          </a>
+    </div>
+  </section>
 
+  <!-- Section 5: Our Approach (01 - 04) -->
+  <section class="py-16 sm:py-24 border-b border-stone-200 dark:border-stone-800" aria-labelledby="approach-title">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="max-w-2xl mb-12">
+        <span class="text-xs font-mono font-bold tracking-widest text-[#ea1c24] uppercase block mb-2">
+          {{ content.home.approach.eyebrow }}
+        </span>
+        <h2 id="approach-title" class="text-2xl sm:text-3xl lg:text-4xl font-bold font-heading text-stone-900 dark:text-stone-50 tracking-tight">
+          {{ content.home.approach.title }}
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        @for (step of content.home.approach.steps; track step.number) {
+          <div class="p-7 rounded-3xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-sm flex flex-col justify-between">
+            <div>
+              <span class="font-mono text-xl sm:text-2xl font-bold text-[#ea1c24] block mb-2">
+                {{ step.number }}
+              </span>
+              <h3 class="text-lg sm:text-xl font-bold text-stone-900 dark:text-stone-100 font-heading mb-2">
+                {{ step.name }}
+              </h3>
+              <p class="text-sm text-stone-600 dark:text-stone-300 leading-relaxed">
+                {{ step.description }}
+              </p>
+            </div>
+          </div>
+        }
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 6: Geographic Reach -->
+  <section class="py-16 sm:py-20 bg-stone-900 text-white border-b border-stone-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+        <div class="md:col-span-8 space-y-3">
+          <span class="text-xs font-mono uppercase tracking-widest text-[#ea1c24] font-bold">
+            {{ content.home.geography.eyebrow }}
+          </span>
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold font-heading text-white tracking-tight">
+            {{ content.home.geography.title }}
+          </h2>
+          <p class="text-base text-stone-300 max-w-2xl leading-relaxed">
+            {{ content.home.geography.body }}
+          </p>
+          <p class="text-xs text-stone-400 font-mono">
+            {{ content.home.geography.subtext }}
+          </p>
+        </div>
+        <div class="md:col-span-4 flex justify-start md:justify-end">
           <button
             type="button"
-            (click)="scrollToLocation()"
-            class="px-6 py-3.5 rounded-xl border border-stone-300 dark:border-stone-700 hover:border-stone-400 dark:hover:border-stone-600 bg-white dark:bg-stone-900 text-stone-800 dark:text-stone-200 font-semibold text-sm transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 text-center"
-            aria-label="View store address and location details"
+            (click)="openInquiryDialog()"
+            mat-flat-button
+            class="!bg-[#ea1c24] hover:!bg-[#b91c1c] !text-white !font-semibold !px-8 !py-3.5 !rounded-full text-sm shadow-md"
           >
-            Visit Store & Location &rarr;
+            {{ content.home.closingCta.actionText }} &rarr;
           </button>
         </div>
       </div>
-
     </div>
   </section>
 
-  <!-- 3 Pillar Services / Highlights -->
-  <section class="py-16 sm:py-20 border-b border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-900/50 transition-colors" aria-labelledby="offerings-title">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="mb-10">
-        <span class="text-xs font-mono font-bold uppercase tracking-widest text-amber-600 dark:text-amber-400 block mb-2">
-          Capabilities & Supply
-        </span>
-        <h2 id="offerings-title" class="text-2xl sm:text-3xl font-extrabold text-stone-900 dark:text-stone-100 font-heading">
-          Comprehensive Electrical Solutions
-        </h2>
-      </div>
+  <!-- Section 7: Next Logical Paths -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+    <app-explore-next page="home"></app-explore-next>
+  </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-        <!-- Pillar 1 -->
-        <article class="p-6 sm:p-8 rounded-2xl bg-stone-50 dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-sm flex flex-col justify-between">
-          <div>
-            <div class="w-12 h-12 rounded-xl bg-amber-500/10 dark:bg-amber-400/15 border border-amber-500/20 text-amber-600 dark:text-amber-400 flex items-center justify-center mb-6">
-              <mat-icon class="!text-3xl !w-8 !h-8 !leading-none text-amber-500">inventory_2</mat-icon>
-            </div>
-            <h3 class="text-xl font-bold text-stone-900 dark:text-stone-100 font-heading mb-3">
-              Wholesale & Retail Supplies
-            </h3>
-            <p class="text-sm text-stone-700 dark:text-stone-300 leading-relaxed">
-              Supplying industrial-grade wires, PVC conduits, MCBs, RCCBs, modular switches, and electrical hardware directly to retail customers, contractors, and builders.
-            </p>
-          </div>
-        </article>
-
-        <!-- Pillar 2 -->
-        <article class="p-6 sm:p-8 rounded-2xl bg-stone-50 dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-sm flex flex-col justify-between">
-          <div>
-            <div class="w-12 h-12 rounded-xl bg-amber-500/10 dark:bg-amber-400/15 border border-amber-500/20 text-amber-600 dark:text-amber-400 flex items-center justify-center mb-6">
-              <mat-icon class="!text-3xl !w-8 !h-8 !leading-none text-amber-500">verified</mat-icon>
-            </div>
-            <h3 class="text-xl font-bold text-stone-900 dark:text-stone-100 font-heading mb-3">
-              Certified Brands & Standards
-            </h3>
-            <p class="text-sm text-stone-700 dark:text-stone-300 leading-relaxed">
-              We stock certified, ISI-marked, and rigorously tested electrical products that meet safety standards for heavy load operations and residential safety.
-            </p>
-          </div>
-        </article>
-
-        <!-- Pillar 3 -->
-        <article class="p-6 sm:p-8 rounded-2xl bg-stone-50 dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-sm flex flex-col justify-between">
-          <div>
-            <div class="w-12 h-12 rounded-xl bg-amber-500/10 dark:bg-amber-400/15 border border-amber-500/20 text-amber-600 dark:text-amber-400 flex items-center justify-center mb-6">
-              <mat-icon class="!text-3xl !w-8 !h-8 !leading-none text-amber-500">local_shipping</mat-icon>
-            </div>
-            <h3 class="text-xl font-bold text-stone-900 dark:text-stone-100 font-heading mb-3">
-              Bengaluru Fast Dispatch
-            </h3>
-            <p class="text-sm text-stone-700 dark:text-stone-300 leading-relaxed">
-              Conveniently located in Saraipalya, Thanisandra, ensuring responsive order readiness and prompt logistics for local project timelines.
-            </p>
-          </div>
-        </article>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Location & Verification Card Section -->
-  <section id="location-section" class="py-16 sm:py-24" aria-labelledby="location-title">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="p-8 sm:p-12 rounded-3xl bg-stone-900 text-white border border-stone-800 shadow-xl">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          
-          <div class="lg:col-span-7 space-y-4">
-            <span class="text-xs font-mono font-bold tracking-widest text-amber-400 uppercase">
-              Physical Location & Business Verification
-            </span>
-            <h2 id="location-title" class="text-2xl sm:text-4xl font-extrabold text-white font-heading">
-              Visit ASTAR Electricals
-            </h2>
-            <address class="not-italic text-stone-300 text-base leading-relaxed space-y-1">
-              <p class="text-white font-medium">{{ businessService.business.address.street }}</p>
-              <p class="text-amber-400 font-semibold">{{ businessService.business.address.landmark }}</p>
-              <p>{{ businessService.business.address.area }}</p>
-              <p>{{ businessService.business.address.city }} - {{ businessService.business.address.state }}, {{ businessService.business.address.pincode }}</p>
-            </address>
-
-            <div class="pt-4 flex items-center gap-3 flex-wrap">
-              <div class="text-xs uppercase font-mono tracking-wider text-stone-300">GSTIN:</div>
-              <code class="px-3 py-1.5 rounded-lg bg-stone-800 font-mono text-sm text-amber-400 font-bold select-all border border-stone-700">
-                {{ businessService.business.gstin }}
-              </code>
-              <button
-                type="button"
-                (click)="copyGstin()"
-                class="px-3 py-1 rounded bg-stone-800 hover:bg-stone-700 text-stone-300 text-xs font-medium transition cursor-pointer"
-                aria-label="Copy GSTIN to clipboard"
-              >
-                {{ copiedGstin() ? 'Copied!' : 'Copy GSTIN' }}
-              </button>
-            </div>
-          </div>
-
-          <div class="lg:col-span-5 flex flex-col gap-4 p-6 rounded-2xl bg-stone-800/60 border border-stone-700/80">
-            <h3 class="text-lg font-bold text-white font-heading">Direct Contact</h3>
-            <p class="text-xs text-stone-300 leading-relaxed">
-              Call or message for quotation requests, bulk inquiries, or technical product specifications:
-            </p>
-            <a
-              [href]="'tel:' + businessService.business.phoneRaw"
-              class="text-2xl font-black text-amber-400 hover:text-amber-300 font-mono tracking-tight transition"
-              [attr.aria-label]="'Call ' + businessService.business.phone"
-            >
-              {{ businessService.business.phone }}
-            </a>
-            <p class="text-xs text-stone-300 font-mono pt-2 border-t border-stone-700">
-              Timings: Mon – Sat, 9:30 AM to 8:30 PM IST
-            </p>
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-</main>
+</div>
