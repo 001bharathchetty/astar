@@ -55,14 +55,26 @@
           <p>{{ content.brand.address.city }}, {{ content.brand.address.state }} – {{ content.brand.address.pincode }}, {{ content.brand.address.country }}</p>
         </address>
 
-        <div class="space-y-1 pt-1 border-t border-stone-800 text-xs">
+        <div class="space-y-1.5 pt-1 border-t border-stone-800 text-xs">
           <div class="flex items-center gap-2">
-            <span class="text-stone-300">Phone & WhatsApp:</span>
+            <span class="text-stone-300">Call:</span>
             <a
               [href]="'tel:' + content.brand.phoneRaw"
               class="font-mono text-white font-bold hover:text-[#ea1c24] transition"
             >
               {{ content.brand.phone }}
+            </a>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-stone-300">WhatsApp:</span>
+            <a
+              [href]="content.brand.whatsappUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="font-mono text-[#25D366] font-bold hover:underline inline-flex items-center gap-1 transition"
+            >
+              <span>{{ content.brand.phone }}</span>
+              <span>&rarr;</span>
             </a>
           </div>
           <p class="text-stone-300 font-mono text-[11px]">
