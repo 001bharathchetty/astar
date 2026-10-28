@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
@@ -7,6 +7,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { ContentService } from '../../core/services/content.service';
+import { SeoService } from '../../core/services/seo.service';
 import { ExploreNextComponent } from '../../shared/components/explore-next/explore-next.component';
 
 @Component({
@@ -25,13 +26,22 @@ import { ExploreNextComponent } from '../../shared/components/explore-next/explo
   ],
   templateUrl: './contact-page.component.html'
 })
-export class ContactPageComponent {
+export class ContactPageComponent implements OnInit {
   readonly content = inject(ContentService);
   private readonly fb = inject(FormBuilder);
+  private readonly seo = inject(SeoService);
 
   readonly isSubmitting = signal(false);
   readonly isSuccess = signal(false);
   readonly errorMessage = signal<string | null>(null);
+
+  ngOnInit(): void {
+    this.seo.setSeoData({
+      title: 'Contact AStar Electricals | Project Inquiries',
+      description: 'Contact AStar Electricals to discuss commercial electrical contracting requirements. Direct phone and WhatsApp: +91 98800 57744. Ground Floor, Thanisandra, Bengaluru.',
+      url: '/contact'
+    });
+  }
 
   readonly contactForm = this.fb.group({
     intent: ['new-development', Validators.required],

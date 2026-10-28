@@ -3,25 +3,25 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: '',
-    title: 'AStar Electricals | Powering Quality. Built on Trust. — Commercial Electrical Contracting',
+    title: 'AStar Electricals | Commercial Electrical Contracting',
     loadComponent: () =>
       import('./pages/home/home-page.component').then(m => m.HomePageComponent)
   },
   {
     path: 'about',
-    title: 'About AStar Electricals | Commercial Built Environment Contracting',
+    title: 'About AStar Electricals | Commercial Electrical Contractors',
     loadComponent: () =>
       import('./pages/about/about-page.component').then(m => m.AboutPageComponent)
   },
   {
     path: 'services',
-    title: 'Commercial Electrical Services & Capabilities | AStar Electricals',
+    title: 'Commercial Electrical Contracting Services | AStar',
     loadComponent: () =>
       import('./pages/services/services-page.component').then(m => m.ServicesPageComponent)
   },
   {
     path: 'safety-quality',
-    title: 'Safety, Quality & Site Standards | AStar Electricals',
+    title: 'Safety and Quality | AStar Electricals',
     loadComponent: () =>
       import('./pages/safety-quality/safety-quality-page.component').then(
         m => m.SafetyQualityPageComponent
@@ -29,13 +29,13 @@ export const routes: Routes = [
   },
   {
     path: 'projects',
-    title: 'Commercial Projects & Scope Execution | AStar Electricals',
+    title: 'Commercial Electrical Projects | AStar Electricals',
     loadComponent: () =>
       import('./pages/projects/projects-page.component').then(m => m.ProjectsPageComponent)
   },
   {
     path: 'contact',
-    title: 'Discuss Your Commercial Project | AStar Electricals',
+    title: 'Contact AStar Electricals | Project Inquiries',
     loadComponent: () =>
       import('./pages/contact/contact-page.component').then(m => m.ContactPageComponent)
   },
