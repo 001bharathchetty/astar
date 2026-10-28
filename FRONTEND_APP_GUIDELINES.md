@@ -159,7 +159,7 @@ src/
 * **Skip Links**: Accessible `#main-content` skip link at top of `app.ts`.
 * **Touch Targets**: Minimum 44x44px for all mobile interactive targets.
 * **Aria Attributes**: All icon-only buttons require explicit `aria-label`. All decorative SVGs require `aria-hidden="true"`.
-* **Concise Button Labels**: Action-oriented, 1–3 words (e.g. *"Discuss a Project"*, *"Submit Inquiry"*, *"View Services"*).
+* **Concise Button Labels**: Keep all button labels short, punchy, and direct (strictly 1 to 2 words, e.g., *"Contact"*, *"Inquire"*, *"Submit"*, *"Connect"*). Never use verbose sentence-like strings on buttons or action triggers.
 
 ---
 

@@ -92,15 +92,32 @@
 
     </div>
 
-    <!-- Bottom Bar with Dynamic Semantic Version -->
-    <div class="mt-14 pt-8 border-t border-stone-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-stone-300 font-mono">
-      <p>&copy; {{ currentYear }} AStar Electricals. All rights reserved. <span class="text-stone-300">· v{{ content.version }}</span></p>
+    <!-- Bottom Bar with Dynamic Semantic Version & Chintap Attribution -->
+    <div class="mt-14 pt-8 border-t border-stone-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-stone-400 font-mono">
+      <div class="flex flex-wrap items-center justify-center sm:justify-start gap-x-2.5 gap-y-1">
+        <span>&copy; {{ currentYear }} AStar Electricals. All rights reserved.</span>
+        <span class="text-stone-600">·</span>
+        <span>v{{ content.version }}</span>
+        <span class="text-stone-600">·</span>
+        <span>
+          Made with <span class="text-[#ea1c24] font-bold cursor-default transition-transform inline-block hover:scale-125" title="love">&lt;3</span> by
+          <a
+            href="https://chintap.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-stone-200 hover:text-white font-semibold underline decoration-stone-600 hover:decoration-[#ea1c24] underline-offset-4 transition"
+          >
+            Chintap
+          </a>
+        </span>
+      </div>
+
       <div class="flex items-center gap-6">
-        <a routerLink="/contact" class="hover:text-white transition">Project Inquiries</a>
+        <a routerLink="/contact" class="text-stone-400 hover:text-white transition">Project Inquiries</a>
         <button
           type="button"
           (click)="scrollToTop()"
-          class="hover:text-white transition focus:outline-none cursor-pointer"
+          class="text-stone-400 hover:text-white transition focus:outline-none cursor-pointer"
           aria-label="Scroll back to top of the page"
         >
           Back to top &uarr;
