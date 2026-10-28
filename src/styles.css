@@ -96,6 +96,31 @@ html.dark .skip-link {
   letter-spacing: -0.01em !important;
 }
 
+/* Universal Icon & Button Vertical Centering Guarantees */
+mat-icon {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  vertical-align: middle !important;
+  line-height: 1 !important;
+  overflow: visible !important;
+}
+
+.mat-mdc-icon-button {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  line-height: 0 !important;
+}
+
+.mat-mdc-icon-button .mat-icon,
+.mat-mdc-icon-button svg {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: auto !important;
+}
+
 /* Accessible form fields contrast */
 .mdc-text-field:not(.mdc-text-field--disabled) .mdc-floating-label {
   color: #44403c !important;
