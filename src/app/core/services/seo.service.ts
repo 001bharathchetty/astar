@@ -17,7 +17,7 @@ export class SeoService {
   private readonly metaService = inject(Meta);
   private readonly document = inject(DOCUMENT);
 
-  readonly defaultOgImage = 'https://astarelectricals.com/images/astar-og.png';
+  readonly defaultOgImage = 'https://astarelectricals.com/images/astar-og.jpg';
 
   get siteBaseUrl(): string {
     return 'https://astarelectricals.com';
@@ -53,7 +53,7 @@ export class SeoService {
     this.metaService.updateTag({ property: 'og:url', content: resolvedUrl });
     this.metaService.updateTag({ property: 'og:image', content: resolvedImage });
     this.metaService.updateTag({ property: 'og:image:secure_url', content: resolvedImage });
-    this.metaService.updateTag({ property: 'og:image:type', content: 'image/png' });
+    this.metaService.updateTag({ property: 'og:image:type', content: 'image/jpeg' });
     this.metaService.updateTag({ property: 'og:image:width', content: '1200' });
     this.metaService.updateTag({ property: 'og:image:height', content: '630' });
     this.metaService.updateTag({ property: 'og:image:alt', content: title });
