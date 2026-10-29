@@ -63,6 +63,7 @@ src/
   * Spacing & rhythm: `py-16 sm:py-24`, `max-w-7xl mx-auto px-4 sm:px-6 lg:px-8`.
   * Subtle hover micro-interactions: `transition-all duration-300 hover:scale-[1.02]`.
 * **Zero custom button reinvention**: Style Material buttons via utility classes (e.g. `!bg-[#ea1c24] !rounded-full !px-8 !py-3.5 !font-semibold`).
+* **Hero Section Vertical Rhythm**: To prevent pushing critical value propositions and primary CTAs below the fold on laptop/desktop displays (1366x768, 1440x900, 1080p), hero sections must maintain compact top padding: `pt-6 pb-12 sm:pt-8 sm:pb-14 lg:pt-9 lg:pb-16`. Combined with the 80px (`h-20`) sticky navbar, this provides an optimal ~36px top gap on desktop without wasted dead space.
 
 ### 3.3 Typography & Brand Distinction
 * **Headings & Body**: Clean, modern, highly legible geometric fonts (e.g. `Poppins` 600/700 for headings, `Roboto` 400/500 for body). Never use heavy display weights (`font-black`) across full sentences.
