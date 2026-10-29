@@ -30,8 +30,8 @@ export class ContentService {
     shortName: 'AStar',
     tagline: 'Powering Quality. Built on Trust.',
     focus: 'Electrical contracting for commercial spaces',
-    markets: 'Bengaluru · Chennai · Hyderabad · Pan-India',
-    marketsArray: ['Bengaluru', 'Chennai', 'Hyderabad', 'Pan-India'],
+    markets: 'Bengaluru · Chennai · Hyderabad · South India',
+    marketsArray: ['Bengaluru', 'Chennai', 'Hyderabad'],
     phone: '+91 98800 57744',
     phoneRaw: '+919880057744',
     whatsappUrl: 'https://wa.me/919880057744?text=Hello%20AStar%20Electricals%2C%20I%20would%20like%20to%20discuss%20a%20commercial%20project.',
@@ -64,7 +64,7 @@ export class ContentService {
       lead: 'AStar Electricals works with commercial property developers, builders, construction companies, and project teams to deliver electrical works aligned with project requirements, specifications, and construction schedules.',
       primaryCta: 'Discuss a Project',
       secondaryCta: 'Explore Our Capabilities',
-      marketTag: 'Bengaluru · Chennai · Hyderabad · Across India'
+      marketTag: 'Bengaluru · Chennai · Hyderabad · South India'
     },
     intro: {
       title: 'The Systems Behind Every Commercial Space.',
@@ -161,8 +161,8 @@ export class ContentService {
     },
     geography: {
       eyebrow: 'Operating Footprint',
-      title: 'Regional Foundations. Pan-India Reach.',
-      body: 'With Bengaluru, Chennai, and Hyderabad as base markets, AStar Electricals serves commercial electrical contracting requirements with a pan-India outlook.',
+      title: 'Commercial Presence Across South India.',
+      body: 'With active operational reach in Bengaluru, Chennai, and Hyderabad, AStar Electricals delivers commercial electrical contracting across key South Indian commercial centres.',
       subtext: 'Every project begins with a clear understanding of its location, requirements, scope, and delivery expectations.'
     },
     closingCta: {
@@ -202,7 +202,7 @@ export class ContentService {
     ],
     footprint: {
       title: 'Where We Work',
-      description: 'AStar Electricals is based across the Bengaluru, Chennai, and Hyderabad markets, with pan-India project reach.'
+      description: 'AStar Electricals operates across the Bengaluru, Chennai, and Hyderabad commercial markets in South India.'
     },
     cta: {
       headline: 'Ready to align on your commercial project scope?',

@@ -31,7 +31,7 @@ export class HomePageComponent implements OnInit {
   ngOnInit(): void {
     this.seo.setSeoData({
       title: 'AStar Electricals | Commercial Electrical Contracting',
-      description: 'Electrical contracting for commercial spaces. AStar Electricals works with commercial property developers, builders, construction companies, and project teams across Bengaluru, Chennai, Hyderabad, and Pan-India. Powering Quality. Built on Trust.',
+      description: 'Electrical contracting for commercial spaces. AStar Electricals works with commercial property developers, builders, construction companies, and project teams across Bengaluru, Chennai, and Hyderabad (South India). Powering Quality. Built on Trust.',
       url: '/'
     });
   }

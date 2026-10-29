@@ -3,7 +3,7 @@
 **Brand line:** Powering Quality. Built on Trust.  
 **Pronunciation:** A Star Electricals  
 **Business focus:** Electrical contracting for commercial spaces  
-**Markets:** Bengaluru · Chennai · Hyderabad · Pan-India  
+**Markets:** Bengaluru · Chennai · Hyderabad · South India  
 **Legal Entity:** AStar Electricals  
 **GSTIN:** 29ACPFA5825L1ZR  
 **Address:** Ground Floor, #7, 3rd Cross, 3rd Main Road, Near Javeria School, Saraipalya, Thanisandra, Bengaluru, Karnataka – 560077, India  
@@ -22,7 +22,7 @@
 - **Lead:** AStar Electricals works with commercial property developers, builders, construction companies, and project teams to deliver electrical works aligned with project requirements, specifications, and construction schedules.
 - **Primary CTA:** Discuss a Project
 - **Secondary CTA:** Explore Our Capabilities
-- **Markets:** Bengaluru · Chennai · Hyderabad · Across India
+- **Markets:** Bengaluru · Chennai · Hyderabad · South India
 
 ### Introduction: The Systems Behind Every Commercial Space
 - Offices, retail environments, workplaces, and other commercial properties depend on electrical systems that are planned and executed with care.
@@ -162,7 +162,7 @@
 - **Phone:** +91 98800 57744
 - **Email:** contact@astarelectricals.com
 - **GSTIN:** 29ACPFA5825L1ZR
-- **Markets Covered:** Bengaluru · Chennai · Hyderabad · Pan-India
+- **Markets Covered:** Bengaluru · Chennai · Hyderabad · South India
 
 ### Project Details We Invite
 - Project type and location
