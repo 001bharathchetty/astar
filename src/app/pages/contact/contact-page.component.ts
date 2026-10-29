@@ -1,5 +1,6 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
 import { FormsModule, ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -30,6 +31,7 @@ export class ContactPageComponent implements OnInit {
   readonly content = inject(ContentService);
   private readonly fb = inject(FormBuilder);
   private readonly seo = inject(SeoService);
+  private readonly route = inject(ActivatedRoute);
 
   readonly isSubmitting = signal(false);
   readonly isSuccess = signal(false);
@@ -40,6 +42,25 @@ export class ContactPageComponent implements OnInit {
       title: 'Contact AStar Electricals | Project Inquiries',
       description: 'Contact AStar Electricals to discuss commercial electrical contracting requirements. Direct phone and WhatsApp: +91 98800 57744. Ground Floor, Thanisandra, Bengaluru.',
       url: '/contact'
+    });
+
+    this.route.queryParamMap.subscribe(params => {
+      const intentParam = params.get('intent');
+      const messageParam = params.get('message');
+      const routeParam = params.get('route');
+      const locationParam = params.get('location');
+
+      if (intentParam) {
+        this.contactForm.patchValue({ intent: intentParam });
+      }
+      if (messageParam) {
+        this.contactForm.patchValue({ message: messageParam });
+      } else if (routeParam) {
+        this.contactForm.patchValue({ message: `Reporting broken or missing route: ${routeParam}` });
+      }
+      if (locationParam) {
+        this.contactForm.patchValue({ projectLocation: locationParam });
+      }
     });
   }
 

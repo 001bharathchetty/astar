@@ -211,6 +211,17 @@
               <!-- Form Body -->
               <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="space-y-4">
                 
+                <!-- Contextual Issue Report Notice -->
+                @if (contactForm.get('intent')?.value === 'broken-link') {
+                  <div class="p-3.5 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-xs sm:text-sm text-amber-950 dark:text-amber-200 flex items-start gap-3">
+                    <mat-icon class="!w-5 !h-5 !text-lg leading-none text-amber-600 dark:text-amber-400 shrink-0 mt-0.5">report_problem</mat-icon>
+                    <div class="leading-snug">
+                      <span class="font-bold block text-stone-900 dark:text-white">Reporting a Missing Page or Broken Link</span>
+                      <span class="text-stone-600 dark:text-stone-300 text-xs">Thank you for reporting. The form message has been prefilled with the route details. Submit below to notify our team.</span>
+                    </div>
+                  </div>
+                }
+
                 <!-- Intent Dropdown -->
                 <mat-form-field appearance="outline" class="w-full">
                   <mat-label>Project Type / Contracting Scope</mat-label>

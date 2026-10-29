@@ -47,6 +47,8 @@ export const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: '404'
+    title: 'Page Not Found | AStar Electricals',
+    loadComponent: () =>
+      import('./pages/not-found/not-found-page.component').then(m => m.NotFoundPageComponent)
   }
 ];

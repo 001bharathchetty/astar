@@ -379,8 +379,24 @@ export class ContentService {
       { id: 'fitout', label: 'Office Fit-out / Workplace Contracting' },
       { id: 'retail', label: 'Retail / Showroom Electrical Works' },
       { id: 'contracting', label: 'Sub-contracting / Specific Scope Requirement' },
-      { id: 'consultation', label: 'General Project Discussion' }
+      { id: 'consultation', label: 'General Project Discussion' },
+      { id: 'broken-link', label: 'Report Issue / Broken Link' }
     ]
+  };
+
+  // 7. Not Found (404) Page
+  readonly notFound = {
+    badge: 'Error 404 — Circuit Disconnected',
+    title: 'Page Not Found',
+    subtitle: 'The commercial contracting page or resource you are looking for does not exist or has been moved.',
+    paragraphs: [
+      'The requested URL is not an active route on AStar Electricals.',
+      'If you believe this link should exist, or if you followed a broken link from elsewhere, you can report it to our team so we can address it promptly.'
+    ],
+    homeCta: { text: 'Return to Home', ariaLabel: 'Return to AStar Electricals Homepage' },
+    servicesCta: { text: 'View Capabilities', ariaLabel: 'Explore Commercial Services' },
+    reportCta: { text: 'Report Broken Link', ariaLabel: 'Report this broken link on our contact form' },
+    quickReport: { ariaLabel: 'Instantly submit a missing route report to the team' }
   };
 
   // Next Logical Paths mapping
