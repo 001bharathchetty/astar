@@ -11,7 +11,7 @@ This standard defines the architecture, UI system, accessibility, and deployment
 | Technology | Requirement | Rules & Scope |
 | :--- | :--- | :--- |
 | **Angular** | `^22.0.0` | Standalone components only (`standalone: true`), Signals (`signal`, `computed`), Control Flow (`@if`, `@for`, `@let`), `inject()`. No `NgModules`. |
-| **Angular Material** | `^22.0.0` | **Mandatory** for all UI controls: buttons, dialogs, form fields, cards, tooltips, icons, chips, and dividers. |
+| **Angular Material** | `^22.0.0` | **Mandatory** for all UI controls: buttons, dialogs, form fields, cards, tooltips, icons, chips, dividers, and progress spinners (`MatProgressSpinner`). |
 | **Tailwind CSS** | `^4.0.0` | Exclusively for layout, responsive grid/flexbox, spacing, typography sizing, and theme color variants. |
 | **Prerendering (SSG)** | `@angular/ssr` | Build-time prerendering for all static routes. Netlify serves pure pre-rendered HTML with zero hydration flicker. |
 | **Hosting** | Netlify | Static CDN hosting via `publish = "dist/<app>/browser"`, `NODE_VERSION = "22"`, automated CI/CD. |
@@ -26,18 +26,18 @@ Organize by **Core - Shared - Features**:
 ```
 src/
 ├── app/
-│   ├── core/                  # Singletons: theme, content, version, SEO, models
-│   │   ├── services/          # ThemeService, ContentService, NetlifyFormService
+│   ├── core/                  # Singletons: theme, content, loading, version, SEO, models
+│   │   ├── services/          # ThemeService, ContentService, LoadingService, NetlifyFormService
 │   │   ├── models/            # Strict TypeScript interfaces & types
 │   │   └── version.ts         # Dynamic package.json version export
-│   ├── shared/                # Dumb/reusable UI: header, footer, showcases, badges
-│   │   ├── components/        # Header, Footer, CommercialShowcase, ExploreNext, FloatingWhatsapp
+│   ├── shared/                # Dumb/reusable UI: header, footer, page-loader, showcases, badges
+│   │   ├── components/        # Header, Footer, PageLoader, CommercialShowcase, ExploreNext, FloatingWhatsapp
 │   │   └── dialogs/           # Strictly Angular Material MatDialog implementations
 │   ├── features/              # Modals and specialized feature components
 │   ├── pages/                 # Route-level page components (lazy-loaded in app.routes.ts)
 │   ├── app.routes.ts          # Prerendered route definitions with descriptive titles
 │   ├── app.config.ts          # Root providers (Router, SSR, Material animations, HttpClient)
-│   └── app.ts                 # Shell component (<app-header>, <router-outlet>, <app-footer>)
+│   └── app.ts                 # Shell component (<app-header>, <app-page-loader>, <router-outlet>, <app-footer>)
 ├── assets/ / public/          # Images, logos, robots.txt, sitemap.xml, site.webmanifest
 ├── index.html                 # Shell HTML, preconnect fonts, JSON-LD Schema, hidden Netlify forms
 ├── styles.css                 # @import "tailwindcss"; @import Material theme; base styles
@@ -54,6 +54,7 @@ src/
   * Buttons: `mat-flat-button`, `mat-stroked-button`, `mat-icon-button`.
   * Dialogs: `MatDialog` (`MatDialogRef`, `MatDialogTitle`, `MatDialogContent`, `MatDialogActions`).
   * Form controls: `mat-form-field`, `mat-label`, `matInput`, `mat-select`, `mat-error`.
+  * Spinners & Loaders: `mat-progress-spinner` (`MatProgressSpinnerModule`) styled with Electric Red (`#ea1c24`) tokens.
   * Icons: `mat-icon` (Material Symbols Outlined) or clean inline SVG for external brand icons (e.g., WhatsApp).
 
 ### 3.2 Tailwind CSS Boundary
@@ -97,7 +98,33 @@ src/
 
 ---
 
-## 6. Static Site Generation (SSG) & Prerendering
+## 6. Page Loading States & Route Transitions (`MatProgressSpinner`)
+
+> [!IMPORTANT]
+> Visual loading feedback is mandatory during all route navigations and lazy-loaded chunk downloads to prevent perceived latency, frozen UI states, or accidental duplicate user interactions.
+
+* **Architecture**:
+  * **Singleton `LoadingService` (`src/app/core/services/loading.service.ts`)**:
+    * Subscribes to Angular Router events: `NavigationStart`, `NavigationEnd`, `NavigationCancel`, `NavigationError`.
+    * Exposes an Angular Signal: `readonly isLoading = signal<boolean>(false)`.
+    * Applies a micro-debounce (30ms) to ensure instantaneous cached navigations do not cause 1-frame visual flashes, while network and chunk loads receive immediate feedback.
+    * Provides `show(msg?)` and `hide()` for custom async triggers (e.g. data fetching, heavy computations).
+  * **Global `PageLoaderComponent` (`src/app/shared/components/page-loader/`)**:
+    * Placed directly in the root `AppComponent` template shell (`<app-page-loader />`).
+    * Combines a precision 3px top indeterminate progress accent in Electric Red (`#ea1c24`) with a centered frosted modal card.
+    * Uses Angular Material's `MatProgressSpinner` (`[diameter]="48"` and `[strokeWidth]="4"`).
+    * Mounts and unmounts cleanly via control flow `@if (loadingService.isLoading())` ensuring zero idle DOM overhead.
+* **Styling & Theming**:
+  * Spinner color is bound to `--mat-progress-spinner-active-indicator-color: #ea1c24 !important;`.
+  * Frosted backdrop (`backdrop-blur-[2px] bg-stone-900/25 dark:bg-black/45`) softly dims the page while maintaining context and preventing input collisions during navigation.
+* **Accessibility (WCAG 2.2 AA)**:
+  * Container has `role="status"` and `aria-live="polite"`.
+  * Screen-reader text `<span class="sr-only">Loading page...</span>` announces page transition state to assistive technologies.
+  * Honors `@media (prefers-reduced-motion: reduce)` by disabling top-bar sliding animations.
+
+---
+
+## 7. Static Site Generation (SSG) & Prerendering
 
 * **Configuration (`angular.json`)**:
   ```json
@@ -112,7 +139,7 @@ src/
 
 ---
 
-## 7. Netlify Deployment & Form Handling
+## 8. Netlify Deployment & Form Handling
 
 * **Configuration (`netlify.toml`)**:
   ```toml
@@ -142,7 +169,7 @@ src/
 
 ---
 
-## 8. SEO, Social Metadata & AI Search (LLMO)
+## 9. SEO, Social Metadata & AI Search (LLMO)
 
 * **Meta Tags in `index.html`**:
   * Accurate `<title>`, `<meta name="description">`, `<meta name="author">`.
@@ -153,7 +180,7 @@ src/
 
 ---
 
-## 9. Accessibility Standards (WCAG 2.2 AA)
+## 10. Accessibility Standards (WCAG 2.2 AA)
 
 * **Keyboard Navigation**: Universal high-contrast focus rings (`*:focus-visible { outline: 3px solid #ea1c24 !important; outline-offset: 3px !important; }`).
 * **Skip Links**: Accessible `#main-content` skip link at top of `app.ts`.
@@ -163,7 +190,7 @@ src/
 
 ---
 
-## 10. Semantic Versioning & Release Checklist
+## 11. Semantic Versioning & Release Checklist
 
 1. **Version Tracking**:
    * Version defined in `package.json` (`"version": "X.Y.Z"`).

@@ -226,3 +226,21 @@ html.dark .mat-mdc-dialog-container .mdc-dialog__surface {
   -webkit-backdrop-filter: blur(8px);
   background-color: rgba(10, 10, 10, 0.75) !important;
 }
+
+/* AStar Route Transition Page Spinner (Electric Red #ea1c24) */
+.astar-page-spinner {
+  --mat-progress-spinner-active-indicator-color: #ea1c24 !important;
+}
+
+.astar-page-spinner circle {
+  stroke: #ea1c24 !important;
+}
+
+html.dark .astar-page-spinner {
+  --mat-progress-spinner-active-indicator-color: #ea1c24 !important;
+}
+
+html.dark .astar-page-spinner circle {
+  stroke: #ea1c24 !important;
+}
+

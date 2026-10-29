@@ -3,11 +3,18 @@ import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { FloatingWhatsappComponent } from './shared/components/floating-whatsapp/floating-whatsapp.component';
+import { PageLoaderComponent } from './shared/components/page-loader/page-loader.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, FooterComponent, FloatingWhatsappComponent],
+  imports: [
+    RouterOutlet,
+    HeaderComponent,
+    FooterComponent,
+    FloatingWhatsappComponent,
+    PageLoaderComponent
+  ],
   template: `
     <!-- Skip to Main Content Link for Accessibility -->
     <a
@@ -16,6 +23,9 @@ import { FloatingWhatsappComponent } from './shared/components/floating-whatsapp
     >
       Skip to main content
     </a>
+
+    <!-- Global Route Transition Page Loading Spinner -->
+    <app-page-loader />
 
     <div class="min-h-screen flex flex-col bg-stone-50 dark:bg-stone-950 text-stone-900 dark:text-stone-100 transition-colors">
       <app-header />
