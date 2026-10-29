@@ -10,7 +10,7 @@
       content="Electrical contracting for commercial spaces. AStar Electricals works with commercial property developers, builders, construction companies, and project teams across Bengaluru, Chennai, Hyderabad, and Pan-India. Powering Quality. Built on Trust."
     />
     <meta name="author" content="AStar Electricals" />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta name="theme-color" content="#fafaf9" />
     <meta name="color-scheme" content="light dark" />
 
@@ -37,7 +37,13 @@
     <meta name="twitter:description" content="Electrical contracting for commercial spaces across Bengaluru, Chennai, Hyderabad, and Pan-India. Powering Quality. Built on Trust." />
     <meta name="twitter:image" content="https://astarelectricals.com/images/astar-og.png" />
 
-    <!-- Schema.org JSON-LD Structured Data for Commercial Electrical Contracting Entity & SEO -->
+    <!-- Favicon & Web App Manifest -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="64x64" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Schema.org JSON-LD Structured Data for Commercial Electrical Contracting Entity, SEO & LLMO -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -60,10 +66,15 @@
             "legalName": "AStar Electricals",
             "url": "https://astarelectricals.com",
             "logo": "https://astarelectricals.com/images/astar-og.png",
+            "image": "https://astarelectricals.com/images/astar-og.png",
             "slogan": "Powering Quality. Built on Trust.",
             "description": "Electrical contracting for commercial spaces. Delivering commercial installations, construction-stage electrical works, electrical infrastructure, and project coordination across Bengaluru, Chennai, Hyderabad, and Pan-India.",
             "taxID": "29ACPFA5825L1ZR",
             "telephone": "+91 98800 57744",
+            "email": "contact@astarelectricals.com",
+            "priceRange": "$$",
+            "currenciesAccepted": "INR",
+            "paymentAccepted": "Bank Transfer, Cheque, Wire",
             "areaServed": [
               {
                 "@type": "City",
@@ -82,14 +93,67 @@
                 "name": "India"
               }
             ],
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "contactType": "Sales & Project Inquiries",
+              "telephone": "+91 98800 57744",
+              "email": "contact@astarelectricals.com",
+              "url": "https://astarelectricals.com/contact",
+              "availableLanguage": ["English", "Kannada", "Hindi", "Tamil", "Telugu"]
+            },
             "knowsAbout": [
               "Commercial Electrical Contracting",
-              "Electrical Installation",
+              "Commercial Electrical Installation",
               "Construction-Stage Electrical Works",
               "Electrical Systems and Infrastructure",
-              "Project Coordination",
-              "Commercial Property Contracting"
+              "Project Coordination and Handover",
+              "Main Switchboards and LV Distribution",
+              "Cable Tray and Containment Infrastructure",
+              "Diesel Generator (DG) Backup and AMF Panels",
+              "Central UPS Systems",
+              "Earthing and Lightning Protection Systems",
+              "National Electrical Code (NEC India)",
+              "IS 732 Wiring Installation Standards",
+              "Central Electricity Authority (CEA) Regulations"
             ],
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Commercial Electrical Contracting Services",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Commercial Electrical Installation",
+                    "description": "Electrical installation works for commercial construction projects, delivered in line with agreed scope and specifications."
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Construction-Stage Electrical Works",
+                    "description": "Electrical work coordinated with construction activities, project sequencing, and site requirements."
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Electrical Systems and Infrastructure",
+                    "description": "Execution of electrical systems, distribution boards, containment, and backup infrastructure within approved technical scope."
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Project Coordination and Handover",
+                    "description": "Coordination with developers, builders, consultants, contractors, and inspection authorities with complete testing dossiers."
+                  }
+                }
+              ]
+            },
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "Ground Floor, #7, 3rd Cross, 3rd Main Road, Near Javeria School, Saraipalya, Thanisandra",
@@ -122,7 +186,10 @@
         ]
       }
     </script>
-    <!-- Typography: Clean, Modern, Easy-on-the-eyes Poppins & Roboto + Material Symbols -->
+
+    <!-- Typography & Performance Preconnects: Poppins & Roboto -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">

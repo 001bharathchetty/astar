@@ -1,4 +1,12 @@
+# AStar Electricals (https://astarelectricals.com)
+# Robots & AI Agent Crawling Policy
+
 User-agent: *
 Allow: /
 
+# Canonical Sitemap
 Sitemap: https://astarelectricals.com/sitemap.xml
+
+# LLM & AI Model Discoverability
+# LLM Context: https://astarelectricals.com/llms.txt
+# Full Documentation: https://astarelectricals.com/contents.md

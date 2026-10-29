@@ -1,0 +1,79 @@
+# AStar Electricals
+
+> Powering Quality. Built on Trust.
+
+AStar Electricals is an established commercial electrical contracting firm delivering electrical installations, construction-stage electrical works, power systems infrastructure, and project coordination for commercial properties across Bengaluru, Chennai, Hyderabad, and Pan-India. We partner with commercial property developers, builders, construction companies, project management consultancies (PMCs), and enterprise facility teams to deliver electrical systems with unwavering adherence to engineering specifications, national safety standards, and strict construction timelines.
+
+## Corporate Identity & Business Focus
+
+- **Brand Line:** Powering Quality. Built on Trust.
+- **Pronunciation:** A Star Electricals
+- **Primary Business:** Commercial Electrical Contracting (General & Trade Contractor)
+- **Primary Operating Markets:** Bengaluru · Chennai · Hyderabad · Pan-India
+- **Legal Entity:** AStar Electricals
+- **GSTIN:** 29ACPFA5825L1ZR
+- **Commercial Office Address:** Ground Floor, #7, 3rd Cross, 3rd Main Road, Near Javeria School, Saraipalya, Thanisandra, Bengaluru, Karnataka 560077, India
+- **Geographic Coordinates (GEO):** 13.0558° N, 77.6322° E
+- **Telephone:** +91 98800 57744
+- **Project Inquiries:** contact@astarelectricals.com
+- **Official Website:** https://astarelectricals.com
+- **Operating Hours:** Monday to Saturday, 09:30 – 20:30 IST
+
+## Core Contracting Capabilities & Services
+
+### 1. Commercial Electrical Installations
+- Turnkey electrical installations for commercial office buildings, tech parks, shopping complexes, and industrial workspaces.
+- Main Low Voltage (MLV) switchboards, sub-distribution boards (SDB), and final power circuit distribution.
+- High-capacity busbar trunking systems (busduct) for vertical risers and horizontal distribution.
+- Cable containment infrastructure: heavy-duty perforated cable trays, ladder racks, and wire mesh pathways.
+- Commercial lighting systems: automated architectural luminaires, DALI/0-10V dimming controls, and emergency exit lighting.
+
+### 2. Construction-Stage Electrical Works
+- Early-stage MEP coordination and structural interface planning with general contractors and structural engineers.
+- Slab conduit laying, embedded raceways, core cutting alignment, and wall chases prior to concrete pour.
+- Phased cable pulling, armoring, terminations, and high-voltage glanding.
+- Construction power distribution networks and temporary safety illumination during build phase.
+
+### 3. Electrical Systems & Infrastructure
+- Standby diesel generator (DG) set installation, AMF synchronizing panels, and exhaust ducting.
+- Central online Uninterruptible Power Supply (UPS) systems and bypass switchgear for mission-critical IT infrastructure.
+- Compact substation (CSS), step-down transformer yards, and HT switchgear coordination.
+- Dedicated chemical earthing systems, maintenance-free copper-bonded earth electrodes, and equipotential bonding.
+- Class I/II lightning protection systems, surge protective devices (SPD), and earth pit grid testing.
+
+### 4. Project Coordination, Compliance & Handover
+- Detailed Bill of Quantities (BOQ) reconciliation, material submittals, and engineering value analysis.
+- Single-Line Diagrams (SLD), shop drawings, coordinated MEP clash-detection models, and As-Built drawings.
+- Pre-commissioning inspection, Insulation Resistance (Megger) testing, Earth Loop Impedance tests, and Phase Sequence verification.
+- Coordination with statutory electrical inspectorates (CEIG/BESCOM/TANGEDCO/TSSPDCL) for energization approvals and safety certification.
+- As-built documentation dossiers, operation & maintenance (O&M) manuals, warranty schedules, and facility engineering training.
+
+## Commercial Sectors Served
+
+- **IT & Business Parks:** High-density campus distribution, resilient dual-bus infrastructure, redundant sub-stations, and high-efficiency floor layouts.
+- **Corporate Office Fit-Outs:** Grade-A office interiors, acoustic-friendly raceways, executive boardroom power, and server rack power feeds.
+- **Retail & Showroom Facilities:** High-lumen architectural lighting tracks, heavy display refrigeration power feeds, point-of-sale resilience, and energy management.
+- **Warehousing & Logistics Hubs:** Extended-height high-bay installations, dock leveler electrical connections, sorting automation power, and comprehensive perimeter safety circuits.
+
+## Standards, Engineering Codes & Safety Governance
+
+AStar Electricals adheres strictly to recognized national and international engineering benchmarks:
+- **NEC India:** National Electrical Code of India (Bureau of Indian Standards).
+- **IS 732:** Code of practice for electrical wiring installations (system voltages up to and including 650 V).
+- **IS 3043:** Code of practice for earthing.
+- **NBC 2016 (Part 8):** National Building Code of India — Building Services (Electrical and Allied Installations).
+- **CEA Regulations 2023:** Central Electricity Authority (Measures relating to Safety and Electric Supply).
+- **EHS Standards:** Zero-accident policy, mandatory personal protective equipment (PPE), daily toolbox safety talks, Lockout-Tagout (LOTO) protocols, and third-party calibrated test instruments.
+
+## Canonical Website Directory
+
+- [Home](https://astarelectricals.com/): Core commercial overview, capabilities introduction, sectors served, and direct project inquiry starters.
+- [About AStar](https://astarelectricals.com/about): Company background, execution ethos, commercial contracting leadership, and institutional standards.
+- [Commercial Services](https://astarelectricals.com/services): In-depth breakdown of installations, construction works, power infrastructure, and project handover.
+- [Safety & Quality](https://astarelectricals.com/safety-quality): EHS governance, testing methodologies, compliance documentation, and inspection test plans (ITP).
+- [Commercial Projects](https://astarelectricals.com/projects): Sector-specific project scopes, technical specifications, and execution highlights.
+- [Contact & Inquiries](https://astarelectricals.com/contact): Direct project discussion, BOQ upload inquiries, office location map, and contact coordinates.
+
+## Full Content Documentation
+
+- [Complete Content Blueprint](https://astarelectricals.com/contents.md): Verbatim text export of all pages, credentials, service details, and technical statements.
