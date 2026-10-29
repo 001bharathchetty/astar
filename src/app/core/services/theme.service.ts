@@ -12,15 +12,15 @@ export class ThemeService {
 
   constructor() {
     if (isPlatformBrowser(this.platformId)) {
+      // Default theme is Light per client specification
       const saved = localStorage.getItem('astar-theme');
-      if (saved) {
-        this.isDark.set(saved === 'dark');
-      } else {
-        // Default to light mode
-        this.isDark.set(false);
+      if (saved === 'dark') {
+        // Reset to light mode as default while toggle is hidden
+        localStorage.setItem('astar-theme', 'light');
       }
+      this.isDark.set(false);
 
-      this.applyTheme(this.isDark());
+      this.applyTheme(false);
 
       effect(() => {
         const dark = this.isDark();

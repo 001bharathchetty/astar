@@ -90,10 +90,10 @@ src/
 
 ## 5. Dual-Theme System (Light Mode Default)
 
-* **Default State**: Light mode is the default (`isDark = false`).
+* **Default State**: Light mode is the active default theme (`isDark = false`).
 * **Implementation**: Angular Signal in `ThemeService`, toggling `.dark` class on `document.documentElement` (`<html class="dark">`).
-* **Persistence**: Synchronize to `localStorage.getItem('theme')` with graceful SSR fallback (`typeof window !== 'undefined'`).
-* **Toggle Icon**: Use a **crescent moon** SVG in light mode (clicking enables dark mode) and a **sun** SVG in dark mode (clicking enables light mode).
+* **Persistence**: Synchronize to `localStorage.getItem('astar-theme')` with graceful SSR fallback (`typeof window !== 'undefined'`). Defaults to light theme across all user sessions.
+* **Toggle Visibility**: The theme toggle button in the header is hidden for now per client preference while the icon is finalized (crescent icon removed). Dark mode styling and architecture remain fully implemented and available under the hood.
 * **High Contrast**: Ensure text contrast meets WCAG 2.2 AA (minimum 4.5:1 for body copy).
 
 ---
