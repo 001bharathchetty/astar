@@ -24,7 +24,7 @@ export interface BusinessDetails {
 })
 export class BusinessService {
   readonly business: BusinessDetails = {
-    name: 'ASTAR Electricals',
+    name: 'AStar Electricals',
     tagline: 'Powering Quality. Built on Trust.',
     description: 'Your trusted partner for electrical supplies, industrial components, wholesale wiring, and residential electrical fittings in Bengaluru.',
     phone: '+91 9880057744',

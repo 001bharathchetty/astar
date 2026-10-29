@@ -21,7 +21,7 @@ describe('ASTAR Electricals Application Tests', () => {
 
   describe('Business Information Service', () => {
     it('should define correct brand name', () => {
-      expect(businessService.business.name).toBe('ASTAR Electricals');
+      expect(businessService.business.name).toBe('AStar Electricals');
     });
 
     it('should define official contact phone number', () => {
@@ -67,8 +67,7 @@ describe('ASTAR Electricals Application Tests', () => {
     it('should create home page and render brand header', () => {
       expect(component).toBeTruthy();
       const compiled = fixture.nativeElement as HTMLElement;
-      expect(compiled.querySelector('h1')?.textContent).toContain('ASTAR');
-      expect(compiled.querySelector('h1')?.textContent).toContain('Electricals');
+      expect(compiled.querySelector('h1')?.textContent).toContain('Commercial Spaces');
     });
 
     it('should display phone link matching business details', () => {

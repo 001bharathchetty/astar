@@ -40,9 +40,8 @@ import { MatIconModule } from '@angular/material/icon';
 
         <!-- Center Brand Hub Node (Red, Black, White) -->
         <div class="relative z-10 w-24 h-24 rounded-2xl bg-black text-white border-2 border-[#ea1c24] shadow-2xl flex flex-col items-center justify-center p-2 text-center group cursor-default">
-          <mat-icon class="!w-6 !h-6 !text-2xl text-[#ea1c24] leading-none mb-1">bolt</mat-icon>
-          <span class="font-heading font-black text-xs uppercase tracking-tighter leading-tight text-white">ASTAR</span>
-          <span class="text-[8.5px] font-heading font-bold text-[#ea1c24] tracking-[0.16em] uppercase leading-none mt-0.5">ELECTRICALS</span>
+          <span class="font-brand font-black text-sm tracking-tight leading-tight text-white">AStar</span>
+          <span class="text-[8.5px] font-brand font-bold text-[#ea1c24] tracking-[0.16em] uppercase leading-none mt-0.5">Electricals</span>
         </div>
 
         <!-- Node 1: Top (Workplaces) -->
