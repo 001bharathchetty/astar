@@ -116,6 +116,15 @@ html.dark .skip-link {
   gap: 0.5rem !important;
   vertical-align: middle !important;
   line-height: 1.25 !important;
+  color: inherit !important;
+}
+
+/* Ensure stroked/outlined buttons remain clearly visible in dark mode */
+html.dark .mat-mdc-outlined-button {
+  --mat-outlined-button-label-text-color: #fafaf9 !important;
+  --mat-outlined-button-outline-color: #57534e !important;
+  color: #fafaf9 !important;
+  border-color: #57534e !important;
 }
 
 .mat-mdc-button-base .mdc-button__label mat-icon,
