@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 24" width="28" height="24" fill="none">
-  <!-- Sharp Pointed "A" (Midnight Blue / Dark Navy, No Flat Top) -->
-  <path d="M 7,3 L 12.5,21 L 9.8,21 L 8.4,16.2 L 5.6,16.2 L 4.2,21 L 1.5,21 Z M 7,7.8 L 8.0,13.8 L 6.0,13.8 Z" fill="#0F172A" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 24" width="32" height="24" fill="none">
+  <!-- Wide-Base Sharp Pointed "A" (Midnight Blue, No flat top) -->
+  <path d="M 8,3 L 15,21 L 11.8,21 L 10.1,16.2 L 5.9,16.2 L 4.2,21 L 1,21 Z M 8,7.5 L 9.4,13.8 L 6.6,13.8 Z" fill="#0F172A" />
 
-  <!-- Authentic Original Red Bolt (Shifted right beside A) -->
-  <path d="M20 21h-1l1-7h-3.5c-.88 0-.33-.75-.31-.78C17.48 10.94 19.42 7.54 22 3h1l-1 7h3.5c.49 0 .56.33.47.51l-.07.15C21.96 17.55 20 21 20 21z" fill="#ea1c24" />
+  <!-- Distinct Authentic Red Thunderbolt with Generous Spacing -->
+  <path d="M24 21h-1l1-7h-3.5c-.88 0-.33-.75-.31-.78C20.48 10.94 22.42 7.54 25 3h1l-1 7h3.5c.49 0 .56.33.47.51l-.07.15C24.96 17.55 24 21 24 21z" fill="#ea1c24" />
 </svg>
