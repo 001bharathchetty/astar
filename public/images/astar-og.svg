@@ -14,19 +14,19 @@
     </style>
   </defs>
 
-  <!-- Clean Background -->
+  <!-- Clean White Background -->
   <rect width="1200" height="630" fill="#ffffff" />
   
-  <!-- Subtle Top Accent Line -->
+  <!-- Top Accent Bar (Brand Red) -->
   <rect x="0" y="0" width="1200" height="6" fill="#ea1c24" />
 
-  <!-- Centered Pure Logo Lockup (Guaranteed perfect in 1:1 square crop and 1.91:1 banner) -->
-  <g transform="translate(600, 315)">
+  <!-- Centered Bold Logo Lockup (+50% larger, fills safe-zone with minimal excess whitespace) -->
+  <g transform="translate(600, 335)">
 
-    <!-- Official Emblem (Scaled 7x, centered horizontally & positioned above text) -->
-    <!-- Original viewBox 25x24 * 7 => width: 175px, height: 168px -->
-    <!-- Center offset x: -87.5, y: -190 -->
-    <g transform="translate(-87.5, -190) scale(7)">
+    <!-- Official Emblem (Scaled 10.5x = +50% over scale 7) -->
+    <!-- ViewBox: 25x24 * 10.5 => width: 262.5px, height: 252px -->
+    <!-- Center offset x: -131.25, y: -230 -->
+    <g transform="translate(-131.25, -230) scale(10.5)">
       <!-- Midnight Blue "A" -->
       <path d="M 9.4,3.0 L 18.33,21.0 L 13.69,21.0 L 12.38,17.73 L 6.43,17.73 L 5.12,21.0 L 0.5,21.0 Z M 9.4,10.28 L 7.67,14.61 L 11.13,14.61 Z"
             fill="#0F172A" fill-rule="evenodd" />
@@ -35,22 +35,22 @@
             fill="#EA1C24" />
     </g>
 
-    <!-- Brand Typography Lockup -->
-    <!-- "AStar" in Jost 900 Black -->
-    <text x="0" y="45"
+    <!-- Brand Typography Lockup (+50% larger) -->
+    <!-- "AStar" in Jost 900 Black (114px, was 76px) -->
+    <text x="0" y="110"
           text-anchor="middle"
           class="brand-title"
-          font-size="76"
+          font-size="114"
           fill="#0F172A"
-          letter-spacing="-1.5">
+          letter-spacing="-2">
       AStar
     </text>
 
-    <!-- "ELECTRICALS" in Jost Bold Red -->
-    <text x="0" y="90"
+    <!-- "ELECTRICALS" in Jost Bold Red (33px, was 22px) -->
+    <text x="0" y="168"
           text-anchor="middle"
           class="brand-sub"
-          font-size="22"
+          font-size="33"
           fill="#EA1C24">
       ELECTRICALS
     </text>
