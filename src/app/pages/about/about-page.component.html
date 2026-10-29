@@ -80,7 +80,7 @@
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
         @for (val of content.about.values; track val.title; let idx = $index) {
-          <article class="p-8 sm:p-10 rounded-3xl bg-stone-50 dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-sm flex flex-col justify-between">
+          <article class="p-8 sm:p-10 rounded-3xl bg-stone-50 dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-sm card-hover flex flex-col justify-between cursor-pointer">
             <div>
               <span class="text-xs font-mono font-bold text-[#ea1c24] tracking-widest block mb-3">
                 PERSPECTIVE 0{{ idx + 1 }}

@@ -64,7 +64,7 @@
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
         @for (cat of content.projects.categories; track cat.id) {
-          <article class="group p-8 rounded-3xl bg-stone-50 dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-sm hover:shadow-md hover:border-stone-300 dark:hover:border-stone-700 transition-all duration-300 flex flex-col justify-between">
+          <article class="group p-8 rounded-3xl bg-stone-50 dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-sm card-hover flex flex-col justify-between cursor-pointer">
             <div>
               <div class="mb-5 text-stone-600 dark:text-stone-400 group-hover:text-[#ea1c24] transition-colors duration-300">
                 <mat-icon class="!text-3xl !w-8 !h-8 leading-none transition-transform duration-300 ease-out group-hover:scale-110 group-hover:-translate-y-1">
@@ -100,7 +100,7 @@
 
       <div class="space-y-8">
         @for (item of content.projects.sampleCases; track item.title; let idx = $index) {
-          <article class="p-8 sm:p-10 rounded-3xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-sm hover:shadow-md transition">
+          <article class="p-8 sm:p-10 rounded-3xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-sm card-hover cursor-pointer">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
               
               <!-- Left: Project Scope Detail -->

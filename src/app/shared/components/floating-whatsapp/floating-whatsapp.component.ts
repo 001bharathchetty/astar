@@ -9,29 +9,19 @@ import { ContentService } from '../../../core/services/content.service';
   template: `
     <!-- Floating WhatsApp Action Component -->
     <aside
-      class="fixed bottom-6 right-6 sm:bottom-8 sm:right-8 z-50 flex items-center gap-3 select-none pointer-events-auto"
+      class="fixed bottom-6 right-6 sm:bottom-8 sm:right-8 z-50 select-none pointer-events-auto"
       aria-label="WhatsApp Quick Connect"
     >
-      <!-- Expandable Desktop Label / Tooltip -->
       <a
         [href]="content.brand.whatsappUrl"
         target="_blank"
         rel="noopener noreferrer"
         [attr.aria-label]="'Chat with AStar Electricals on WhatsApp at ' + content.brand.phone"
-        class="group relative flex items-center focus:outline-none"
+        class="group relative flex items-center justify-center focus:outline-none"
       >
-        <!-- Text pill on hover / focus for desktop -->
-        <span
-          class="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 mr-3 rounded-full bg-white dark:bg-stone-900 text-stone-900 dark:text-stone-100 text-xs font-bold shadow-xl border border-stone-200 dark:border-stone-800 opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-200"
-        >
-          <span class="w-2 h-2 rounded-full bg-[#25D366] animate-pulse"></span>
-          <span>Chat on WhatsApp</span>
-          <span class="font-mono text-[11px] text-stone-500 dark:text-stone-400">({{ content.brand.phone }})</span>
-        </span>
-
         <!-- Main Vibrant Circular Floating Button -->
         <div
-          class="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#25D366] hover:bg-[#20ba59] active:bg-[#1da84d] text-white flex items-center justify-center shadow-2xl hover:shadow-[#25D366]/40 hover:scale-110 active:scale-95 transition-all duration-300 focus-visible:ring-4 focus-visible:ring-emerald-400 focus-visible:outline-none"
+          class="relative w-13 h-13 sm:w-14 sm:h-14 rounded-full bg-[#25D366] hover:bg-[#20ba59] active:bg-[#1da84d] text-white flex items-center justify-center shadow-2xl hover:shadow-[#25D366]/40 hover:scale-110 active:scale-95 transition-all duration-300 focus-visible:ring-4 focus-visible:ring-emerald-400 focus-visible:outline-none"
         >
           <!-- Subtle Pulse Ping Wave Ring -->
           <span class="absolute inset-0 rounded-full bg-[#25D366] opacity-30 animate-ping pointer-events-none"></span>

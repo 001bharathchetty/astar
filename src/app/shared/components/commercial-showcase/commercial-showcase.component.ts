@@ -74,7 +74,7 @@ import { MatIconModule } from '@angular/material/icon';
       <!-- Bottom Caption Footer -->
       <div class="w-full pt-3 border-t border-stone-200/80 dark:border-stone-800 flex items-center justify-between text-[11px] text-stone-700 dark:text-stone-300 font-mono">
         <span class="font-bold text-stone-900 dark:text-stone-100">Base Markets:</span>
-        <span class="text-[#ea1c24] font-semibold">BLR · MAA · HYD · South India</span>
+        <span class="text-[#ea1c24] font-semibold">Bengaluru · Chennai · Hyderabad</span>
       </div>
 
     </div>
