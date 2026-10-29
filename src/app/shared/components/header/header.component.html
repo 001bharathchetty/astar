@@ -27,40 +27,40 @@
     </a>
 
     <!-- Desktop Navigation Links with Active Highlighting -->
-    <nav class="hidden lg:flex items-center gap-4 xl:gap-6 2xl:gap-8" aria-label="Primary Navigation">
+    <nav class="hidden lg:flex items-center gap-5 xl:gap-7 2xl:gap-8" aria-label="Primary Navigation">
       <a
         routerLink="/"
         [routerLinkActiveOptions]="{ exact: true }"
-        routerLinkActive="text-stone-950 dark:text-white font-extrabold border-b-2 border-[#ea1c24]"
-        class="text-xs xl:text-sm font-bold text-stone-700 dark:text-stone-300 hover:text-stone-950 dark:hover:text-white pb-1 transition whitespace-nowrap"
+        routerLinkActive="text-stone-950 dark:text-white font-bold border-b-2 border-[#ea1c24]"
+        class="text-sm lg:text-[15px] xl:text-base font-semibold text-stone-700 dark:text-stone-300 hover:text-stone-950 dark:hover:text-white pb-1 transition whitespace-nowrap"
       >
         Home
       </a>
       <a
         routerLink="/about"
-        routerLinkActive="text-stone-950 dark:text-white font-extrabold border-b-2 border-[#ea1c24]"
-        class="text-xs xl:text-sm font-bold text-stone-700 dark:text-stone-300 hover:text-stone-950 dark:hover:text-white pb-1 transition whitespace-nowrap"
+        routerLinkActive="text-stone-950 dark:text-white font-bold border-b-2 border-[#ea1c24]"
+        class="text-sm lg:text-[15px] xl:text-base font-semibold text-stone-700 dark:text-stone-300 hover:text-stone-950 dark:hover:text-white pb-1 transition whitespace-nowrap"
       >
         About
       </a>
       <a
         routerLink="/services"
-        routerLinkActive="text-stone-950 dark:text-white font-extrabold border-b-2 border-[#ea1c24]"
-        class="text-xs xl:text-sm font-bold text-stone-700 dark:text-stone-300 hover:text-stone-950 dark:hover:text-white pb-1 transition whitespace-nowrap"
+        routerLinkActive="text-stone-950 dark:text-white font-bold border-b-2 border-[#ea1c24]"
+        class="text-sm lg:text-[15px] xl:text-base font-semibold text-stone-700 dark:text-stone-300 hover:text-stone-950 dark:hover:text-white pb-1 transition whitespace-nowrap"
       >
         Services
       </a>
       <a
         routerLink="/safety-quality"
-        routerLinkActive="text-stone-950 dark:text-white font-extrabold border-b-2 border-[#ea1c24]"
-        class="text-xs xl:text-sm font-bold text-stone-700 dark:text-stone-300 hover:text-stone-950 dark:hover:text-white pb-1 transition whitespace-nowrap"
+        routerLinkActive="text-stone-950 dark:text-white font-bold border-b-2 border-[#ea1c24]"
+        class="text-sm lg:text-[15px] xl:text-base font-semibold text-stone-700 dark:text-stone-300 hover:text-stone-950 dark:hover:text-white pb-1 transition whitespace-nowrap"
       >
         Safety & Quality
       </a>
       <a
         routerLink="/projects"
-        routerLinkActive="text-stone-950 dark:text-white font-extrabold border-b-2 border-[#ea1c24]"
-        class="text-xs xl:text-sm font-bold text-stone-700 dark:text-stone-300 hover:text-stone-950 dark:hover:text-white pb-1 transition whitespace-nowrap"
+        routerLinkActive="text-stone-950 dark:text-white font-bold border-b-2 border-[#ea1c24]"
+        class="text-sm lg:text-[15px] xl:text-base font-semibold text-stone-700 dark:text-stone-300 hover:text-stone-950 dark:hover:text-white pb-1 transition whitespace-nowrap"
       >
         Projects
       </a>
@@ -137,48 +137,73 @@
   <!-- Mobile Drawer Menu -->
   @if (mobileMenuOpen()) {
     <div id="mobile-menu" class="lg:hidden bg-stone-50 dark:bg-stone-950 border-b border-stone-200 dark:border-stone-800 px-4 sm:px-6 py-6 space-y-4 animate-in slide-in-from-top duration-200 shadow-xl" role="region" aria-label="Mobile Navigation Menu">
-      <nav class="flex flex-col space-y-3" aria-label="Mobile Navigation">
+      <nav class="flex flex-col space-y-1" aria-label="Mobile Navigation">
         <a
           routerLink="/"
+          [routerLinkActiveOptions]="{ exact: true }"
+          routerLinkActive="text-[#ea1c24] dark:text-[#ea1c24] font-black"
           (click)="closeMobileMenu()"
-          class="text-base font-extrabold text-stone-900 dark:text-stone-100 hover:text-[#ea1c24] py-1 border-b border-stone-200/60 dark:border-stone-800/60"
+          class="text-base sm:text-lg font-bold text-stone-900 dark:text-stone-100 hover:text-[#ea1c24] dark:hover:text-[#ea1c24] py-2.5 border-b border-stone-200/60 dark:border-stone-800/60 flex items-center justify-between transition-colors"
         >
-          Home
+          <span>Home</span>
+          <svg class="w-4 h-4 text-stone-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
         </a>
         <a
           routerLink="/about"
+          routerLinkActive="text-[#ea1c24] dark:text-[#ea1c24] font-black"
           (click)="closeMobileMenu()"
-          class="text-base font-extrabold text-stone-900 dark:text-stone-100 hover:text-[#ea1c24] py-1 border-b border-stone-200/60 dark:border-stone-800/60"
+          class="text-base sm:text-lg font-bold text-stone-900 dark:text-stone-100 hover:text-[#ea1c24] dark:hover:text-[#ea1c24] py-2.5 border-b border-stone-200/60 dark:border-stone-800/60 flex items-center justify-between transition-colors"
         >
-          About AStar
+          <span>About AStar</span>
+          <svg class="w-4 h-4 text-stone-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
         </a>
         <a
           routerLink="/services"
+          routerLinkActive="text-[#ea1c24] dark:text-[#ea1c24] font-black"
           (click)="closeMobileMenu()"
-          class="text-base font-extrabold text-stone-900 dark:text-stone-100 hover:text-[#ea1c24] py-1 border-b border-stone-200/60 dark:border-stone-800/60"
+          class="text-base sm:text-lg font-bold text-stone-900 dark:text-stone-100 hover:text-[#ea1c24] dark:hover:text-[#ea1c24] py-2.5 border-b border-stone-200/60 dark:border-stone-800/60 flex items-center justify-between transition-colors"
         >
-          Commercial Services
+          <span>Commercial Services</span>
+          <svg class="w-4 h-4 text-stone-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
         </a>
         <a
           routerLink="/safety-quality"
+          routerLinkActive="text-[#ea1c24] dark:text-[#ea1c24] font-black"
           (click)="closeMobileMenu()"
-          class="text-base font-extrabold text-stone-900 dark:text-stone-100 hover:text-[#ea1c24] py-1 border-b border-stone-200/60 dark:border-stone-800/60"
+          class="text-base sm:text-lg font-bold text-stone-900 dark:text-stone-100 hover:text-[#ea1c24] dark:hover:text-[#ea1c24] py-2.5 border-b border-stone-200/60 dark:border-stone-800/60 flex items-center justify-between transition-colors"
         >
-          Safety & Quality
+          <span>Safety & Quality</span>
+          <svg class="w-4 h-4 text-stone-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
         </a>
         <a
           routerLink="/projects"
+          routerLinkActive="text-[#ea1c24] dark:text-[#ea1c24] font-black"
           (click)="closeMobileMenu()"
-          class="text-base font-extrabold text-stone-900 dark:text-stone-100 hover:text-[#ea1c24] py-1 border-b border-stone-200/60 dark:border-stone-800/60"
+          class="text-base sm:text-lg font-bold text-stone-900 dark:text-stone-100 hover:text-[#ea1c24] dark:hover:text-[#ea1c24] py-2.5 border-b border-stone-200/60 dark:border-stone-800/60 flex items-center justify-between transition-colors"
         >
-          Commercial Projects
+          <span>Commercial Projects</span>
+          <svg class="w-4 h-4 text-stone-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
         </a>
         <a
           routerLink="/contact"
+          routerLinkActive="text-[#ea1c24] dark:text-[#ea1c24] font-black"
           (click)="closeMobileMenu()"
-          class="text-base font-extrabold text-stone-900 dark:text-stone-100 hover:text-[#ea1c24] py-1"
+          class="text-base sm:text-lg font-bold text-stone-900 dark:text-stone-100 hover:text-[#ea1c24] dark:hover:text-[#ea1c24] py-2.5 flex items-center justify-between transition-colors"
         >
-          Contact & Inquiries
+          <span>Contact & Inquiries</span>
+          <svg class="w-4 h-4 text-stone-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
         </a>
       </nav>
 
