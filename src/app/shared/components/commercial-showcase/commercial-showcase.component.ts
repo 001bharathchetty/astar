@@ -40,14 +40,13 @@ import { MatIconModule } from '@angular/material/icon';
 
         <!-- Center Brand Hub Node (Clean Light / White Background, No Dark Box) -->
         <div class="relative z-10 w-24 h-24 rounded-2xl bg-white dark:bg-stone-900 border-2 border-[#ea1c24] shadow-xl flex flex-col items-center justify-center p-2 text-center group cursor-default">
-          <svg class="w-6 h-6 mb-1" viewBox="0 0 25 24" fill="none" aria-hidden="true">
-            <path d="M 9.4,3.0 L 18.33,21.0 L 13.69,21.0 L 12.38,17.73 L 6.43,17.73 L 5.12,21.0 L 0.5,21.0 Z M 9.4,10.28 L 7.67,14.61 L 11.13,14.61 Z"
-                  class="fill-[#0F172A] dark:fill-white" fill-rule="evenodd" />
-            <path d="M 20.6,3.0 L 19.75,9.95 L 24.1,9.95 L 18.35,21.0 L 19.15,13.95 L 15.0,13.95 Z"
-                  fill="#EA1C24" />
+          <svg class="w-7 h-7 mb-1" viewBox="0 0 1254 1254" fill="none" aria-hidden="true">
+            <path d="M 300 163 L 374 163 L 476 462 L 382 462 L 366 409 L 227 409 L 193 462 L 100 462 Z M 337 250 L 353 350 L 264 350 Z" class="fill-[#0F172A] dark:fill-white" fill-rule="evenodd" />
+            <path d="M 808 37 L 364 736 L 657 736 L 474 1230 L 1002 577 L 691 577 Z" fill="#EA1C24" />
+            <path d="M 830 874 L 1069 874 L 1050 942 L 908 942 L 896 986 L 1014 986 L 996 1050 L 878 1050 L 866 1094 L 1022 1094 L 1004 1159 L 748 1159 Z" class="fill-[#0F172A] dark:fill-white" />
           </svg>
-          <span class="font-brand font-black text-xs sm:text-sm tracking-tight leading-tight text-stone-950 dark:text-white">AStar</span>
-          <span class="text-[8px] font-brand font-bold text-[#ea1c24] tracking-[0.16em] uppercase leading-none mt-0.5">Electricals</span>
+          <span class="font-brand font-black text-xs sm:text-sm tracking-tight leading-tight text-stone-950 dark:text-white">A<span class="text-[#ea1c24]">STAR</span></span>
+          <span class="text-[8px] font-brand font-bold text-stone-800 dark:text-stone-200 tracking-[0.16em] uppercase leading-none mt-0.5">ELECTRICALS</span>
         </div>
 
         <!-- Node 1: Top (Workplaces) -->
