@@ -1,7 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 24" width="32" height="24" fill="none">
-  <!-- Wide-Base Sharp Pointed "A" (Midnight Blue, No flat top) -->
-  <path d="M 8,3 L 15,21 L 11.8,21 L 10.1,16.2 L 5.9,16.2 L 4.2,21 L 1,21 Z M 8,7.5 L 9.4,13.8 L 6.6,13.8 Z" fill="#0F172A" />
-
-  <!-- Distinct Authentic Red Thunderbolt with Generous Spacing -->
-  <path d="M24 21h-1l1-7h-3.5c-.88 0-.33-.75-.31-.78C20.48 10.94 22.42 7.54 25 3h1l-1 7h3.5c.49 0 .56.33.47.51l-.07.15C24.96 17.55 24 21 24 21z" fill="#ea1c24" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 24" width="25" height="24" fill="none" aria-hidden="true">
+  <style>
+    .astar-a { fill: #0F172A; }
+    @media (prefers-color-scheme: dark) {
+      .astar-a { fill: #ffffff; }
+    }
+  </style>
+  <path class="astar-a" d="M 9.4,3.0 L 18.33,21.0 L 13.69,21.0 L 12.38,17.73 L 6.43,17.73 L 5.12,21.0 L 0.5,21.0 Z M 9.4,10.28 L 7.67,14.61 L 11.13,14.61 Z"
+        fill-rule="evenodd" />
+  <path d="M 20.6,3.0 L 19.75,9.95 L 24.1,9.95 L 18.35,21.0 L 19.15,13.95 L 15.0,13.95 Z"
+        fill="#EA1C24" />
 </svg>

@@ -4,45 +4,114 @@
   <section class="relative pt-12 pb-16 sm:pt-16 sm:pb-20 lg:pt-20 lg:pb-24 border-b border-stone-200 dark:border-stone-800" aria-labelledby="projects-title">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="max-w-3xl">
-        <!-- Eyebrow Badge -->
-        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-stone-200/90 dark:bg-stone-800 text-stone-900 dark:text-stone-100 text-xs font-bold uppercase tracking-wider mb-5">
-          <span class="w-2 h-2 rounded-full bg-[#ea1c24] animate-pulse"></span>
-          <span>{{ content.projects.badge }}</span>
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        <!-- Left Hero Narrative (7 cols on lg) -->
+        <div class="lg:col-span-7 max-w-3xl">
+          <!-- Eyebrow Badge -->
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-stone-200/90 dark:bg-stone-800 text-stone-900 dark:text-stone-100 text-xs font-bold uppercase tracking-wider mb-5">
+            <span class="w-2 h-2 rounded-full bg-[#ea1c24] animate-pulse"></span>
+            <span>{{ content.projects.badge }}</span>
+          </div>
+
+          <!-- Big Bad Blunt Bold H1 -->
+          <h1 id="projects-title" class="text-3xl sm:text-4xl lg:text-5xl font-bold text-stone-900 dark:text-stone-50 font-heading tracking-tight leading-tight mb-4">
+            Commercial Projects. <span class="text-[#ea1c24]">Clearly Documented.</span>
+          </h1>
+
+          <!-- H2 Subtitle -->
+          <h2 class="text-lg sm:text-xl font-medium text-stone-700 dark:text-stone-300 font-heading mb-6">
+            {{ content.projects.subtitle }}
+          </h2>
+
+          <!-- Editorial Lead with Red Accent Border -->
+          <div class="space-y-4 text-base sm:text-lg text-stone-700 dark:text-stone-300 leading-relaxed pl-4 border-l-2 border-[#ea1c24]">
+            <p>{{ content.projects.lead }}</p>
+          </div>
+
+          <!-- Hero CTAs -->
+          <div class="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+            <button
+              type="button"
+              (click)="openInquiryDialog()"
+              mat-flat-button
+              class="!bg-[#ea1c24] hover:!bg-[#b91c1c] !text-white !font-semibold !px-8 !py-3.5 !rounded-full text-base shadow-md transition text-center"
+            >
+              {{ content.projects.cta.actionText }} &rarr;
+            </button>
+            <a
+              routerLink="/services"
+              mat-stroked-button
+              class="!border-stone-300 dark:!border-stone-700 hover:!bg-stone-200 dark:hover:!bg-stone-800 !text-stone-900 dark:text-stone-100 !font-semibold !px-6 !py-3.5 !rounded-full text-sm text-center transition"
+            >
+              Review Service Scopes
+            </a>
+          </div>
         </div>
 
-        <!-- Big Bad Blunt Bold H1 -->
-        <h1 id="projects-title" class="text-3xl sm:text-4xl lg:text-5xl font-bold text-stone-900 dark:text-stone-50 font-heading tracking-tight leading-tight mb-4">
-          Commercial Projects. <span class="text-[#ea1c24]">Clearly Documented.</span>
-        </h1>
+        <!-- Right Hero Visual: Large Architecture Icon & Commercial Sector Portfolio Card -->
+        <div class="mt-8 lg:mt-0 lg:col-span-5 flex justify-center lg:justify-end">
+          <div class="relative w-full max-w-[360px] sm:max-w-[420px] lg:max-w-[440px] rounded-3xl p-6 sm:p-8 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-xl flex flex-col justify-between card-hover group">
+            
+            <!-- Top Eyebrow -->
+            <div class="flex items-center justify-between text-[11px] font-mono uppercase tracking-wider text-stone-700 dark:text-stone-300 border-b border-stone-200 dark:border-stone-800 pb-3">
+              <span class="flex items-center gap-1.5 font-bold text-stone-900 dark:text-stone-100">
+                <span class="w-2 h-2 rounded-full bg-[#ea1c24] animate-ping"></span>
+                <span>Commercial Typologies</span>
+              </span>
+              <span class="text-[#ea1c24] font-bold">3 Sectors</span>
+            </div>
 
-        <!-- H2 Subtitle -->
-        <h2 class="text-lg sm:text-xl font-medium text-stone-700 dark:text-stone-300 font-heading mb-6">
-          {{ content.projects.subtitle }}
-        </h2>
+            <!-- Central Hero Graphic: Large Domain Icon + Sector Matrix -->
+            <div class="my-6 relative py-4 flex flex-col items-center justify-center">
+              
+              <!-- Blueprint Grid Vectors -->
+              <svg class="absolute inset-0 w-full h-full pointer-events-none stroke-stone-200 dark:stroke-stone-800" viewBox="0 0 280 200" fill="none">
+                <rect x="30" y="20" width="220" height="160" rx="16" stroke-dasharray="4 4" stroke-width="1.2" class="opacity-50" />
+                <circle cx="140" cy="100" r="70" stroke-width="1" class="opacity-40" />
+                <line x1="140" y1="20" x2="140" y2="180" stroke-width="1" class="stroke-stone-300 dark:stroke-stone-700 stroke-dasharray-2 opacity-30" />
+              </svg>
 
-        <!-- Editorial Lead with Red Accent Border -->
-        <div class="space-y-4 text-base sm:text-lg text-stone-700 dark:text-stone-300 leading-relaxed pl-4 border-l-2 border-[#ea1c24]">
-          <p>{{ content.projects.lead }}</p>
-        </div>
+              <!-- Central Large Icon Hub -->
+              <div class="relative z-10 w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-stone-50 dark:bg-stone-800 border-2 border-[#ea1c24] shadow-xl flex items-center justify-center group-hover:scale-105 transition-transform">
+                <mat-icon class="!w-10 !h-10 !text-[40px] sm:!w-12 sm:!h-12 sm:!text-[48px] text-[#ea1c24]">
+                  domain
+                </mat-icon>
+              </div>
 
-        <!-- Hero CTAs -->
-        <div class="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-          <button
-            type="button"
-            (click)="openInquiryDialog()"
-            mat-flat-button
-            class="!bg-[#ea1c24] hover:!bg-[#b91c1c] !text-white !font-semibold !px-8 !py-3.5 !rounded-full text-base shadow-md transition text-center"
-          >
-            {{ content.projects.cta.actionText }} &rarr;
-          </button>
-          <a
-            routerLink="/services"
-            mat-stroked-button
-            class="!border-stone-300 dark:!border-stone-700 hover:!bg-stone-200 dark:hover:!bg-stone-800 !text-stone-900 dark:text-stone-100 !font-semibold !px-6 !py-3.5 !rounded-full text-sm text-center transition"
-          >
-            Review Service Scopes
-          </a>
+              <!-- Sector Pillars Stack -->
+              <div class="mt-5 space-y-2 w-full z-10">
+                <div class="px-3.5 py-2 rounded-xl bg-stone-50 dark:bg-stone-800/90 border border-stone-200 dark:border-stone-700 flex items-center justify-between">
+                  <div class="flex items-center gap-2">
+                    <mat-icon class="!w-4 !h-4 !text-base text-[#ea1c24]">apartment</mat-icon>
+                    <span class="text-xs font-semibold text-stone-900 dark:text-stone-100">Workplaces & Corporate Offices</span>
+                  </div>
+                  <span class="text-[9.5px] font-mono text-stone-500 font-bold">01 / CORE</span>
+                </div>
+                <div class="px-3.5 py-2 rounded-xl bg-stone-50 dark:bg-stone-800/90 border border-stone-200 dark:border-stone-700 flex items-center justify-between">
+                  <div class="flex items-center gap-2">
+                    <mat-icon class="!w-4 !h-4 !text-base text-[#ea1c24]">storefront</mat-icon>
+                    <span class="text-xs font-semibold text-stone-900 dark:text-stone-100">Retail Showrooms & Display Spaces</span>
+                  </div>
+                  <span class="text-[9.5px] font-mono text-stone-500 font-bold">02 / CORE</span>
+                </div>
+                <div class="px-3.5 py-2 rounded-xl bg-stone-50 dark:bg-stone-800/90 border border-stone-200 dark:border-stone-700 flex items-center justify-between">
+                  <div class="flex items-center gap-2">
+                    <mat-icon class="!w-4 !h-4 !text-base text-[#ea1c24]">hub</mat-icon>
+                    <span class="text-xs font-semibold text-stone-900 dark:text-stone-100">Commercial Developments & Facilities</span>
+                  </div>
+                  <span class="text-[9.5px] font-mono text-stone-500 font-bold">03 / CORE</span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Bottom Caption -->
+            <div class="w-full pt-3 border-t border-stone-200 dark:border-stone-800 flex items-center justify-between text-[11px] font-mono text-stone-700 dark:text-stone-300">
+              <span class="font-bold text-stone-900 dark:text-stone-100">Regional Footprint:</span>
+              <span class="text-[#ea1c24] font-semibold">Bengaluru · Chennai · Hyderabad</span>
+            </div>
+
+          </div>
         </div>
       </div>
 

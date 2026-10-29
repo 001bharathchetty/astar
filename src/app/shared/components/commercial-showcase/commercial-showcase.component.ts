@@ -38,10 +38,16 @@ import { MatIconModule } from '@angular/material/icon';
           <circle cx="160" cy="160" r="42" class="fill-[#ea1c24]/10 dark:fill-[#ea1c24]/15 animate-ping opacity-30" />
         </svg>
 
-        <!-- Center Brand Hub Node (Red, Black, White) -->
-        <div class="relative z-10 w-24 h-24 rounded-2xl bg-black text-white border-2 border-[#ea1c24] shadow-2xl flex flex-col items-center justify-center p-2 text-center group cursor-default">
-          <span class="font-brand font-black text-sm tracking-tight leading-tight text-white">AStar</span>
-          <span class="text-[8.5px] font-brand font-bold text-[#ea1c24] tracking-[0.16em] uppercase leading-none mt-0.5">Electricals</span>
+        <!-- Center Brand Hub Node (Clean Light / White Background, No Dark Box) -->
+        <div class="relative z-10 w-24 h-24 rounded-2xl bg-white dark:bg-stone-900 border-2 border-[#ea1c24] shadow-xl flex flex-col items-center justify-center p-2 text-center group cursor-default">
+          <svg class="w-6 h-6 mb-1" viewBox="0 0 25 24" fill="none" aria-hidden="true">
+            <path d="M 9.4,3.0 L 18.33,21.0 L 13.69,21.0 L 12.38,17.73 L 6.43,17.73 L 5.12,21.0 L 0.5,21.0 Z M 9.4,10.28 L 7.67,14.61 L 11.13,14.61 Z"
+                  class="fill-[#0F172A] dark:fill-white" fill-rule="evenodd" />
+            <path d="M 20.6,3.0 L 19.75,9.95 L 24.1,9.95 L 18.35,21.0 L 19.15,13.95 L 15.0,13.95 Z"
+                  fill="#EA1C24" />
+          </svg>
+          <span class="font-brand font-black text-xs sm:text-sm tracking-tight leading-tight text-stone-950 dark:text-white">AStar</span>
+          <span class="text-[8px] font-brand font-bold text-[#ea1c24] tracking-[0.16em] uppercase leading-none mt-0.5">Electricals</span>
         </div>
 
         <!-- Node 1: Top (Workplaces) -->

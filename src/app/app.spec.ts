@@ -4,14 +4,15 @@ import { App } from './app';
 import { BusinessService } from './core/services/business.service';
 import { ThemeService } from './core/services/theme.service';
 import { HomePageComponent } from './pages/home/home-page.component';
+import { FooterComponent } from './shared/components/footer/footer.component';
 
-describe('ASTAR Electricals Application Tests', () => {
+describe('AStar Electricals Application Tests', () => {
   let businessService: BusinessService;
   let themeService: ThemeService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [App, HomePageComponent],
+      imports: [App, HomePageComponent, FooterComponent],
       providers: [provideRouter([])]
     }).compileComponents();
 
@@ -70,27 +71,33 @@ describe('ASTAR Electricals Application Tests', () => {
       expect(compiled.querySelector('h1')?.textContent).toContain('Commercial Spaces');
     });
 
+    it('should display brand introduction and markets', () => {
+      const compiled = fixture.nativeElement as HTMLElement;
+      expect(compiled.textContent).toContain('Bengaluru · Chennai · Hyderabad');
+      expect(compiled.textContent).toContain('AStar Electricals');
+    });
+  });
+
+  describe('FooterComponent', () => {
+    let fixture: ComponentFixture<FooterComponent>;
+    let component: FooterComponent;
+
+    beforeEach(() => {
+      fixture = TestBed.createComponent(FooterComponent);
+      component = fixture.componentInstance;
+      fixture.detectChanges();
+    });
+
     it('should display phone link matching business details', () => {
       const compiled = fixture.nativeElement as HTMLElement;
       const phoneLink = compiled.querySelector('a[href="tel:+919880057744"]');
       expect(phoneLink).toBeTruthy();
-      expect(phoneLink?.textContent).toContain('+91 9880057744');
+      expect(phoneLink?.textContent).toContain('+91 98800 57744');
     });
 
-    it('should display GSTIN and support copy to clipboard', async () => {
+    it('should display GSTIN', () => {
       const compiled = fixture.nativeElement as HTMLElement;
       expect(compiled.textContent).toContain('29ACPFA5825L1ZR');
-
-      const writeTextMock = vi.fn().mockResolvedValue(undefined);
-      Object.assign(navigator, {
-        clipboard: {
-          writeText: writeTextMock
-        }
-      });
-
-      await component.copyGstin();
-      expect(writeTextMock).toHaveBeenCalledWith('29ACPFA5825L1ZR');
-      expect(component.copiedGstin()).toBe(true);
     });
 
     it('should display address with landmark', () => {
