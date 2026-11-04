@@ -60,36 +60,54 @@
               </div>
 
               <!-- Direct Channels Stack -->
-              <div class="mt-5 space-y-2 w-full z-10">
+              <div class="mt-4 space-y-2 w-full z-10">
                 <a
                   [href]="'tel:' + content.brand.phoneRaw"
-                  class="px-3.5 py-2 rounded-xl bg-stone-50 hover:bg-stone-100 dark:bg-stone-800/90 dark:hover:bg-stone-800 border border-stone-200 dark:border-stone-700 flex items-center justify-between transition-colors block"
+                  class="px-3.5 py-2 rounded-xl bg-stone-50 hover:bg-stone-100 dark:bg-stone-800/90 dark:hover:bg-stone-750 border border-stone-200 dark:border-stone-700 flex items-center justify-between pill-hover transition-all block group/pill"
                 >
                   <div class="flex items-center gap-2">
-                    <mat-icon class="!w-4 !h-4 !text-base text-[#ea1c24]">call</mat-icon>
+                    <mat-icon class="!w-4 !h-4 !text-base text-[#ea1c24] group-hover/pill:scale-110 transition-transform">call</mat-icon>
                     <span class="text-xs font-semibold text-stone-900 dark:text-stone-100">{{ content.brand.phone }}</span>
                   </div>
                   <span class="text-[9.5px] font-mono text-[#ea1c24] font-bold">CALL DIRECT</span>
                 </a>
+
                 <a
                   [href]="content.brand.whatsappUrl"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="px-3.5 py-2 rounded-xl bg-stone-50 hover:bg-stone-100 dark:bg-stone-800/90 dark:hover:bg-stone-800 border border-stone-200 dark:border-stone-700 flex items-center justify-between transition-colors block"
+                  class="px-3.5 py-2 rounded-xl bg-stone-50 hover:bg-stone-100 dark:bg-stone-800/90 dark:hover:bg-stone-750 border border-stone-200 dark:border-stone-700 flex items-center justify-between pill-hover transition-all block group/pill"
                 >
                   <div class="flex items-center gap-2">
-                    <mat-icon class="!w-4 !h-4 !text-base text-emerald-600">chat</mat-icon>
+                    <mat-icon class="!w-4 !h-4 !text-base text-emerald-600 group-hover/pill:scale-110 transition-transform">chat</mat-icon>
                     <span class="text-xs font-semibold text-stone-900 dark:text-stone-100">WhatsApp Commercial Inquiry</span>
                   </div>
                   <span class="text-[9.5px] font-mono text-emerald-600 font-bold">CHAT INSTANT</span>
                 </a>
-                <div class="px-3.5 py-2 rounded-xl bg-stone-50 dark:bg-stone-800/90 border border-stone-200 dark:border-stone-700 flex items-center justify-between">
+
+                <a
+                  [href]="'mailto:' + content.brand.email"
+                  class="px-3.5 py-2 rounded-xl bg-stone-50 hover:bg-stone-100 dark:bg-stone-800/90 dark:hover:bg-stone-750 border border-stone-200 dark:border-stone-700 flex items-center justify-between pill-hover transition-all block group/pill"
+                >
                   <div class="flex items-center gap-2">
-                    <mat-icon class="!w-4 !h-4 !text-base text-stone-600 dark:text-stone-300">location_on</mat-icon>
+                    <mat-icon class="!w-4 !h-4 !text-base text-[#ea1c24] group-hover/pill:scale-110 transition-transform">mail</mat-icon>
+                    <span class="text-xs font-semibold font-mono text-stone-900 dark:text-stone-100">{{ content.brand.email }}</span>
+                  </div>
+                  <span class="text-[9.5px] font-mono text-[#ea1c24] font-bold">EMAIL INBOX</span>
+                </a>
+
+                <a
+                  [href]="content.brand.googleMapsUrl"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="px-3.5 py-2 rounded-xl bg-stone-50 hover:bg-stone-100 dark:bg-stone-800/90 dark:hover:bg-stone-750 border border-stone-200 dark:border-stone-700 flex items-center justify-between pill-hover transition-all block group/pill"
+                >
+                  <div class="flex items-center gap-2">
+                    <mat-icon class="!w-4 !h-4 !text-base text-stone-600 dark:text-stone-300 group-hover/pill:text-[#ea1c24] group-hover/pill:scale-110 transition-all">location_on</mat-icon>
                     <span class="text-xs font-semibold text-stone-900 dark:text-stone-100">Bengaluru Head Office</span>
                   </div>
-                  <span class="text-[9.5px] font-mono text-stone-500 font-bold">{{ content.brand.address.pincode }}</span>
-                </div>
+                  <span class="text-[9.5px] font-mono text-stone-500 font-bold group-hover/pill:text-[#ea1c24] transition-colors">{{ content.brand.address.pincode }}</span>
+                </a>
               </div>
 
             </div>
@@ -260,7 +278,7 @@
             </div>
 
             <!-- Markets Served Badge -->
-            <div class="p-4 rounded-2xl bg-stone-100 dark:bg-stone-900/80 border border-stone-200 dark:border-stone-800 flex items-center gap-3">
+            <div class="p-4 rounded-2xl bg-stone-100 dark:bg-stone-900/80 border border-stone-200 dark:border-stone-800 flex items-center gap-3 card-hover cursor-default">
               <mat-icon class="text-[#ea1c24]">hub</mat-icon>
               <div class="text-xs font-mono">
                 <span class="text-stone-500 dark:text-stone-400 block">Primary Markets</span>
@@ -274,7 +292,7 @@
 
         <!-- Right Column: Interactive Commercial Inquiry Form -->
         <div class="lg:col-span-7">
-          <div class="p-8 sm:p-10 rounded-3xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-xl">
+          <div class="p-8 sm:p-10 rounded-3xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-xl transition-all duration-300 hover:shadow-2xl hover:border-stone-300 dark:hover:border-stone-700">
             
             <div class="mb-6">
               <span class="text-xs font-mono font-bold tracking-widest text-[#ea1c24] uppercase block mb-1">

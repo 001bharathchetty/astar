@@ -39,7 +39,7 @@ import { MatIconModule } from '@angular/material/icon';
         </svg>
 
         <!-- Center Brand Hub Node (Clean Light / White Background, No Dark Box) -->
-        <div class="relative z-10 w-24 h-24 rounded-2xl bg-white dark:bg-stone-900 border-2 border-[#ea1c24] shadow-xl flex flex-col items-center justify-center p-2 text-center group cursor-default">
+        <div class="relative z-10 w-24 h-24 rounded-2xl bg-white dark:bg-stone-900 border-2 border-[#ea1c24] shadow-xl flex flex-col items-center justify-center p-2 text-center group cursor-default transition-all duration-300 hover:scale-105 hover:shadow-2xl">
           <svg class="w-7 h-7 mb-1" viewBox="0 0 1254 1254" fill="none" aria-hidden="true">
             <path d="M 300 163 L 374 163 L 476 462 L 382 462 L 366 409 L 227 409 L 193 462 L 100 462 Z M 337 250 L 353 350 L 264 350 Z" class="fill-[#0F172A] dark:fill-white" fill-rule="evenodd" />
             <path d="M 808 37 L 364 736 L 657 736 L 474 1230 L 1002 577 L 691 577 Z" fill="#EA1C24" />
@@ -51,7 +51,7 @@ import { MatIconModule } from '@angular/material/icon';
 
         <!-- Node 1: Top (Workplaces) -->
         <div class="absolute top-2 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center">
-          <div class="px-3 py-1.5 rounded-xl bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-700 shadow-md text-center hover:scale-105 transition-transform">
+          <div class="px-3 py-1.5 rounded-xl bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-700 shadow-md text-center pill-hover cursor-default">
             <span class="text-[10px] font-mono font-bold text-[#ea1c24] block">01 / WORKPLACES</span>
             <span class="text-xs font-semibold text-stone-900 dark:text-stone-100 font-heading">Offices & Tech</span>
           </div>
@@ -59,7 +59,7 @@ import { MatIconModule } from '@angular/material/icon';
 
         <!-- Node 2: Bottom-Left (Retail) -->
         <div class="absolute bottom-4 left-0 z-20 flex flex-col items-center">
-          <div class="px-3 py-1.5 rounded-xl bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-700 shadow-md text-center hover:scale-105 transition-transform">
+          <div class="px-3 py-1.5 rounded-xl bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-700 shadow-md text-center pill-hover cursor-default">
             <span class="text-[10px] font-mono font-bold text-stone-700 dark:text-stone-300 block">02 / RETAIL</span>
             <span class="text-xs font-semibold text-stone-900 dark:text-stone-100 font-heading">Showrooms</span>
           </div>
@@ -67,7 +67,7 @@ import { MatIconModule } from '@angular/material/icon';
 
         <!-- Node 3: Bottom-Right (Facilities) -->
         <div class="absolute bottom-4 right-0 z-20 flex flex-col items-center">
-          <div class="px-3 py-1.5 rounded-xl bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-700 shadow-md text-center hover:scale-105 transition-transform">
+          <div class="px-3 py-1.5 rounded-xl bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-700 shadow-md text-center pill-hover cursor-default">
             <span class="text-[10px] font-mono font-bold text-stone-700 dark:text-stone-300 block">03 / FACILITIES</span>
             <span class="text-xs font-semibold text-stone-900 dark:text-stone-100 font-heading">Developments</span>
           </div>
