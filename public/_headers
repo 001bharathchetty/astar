@@ -35,3 +35,9 @@
 /contents.md
   Cache-Control: public, max-age=86400, stale-while-revalidate=3600
   Content-Type: text/markdown; charset=UTF-8
+
+# Agentic Resource Discovery Manifest (ARD)
+/.well-known/ard.json
+  Cache-Control: public, max-age=86400, stale-while-revalidate=3600
+  Content-Type: application/json; charset=UTF-8
+  Access-Control-Allow-Origin: *

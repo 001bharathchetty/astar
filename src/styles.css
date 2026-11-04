@@ -7,8 +7,9 @@
   --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-body: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-brand: 'Jost', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --color-brand-red: #ea1c24;
+  --color-brand-red: #d3121a;
   --color-brand-red-dark: #b91c1c;
+  --color-brand-red-light: #f87171;
   --color-brand-black: #0a0a0a;
 }
 
@@ -17,7 +18,8 @@
     --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     --font-brand: 'Jost', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     --font-body: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    --color-brand-red: #ea1c24;
+    --color-brand-red: #d3121a;
+    --color-brand-red-light: #f87171;
     --color-brand-black: #0a0a0a;
   }
 
@@ -52,11 +54,11 @@
   .card-hover:hover {
     transform: translateY(-6px);
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
-    border-color: rgba(234, 28, 36, 0.4);
+    border-color: rgba(211, 18, 26, 0.4);
   }
   .dark .card-hover:hover {
     box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.6);
-    border-color: rgba(234, 28, 36, 0.5);
+    border-color: rgba(248, 113, 113, 0.5);
   }
 
   /* Interactive Pill / Micro-Card Hover Animation */
@@ -66,17 +68,17 @@
   .pill-hover:hover {
     transform: translateY(-2px) scale(1.01);
     box-shadow: 0 6px 12px -2px rgba(0, 0, 0, 0.06), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
-    border-color: rgba(234, 28, 36, 0.5);
+    border-color: rgba(211, 18, 26, 0.5);
   }
   .dark .pill-hover:hover {
     box-shadow: 0 6px 16px -4px rgba(0, 0, 0, 0.5);
-    border-color: rgba(234, 28, 36, 0.6);
+    border-color: rgba(248, 113, 113, 0.6);
   }
 }
 
 /* Strict Accessibility: High-contrast keyboard focus indicators */
 *:focus-visible {
-  outline: 3px solid #ea1c24 !important;
+  outline: 3px solid #d3121a !important;
   outline-offset: 3px !important;
   border-radius: 4px;
 }
@@ -241,20 +243,20 @@ html.dark .mat-mdc-dialog-container .mdc-dialog__surface {
   background-color: rgba(10, 10, 10, 0.75) !important;
 }
 
-/* AStar Route Transition Page Spinner (Electric Red #ea1c24) */
+/* AStar Route Transition Page Spinner (Electric Red #d3121a) */
 .astar-page-spinner {
-  --mat-progress-spinner-active-indicator-color: #ea1c24 !important;
+  --mat-progress-spinner-active-indicator-color: #d3121a !important;
 }
 
 .astar-page-spinner circle {
-  stroke: #ea1c24 !important;
+  stroke: #d3121a !important;
 }
 
 html.dark .astar-page-spinner {
-  --mat-progress-spinner-active-indicator-color: #ea1c24 !important;
+  --mat-progress-spinner-active-indicator-color: #f87171 !important;
 }
 
 html.dark .astar-page-spinner circle {
-  stroke: #ea1c24 !important;
+  stroke: #f87171 !important;
 }
 

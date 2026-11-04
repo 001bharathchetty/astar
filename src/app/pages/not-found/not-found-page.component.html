@@ -1,11 +1,11 @@
 <div class="min-h-[75vh] flex items-center justify-center py-16 sm:py-24 px-4 sm:px-6 lg:px-8">
   <div class="max-w-xl w-full text-center space-y-6">
     
-    <div class="w-16 h-16 rounded-2xl bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 border border-stone-200 dark:border-stone-700 flex items-center justify-center mx-auto shadow-sm transition-all duration-300 hover:scale-110 hover:text-[#ea1c24] hover:border-[#ea1c24]/30">
+    <div class="w-16 h-16 rounded-2xl bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 border border-stone-200 dark:border-stone-700 flex items-center justify-center mx-auto shadow-sm transition-all duration-300 hover:scale-110 hover:text-[#d3121a] dark:hover:text-red-400 hover:border-[#d3121a]/30 dark:hover:border-red-400/30">
       <mat-icon class="!text-3xl leading-none">power_off</mat-icon>
     </div>
 
-    <span class="text-xs font-mono font-bold uppercase tracking-widest text-[#ea1c24] block">
+    <span class="text-xs font-mono font-bold uppercase tracking-widest text-[#d3121a] dark:text-red-400 block">
       Error 404 — Circuit Disconnected
     </span>
 
@@ -21,7 +21,7 @@
       <!-- Attempted Path Badge -->
       <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-stone-200/80 dark:bg-stone-800/80 border border-stone-300/60 dark:border-stone-700/60 text-xs font-mono text-stone-700 dark:text-stone-300 max-w-full overflow-hidden">
         <span class="text-stone-500 dark:text-stone-400">Route:</span>
-        <code class="font-bold text-[#ea1c24] truncate select-all">{{ attemptedPath() }}</code>
+        <code class="font-bold text-[#d3121a] dark:text-red-400 truncate select-all">{{ attemptedPath() }}</code>
       </div>
     </div>
 
@@ -31,7 +31,7 @@
       <a
         routerLink="/"
         mat-flat-button
-        class="!bg-[#ea1c24] hover:!bg-[#b91c1c] !text-white !font-semibold !px-6 !py-3.5 !rounded-full text-sm shadow-md transition w-full sm:w-auto"
+        class="!bg-[#d3121a] hover:!bg-[#b91c1c] !text-white !font-semibold !px-6 !py-3.5 min-h-[44px] !rounded-full text-sm shadow-md transition w-full sm:w-auto"
       >
         Return to Home &rarr;
       </a>
@@ -40,7 +40,7 @@
       <a
         routerLink="/services"
         mat-stroked-button
-        class="!border-stone-300 dark:!border-stone-600 hover:!bg-stone-200 dark:hover:!bg-stone-800 !text-stone-900 dark:!text-white !font-semibold !px-6 !py-3.5 !rounded-full text-sm transition w-full sm:w-auto"
+        class="!border-stone-300 dark:!border-stone-600 hover:!bg-stone-200 dark:hover:!bg-stone-800 !text-stone-900 dark:!text-white !font-semibold !px-6 !py-3.5 min-h-[44px] !rounded-full text-sm transition w-full sm:w-auto"
       >
         View Capabilities
       </a>
@@ -50,10 +50,10 @@
         routerLink="/contact"
         [queryParams]="contactQueryParams"
         mat-stroked-button
-        class="!border-stone-300 dark:!border-stone-700 hover:!border-[#ea1c24] !text-stone-700 dark:!text-stone-300 hover:!text-[#ea1c24] !font-medium !px-5 !py-3.5 !rounded-full text-sm transition flex items-center justify-center gap-2 w-full sm:w-auto"
+        class="!border-stone-300 dark:!border-stone-700 hover:!border-[#d3121a] dark:hover:!border-red-400 !text-stone-700 dark:!text-stone-300 hover:!text-[#d3121a] dark:hover:!text-red-400 !font-medium !px-5 !py-3.5 min-h-[44px] !rounded-full text-sm transition flex items-center justify-center gap-2 w-full sm:w-auto"
         title="Open contact form with this route prefilled to report a broken link"
       >
-        <mat-icon class="!w-4 !h-4 !text-base leading-none text-[#ea1c24]">flag</mat-icon>
+        <mat-icon class="!w-4 !h-4 !text-base leading-none text-[#d3121a] dark:text-red-400">flag</mat-icon>
         <span>Report Broken Link</span>
       </a>
 
@@ -63,10 +63,10 @@
         (click)="reportQuickly()"
         [disabled]="isReporting() || reported()"
         mat-button
-        class="!text-stone-500 hover:!text-stone-800 dark:!text-stone-400 dark:hover:!text-stone-200 !font-medium text-xs sm:text-sm !px-4 !py-3 transition flex items-center justify-center gap-1.5 disabled:opacity-50 w-full sm:w-auto cursor-pointer"
+        class="!text-stone-500 hover:!text-stone-800 dark:!text-stone-400 dark:hover:!text-stone-200 !font-medium text-xs sm:text-sm !px-4 !py-3 min-h-[44px] transition flex items-center justify-center gap-1.5 disabled:opacity-50 w-full sm:w-auto cursor-pointer"
         [title]="reported() ? 'Report registered' : 'Instantly notify our team about this missing link'"
       >
-        <mat-icon class="!w-4 !h-4 !text-[15px] leading-none text-[#ea1c24]">
+        <mat-icon class="!w-4 !h-4 !text-[15px] leading-none text-[#d3121a] dark:text-red-400">
           {{ reported() ? 'check_circle' : (isReporting() ? 'sync' : 'bolt') }}
         </mat-icon>
         <span>{{ reported() ? 'Report Logged ✓' : (isReporting() ? 'Logging...' : '1-Click Report') }}</span>

@@ -29,9 +29,9 @@ import { PageLoaderComponent } from './shared/components/page-loader/page-loader
 
     <div class="min-h-screen flex flex-col bg-stone-50 dark:bg-stone-950 text-stone-900 dark:text-stone-100 transition-colors">
       <app-header />
-      <div class="flex-1">
+      <main id="main-content" class="flex-1">
         <router-outlet />
-      </div>
+      </main>
       <app-footer />
       <app-floating-whatsapp />
     </div>

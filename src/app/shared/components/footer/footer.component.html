@@ -15,7 +15,7 @@
           </div>
           <div class="flex flex-col justify-center leading-none">
             <span class="text-2xl font-black text-white tracking-tight font-brand leading-none">
-              A<span class="text-[#ea1c24]">STAR</span>
+              A<span class="text-red-400">STAR</span>
             </span>
             <span class="text-[11px] font-bold tracking-[0.22em] uppercase text-stone-200 leading-none font-brand mt-1">
               ELECTRICALS
@@ -57,43 +57,46 @@
         </h3>
         <address class="not-italic text-xs sm:text-sm text-stone-300 leading-relaxed space-y-1">
           <p class="text-white font-semibold">{{ content.brand.address.floor }}</p>
-          <p class="text-[#ea1c24] font-medium">{{ content.brand.address.landmark }}</p>
+          <p class="text-red-400 font-medium">{{ content.brand.address.landmark }}</p>
           <p>{{ content.brand.address.area }}</p>
           <p>{{ content.brand.address.city }}, {{ content.brand.address.state }} – {{ content.brand.address.pincode }}, {{ content.brand.address.country }}</p>
         </address>
 
-        <div class="space-y-1.5 pt-1 border-t border-stone-800 text-xs">
-          <div class="flex items-center gap-2">
-            <span class="text-stone-300">Call:</span>
+        <div class="space-y-1 pt-2 border-t border-stone-800 text-xs">
+          <div class="flex items-center gap-2 min-h-[44px]">
+            <span class="text-stone-300 w-16 shrink-0 font-medium">Call:</span>
             <a
               [href]="'tel:' + content.brand.phoneRaw"
-              class="font-mono text-white font-bold hover:text-[#ea1c24] transition"
+              [attr.aria-label]="'Call AStar Electricals at ' + content.brand.phone"
+              class="font-mono text-white font-bold hover:text-red-400 transition inline-flex items-center min-h-[44px] py-1 px-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-400 rounded"
             >
               {{ content.brand.phone }}
             </a>
           </div>
-          <div class="flex items-center gap-2">
-            <span class="text-stone-300">WhatsApp:</span>
+          <div class="flex items-center gap-2 min-h-[44px]">
+            <span class="text-stone-300 w-16 shrink-0 font-medium">WhatsApp:</span>
             <a
               [href]="content.brand.whatsappUrl"
               target="_blank"
               rel="noopener noreferrer"
-              class="font-mono text-[#25D366] font-bold hover:underline inline-flex items-center gap-1 transition"
+              [attr.aria-label]="'Chat on WhatsApp with AStar Electricals at ' + content.brand.phone"
+              class="font-mono text-[#25D366] font-bold hover:underline inline-flex items-center gap-1.5 min-h-[44px] py-1 px-1 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 rounded"
             >
               <span>{{ content.brand.phone }}</span>
               <span>&rarr;</span>
             </a>
           </div>
-          <div class="flex items-center gap-2">
-            <span class="text-stone-300">Email:</span>
+          <div class="flex items-center gap-2 min-h-[44px]">
+            <span class="text-stone-300 w-16 shrink-0 font-medium">Email:</span>
             <a
               [href]="'mailto:' + content.brand.email"
-              class="font-mono text-white font-bold hover:text-[#ea1c24] transition"
+              [attr.aria-label]="'Send email to ' + content.brand.email"
+              class="font-mono text-white font-bold hover:text-red-400 transition inline-flex items-center min-h-[44px] py-1 px-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-400 rounded"
             >
               {{ content.brand.email }}
             </a>
           </div>
-          <p class="text-stone-300 font-mono text-[11px]">
+          <p class="text-stone-300 font-mono text-[11px] pt-1">
             {{ content.brand.hours }}
           </p>
         </div>
@@ -114,7 +117,7 @@
             href="https://chintap.com"
             target="_blank"
             rel="noopener noreferrer"
-            class="text-stone-200 hover:text-white font-semibold underline decoration-stone-600 hover:decoration-[#ea1c24] underline-offset-4 transition"
+            class="text-stone-200 hover:text-white font-semibold underline decoration-stone-600 hover:decoration-[#f87171] underline-offset-4 transition"
           >
             Chintap
           </a>

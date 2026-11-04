@@ -11,13 +11,13 @@
           
           <!-- Subtle Tagline Eyebrow Badge -->
           <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-stone-200/90 dark:bg-stone-800 text-stone-900 dark:text-stone-100 text-xs font-bold uppercase tracking-wider mb-5">
-            <span class="w-2 h-2 rounded-full bg-[#ea1c24] animate-pulse"></span>
+            <span class="w-2 h-2 rounded-full bg-[#d3121a] animate-pulse"></span>
             <span>{{ content.home.badge }}</span>
           </div>
 
           <!-- Big Bad Blunt Bold Display H1 -->
           <h1 id="hero-title" class="text-3xl sm:text-4xl lg:text-5xl font-bold text-stone-900 dark:text-stone-50 font-heading tracking-tight leading-tight mb-4">
-            Electrical Expertise for <span class="text-[#ea1c24]">Commercial Spaces.</span>
+            Electrical Expertise for <span class="text-[#d3121a]">Commercial Spaces.</span>
           </h1>
 
           <!-- H2 Subheadline -->
@@ -26,7 +26,7 @@
           </h2>
 
           <!-- Editorial Lead with Red Accent Border -->
-          <div class="space-y-4 text-base sm:text-lg text-stone-700 dark:text-stone-300 leading-relaxed pl-4 border-l-2 border-[#ea1c24]">
+          <div class="space-y-4 text-base sm:text-lg text-stone-700 dark:text-stone-300 leading-relaxed pl-4 border-l-2 border-[#d3121a]">
             <p>
               <span class="font-bold text-stone-950 dark:text-white">AStar Electricals</span> works with commercial property developers, builders, construction companies, and project teams to deliver electrical works aligned with project requirements, specifications, and construction schedules.
             </p>
@@ -38,7 +38,7 @@
               type="button"
               (click)="openInquiryDialog()"
               mat-flat-button
-              class="!bg-[#ea1c24] hover:!bg-[#b91c1c] !text-white !font-semibold !px-8 !py-3.5 !rounded-full text-base shadow-md transition text-center"
+              class="!bg-[#d3121a] hover:!bg-[#b91c1c] !text-white !font-semibold !px-8 !py-3.5 !rounded-full text-base shadow-md transition text-center"
             >
               {{ content.home.hero.primaryCta }} &rarr;
             </button>
@@ -54,7 +54,7 @@
 
           <!-- Market Indicator -->
           <div class="mt-6 flex items-center gap-2 text-xs font-mono font-bold text-stone-700 dark:text-stone-300">
-            <mat-icon class="!w-4 !h-4 !text-base leading-none text-[#ea1c24]">place</mat-icon>
+            <mat-icon class="!w-4 !h-4 !text-base leading-none text-[#d3121a]">place</mat-icon>
             <span>{{ content.home.hero.marketTag }}</span>
           </div>
 
@@ -102,7 +102,7 @@
       
       <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
         <div>
-          <span class="text-xs font-mono font-bold tracking-widest text-[#ea1c24] uppercase block mb-2">
+          <span class="text-xs font-mono font-bold tracking-widest text-[#d3121a] dark:text-[#f87171] uppercase block mb-2">
             {{ content.home.capabilities.eyebrow }}
           </span>
           <h2 id="capabilities-title" class="text-2xl sm:text-3xl lg:text-4xl font-bold font-heading text-stone-900 dark:text-stone-50 tracking-tight">
@@ -111,7 +111,7 @@
         </div>
         <a
           routerLink="/services"
-          class="text-sm font-semibold text-stone-900 dark:text-stone-100 hover:text-[#ea1c24] transition inline-flex items-center gap-1.5"
+          class="text-sm font-semibold text-stone-900 dark:text-stone-100 hover:text-[#d3121a] dark:hover:text-[#f87171] transition inline-flex items-center gap-1.5"
         >
           <span>{{ content.home.capabilities.ctaText }}</span>
           <span>&rarr;</span>
@@ -122,7 +122,7 @@
         @for (cap of content.home.capabilities.items; track cap.title) {
           <article class="group p-8 rounded-3xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-sm card-hover flex flex-col justify-between cursor-pointer">
             <div>
-              <div class="mb-5 text-stone-600 dark:text-stone-400 group-hover:text-[#ea1c24] transition-colors duration-300">
+              <div class="mb-5 text-stone-600 dark:text-stone-400 group-hover:text-[#d3121a] dark:group-hover:text-[#f87171] transition-colors duration-300">
                 <mat-icon class="!text-3xl !w-8 !h-8 leading-none transition-transform duration-300 ease-out group-hover:scale-110 group-hover:-translate-y-1">
                   {{ cap.icon }}
                 </mat-icon>
@@ -140,7 +140,7 @@
         <!-- 6th Tile: Discuss Custom Scope -->
         <article class="p-8 rounded-3xl bg-stone-900 text-white border border-stone-800 shadow-sm card-hover flex flex-col justify-between cursor-pointer">
           <div>
-            <span class="text-xs font-mono uppercase tracking-widest text-[#ea1c24] font-bold block mb-4">
+            <span class="text-xs font-mono uppercase tracking-widest text-red-400 font-bold block mb-4">
               Project Specific
             </span>
             <h3 class="text-lg sm:text-xl font-bold text-white font-heading mb-3 tracking-tight">
@@ -155,7 +155,7 @@
               type="button"
               (click)="openInquiryDialog()"
               mat-flat-button
-              class="!bg-[#ea1c24] hover:!bg-[#b91c1c] !text-white !font-semibold !rounded-full !px-5 !py-2 text-xs"
+              class="!bg-[#d3121a] hover:!bg-[#b91c1c] !text-white !font-semibold !rounded-full !px-5 !py-2 text-xs"
             >
               Discuss Scope &rarr;
             </button>
@@ -171,7 +171,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="max-w-2xl mb-12">
-        <span class="text-xs font-mono font-bold tracking-widest text-[#ea1c24] uppercase block mb-2">
+        <span class="text-xs font-mono font-bold tracking-widest text-[#d3121a] dark:text-[#f87171] uppercase block mb-2">
           {{ content.home.clients.eyebrow }}
         </span>
         <h2 id="clients-title" class="text-2xl sm:text-3xl lg:text-4xl font-bold font-heading text-stone-900 dark:text-stone-50 tracking-tight">
@@ -183,7 +183,7 @@
         @for (group of content.home.clients.groups; track group.title) {
           <div class="group p-7 rounded-3xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-sm card-hover flex flex-col justify-between cursor-pointer">
             <div>
-              <div class="mb-4 text-stone-600 dark:text-stone-400 group-hover:text-[#ea1c24] transition-colors duration-300">
+              <div class="mb-4 text-stone-600 dark:text-stone-400 group-hover:text-[#d3121a] dark:group-hover:text-[#f87171] transition-colors duration-300">
                 <mat-icon class="!text-3xl !w-8 !h-8 leading-none transition-transform duration-300 ease-out group-hover:scale-110 group-hover:-translate-y-1">
                   {{ group.icon }}
                 </mat-icon>
@@ -207,7 +207,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="max-w-2xl mb-12">
-        <span class="text-xs font-mono font-bold tracking-widest text-[#ea1c24] uppercase block mb-2">
+        <span class="text-xs font-mono font-bold tracking-widest text-[#d3121a] dark:text-[#f87171] uppercase block mb-2">
           {{ content.home.approach.eyebrow }}
         </span>
         <h2 id="approach-title" class="text-2xl sm:text-3xl lg:text-4xl font-bold font-heading text-stone-900 dark:text-stone-50 tracking-tight">
@@ -219,7 +219,7 @@
         @for (step of content.home.approach.steps; track step.number) {
           <div class="p-7 rounded-3xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 shadow-sm card-hover flex flex-col justify-between cursor-pointer">
             <div>
-              <span class="font-mono text-xl sm:text-2xl font-bold text-[#ea1c24] block mb-2">
+              <span class="font-mono text-xl sm:text-2xl font-bold text-[#d3121a] dark:text-[#f87171] block mb-2">
                 {{ step.number }}
               </span>
               <h3 class="text-lg sm:text-xl font-bold text-stone-900 dark:text-stone-100 font-heading mb-2">
@@ -241,7 +241,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
         <div class="md:col-span-8 space-y-3">
-          <span class="text-xs font-mono uppercase tracking-widest text-[#ea1c24] font-bold">
+          <span class="text-xs font-mono uppercase tracking-widest text-red-400 font-bold">
             {{ content.home.geography.eyebrow }}
           </span>
           <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold font-heading text-white tracking-tight">
@@ -259,7 +259,7 @@
             type="button"
             (click)="openInquiryDialog()"
             mat-flat-button
-            class="!bg-[#ea1c24] hover:!bg-[#b91c1c] !text-white !font-semibold !px-8 !py-3.5 !rounded-full text-sm shadow-md"
+            class="!bg-[#d3121a] hover:!bg-[#b91c1c] !text-white !font-semibold !px-8 !py-3.5 !rounded-full text-sm shadow-md"
           >
             {{ content.home.closingCta.actionText }} &rarr;
           </button>

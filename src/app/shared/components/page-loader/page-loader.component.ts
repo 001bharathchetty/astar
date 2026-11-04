@@ -14,7 +14,7 @@ import { LoadingService } from '../../../core/services/loading.service';
         class="fixed top-0 left-0 right-0 z-[100] h-[3px] bg-stone-200/50 dark:bg-stone-800/50 overflow-hidden pointer-events-none"
         aria-hidden="true"
       >
-        <div class="h-full bg-[#ea1c24] shadow-[0_0_10px_#ea1c24] astar-progress-bar"></div>
+        <div class="h-full bg-[#d3121a] shadow-[0_0_10px_#d3121a] astar-progress-bar"></div>
       </div>
 
       <!-- Centered Frosted Loading Overlay -->

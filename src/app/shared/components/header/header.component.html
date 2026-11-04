@@ -6,7 +6,7 @@
     <a
       routerLink="/"
       (click)="closeMobileMenu()"
-      class="flex items-center gap-2.5 sm:gap-3.5 group focus:outline-none focus:ring-2 focus:ring-[#ea1c24] rounded-xl p-1 shrink-0"
+      class="flex items-center gap-2.5 sm:gap-3.5 group focus:outline-none focus:ring-2 focus:ring-[#d3121a] rounded-xl p-1 shrink-0"
       aria-label="AStar Electricals — Home"
     >
       <!-- AStar Official Emblem: Slanted A & E with Lightning Bolt (Balanced, Unchopped) -->
@@ -20,7 +20,7 @@
 
       <div class="flex flex-col justify-center leading-none">
         <span class="font-brand font-black text-lg sm:text-2xl tracking-tight leading-none text-stone-950 dark:text-white">
-          A<span class="text-[#ea1c24]">STAR</span>
+          A<span class="text-[#d3121a]">STAR</span>
         </span>
         <span class="text-[9px] sm:text-[11px] font-bold tracking-[0.22em] uppercase text-stone-900 dark:text-stone-100 leading-none font-brand mt-1">
           ELECTRICALS
@@ -33,35 +33,35 @@
       <a
         routerLink="/"
         [routerLinkActiveOptions]="{ exact: true }"
-        routerLinkActive="text-stone-950 dark:text-white font-bold border-b-2 border-[#ea1c24]"
+        routerLinkActive="text-stone-950 dark:text-white font-bold border-b-2 border-[#d3121a]"
         class="text-sm lg:text-[15px] xl:text-base font-semibold text-stone-700 dark:text-stone-300 hover:text-stone-950 dark:hover:text-white pb-1 transition whitespace-nowrap"
       >
         Home
       </a>
       <a
         routerLink="/about"
-        routerLinkActive="text-stone-950 dark:text-white font-bold border-b-2 border-[#ea1c24]"
+        routerLinkActive="text-stone-950 dark:text-white font-bold border-b-2 border-[#d3121a]"
         class="text-sm lg:text-[15px] xl:text-base font-semibold text-stone-700 dark:text-stone-300 hover:text-stone-950 dark:hover:text-white pb-1 transition whitespace-nowrap"
       >
         About
       </a>
       <a
         routerLink="/services"
-        routerLinkActive="text-stone-950 dark:text-white font-bold border-b-2 border-[#ea1c24]"
+        routerLinkActive="text-stone-950 dark:text-white font-bold border-b-2 border-[#d3121a]"
         class="text-sm lg:text-[15px] xl:text-base font-semibold text-stone-700 dark:text-stone-300 hover:text-stone-950 dark:hover:text-white pb-1 transition whitespace-nowrap"
       >
         Services
       </a>
       <a
         routerLink="/safety-quality"
-        routerLinkActive="text-stone-950 dark:text-white font-bold border-b-2 border-[#ea1c24]"
+        routerLinkActive="text-stone-950 dark:text-white font-bold border-b-2 border-[#d3121a]"
         class="text-sm lg:text-[15px] xl:text-base font-semibold text-stone-700 dark:text-stone-300 hover:text-stone-950 dark:hover:text-white pb-1 transition whitespace-nowrap"
       >
         Safety & Quality
       </a>
       <a
         routerLink="/projects"
-        routerLinkActive="text-stone-950 dark:text-white font-bold border-b-2 border-[#ea1c24]"
+        routerLinkActive="text-stone-950 dark:text-white font-bold border-b-2 border-[#d3121a]"
         class="text-sm lg:text-[15px] xl:text-base font-semibold text-stone-700 dark:text-stone-300 hover:text-stone-950 dark:hover:text-white pb-1 transition whitespace-nowrap"
       >
         Projects
@@ -77,7 +77,7 @@
         (click)="themeService.toggleTheme()"
         [attr.aria-label]="themeService.isDark() ? 'Switch to light theme' : 'Switch to dark theme'"
         [title]="themeService.isDark() ? 'Switch to light theme' : 'Switch to dark theme'"
-        class="w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-stone-700 dark:text-stone-300 hover:text-stone-950 dark:hover:text-white hover:bg-stone-200/70 dark:hover:bg-stone-800/70 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ea1c24] leading-none shrink-0"
+        class="w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-stone-700 dark:text-stone-300 hover:text-stone-950 dark:hover:text-white hover:bg-stone-200/70 dark:hover:bg-stone-800/70 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#d3121a] leading-none shrink-0"
       >
         @if (themeService.isDark()) {
           <svg class="w-4 h-4 sm:w-5 sm:h-5 fill-none stroke-current stroke-2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -95,7 +95,7 @@
       <!-- Direct Phone Call Link (Sleek Icon Button, Accessible on all viewports) -->
       <a
         [href]="'tel:' + content.brand.phoneRaw"
-        class="w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-stone-700 dark:text-stone-300 hover:text-[#ea1c24] dark:hover:text-[#ea1c24] hover:bg-stone-200/70 dark:hover:bg-stone-800/70 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ea1c24] leading-none shrink-0"
+        class="w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-stone-700 dark:text-stone-300 hover:text-[#d3121a] dark:hover:text-[#f87171] hover:bg-stone-200/70 dark:hover:bg-stone-800/70 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#d3121a] leading-none shrink-0"
         [attr.aria-label]="'Call AStar Electricals: ' + content.brand.phone"
         [title]="'Call AStar: ' + content.brand.phone"
       >
@@ -107,7 +107,7 @@
       <!-- Primary CTA: Contact Button (hidden on narrow screens < sm, fully accessible in drawer & desktop) -->
       <a
         routerLink="/contact"
-        class="hidden sm:inline-flex h-9 sm:h-10 px-4 sm:px-5 rounded-full items-center justify-center bg-[#ea1c24] hover:bg-[#b91c1c] text-white font-semibold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#ea1c24] leading-none shrink-0"
+        class="hidden sm:inline-flex h-9 sm:h-10 px-4 sm:px-5 rounded-full items-center justify-center bg-[#d3121a] hover:bg-[#b91c1c] text-white font-semibold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#d3121a] leading-none shrink-0"
         aria-label="Contact AStar Electricals"
       >
         Contact
@@ -117,7 +117,7 @@
       <button
         type="button"
         (click)="toggleMobileMenu()"
-        class="lg:hidden w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-stone-800 dark:text-stone-200 hover:bg-stone-200/70 dark:hover:bg-stone-800/70 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ea1c24] leading-none shrink-0"
+        class="lg:hidden w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-stone-800 dark:text-stone-200 hover:bg-stone-200/70 dark:hover:bg-stone-800/70 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#d3121a] leading-none shrink-0"
         [attr.aria-expanded]="mobileMenuOpen()"
         aria-controls="mobile-menu"
         [attr.aria-label]="mobileMenuOpen() ? 'Close navigation menu' : 'Open navigation menu'"
@@ -143,9 +143,9 @@
         <a
           routerLink="/"
           [routerLinkActiveOptions]="{ exact: true }"
-          routerLinkActive="text-[#ea1c24] dark:text-[#ea1c24] font-black"
+          routerLinkActive="text-[#d3121a] dark:text-[#f87171] font-black"
           (click)="closeMobileMenu()"
-          class="text-base sm:text-lg font-bold text-stone-900 dark:text-stone-100 hover:text-[#ea1c24] dark:hover:text-[#ea1c24] py-2.5 border-b border-stone-200/60 dark:border-stone-800/60 flex items-center justify-between transition-colors"
+          class="text-base sm:text-lg font-bold text-stone-900 dark:text-stone-100 hover:text-[#d3121a] dark:hover:text-[#f87171] py-2.5 border-b border-stone-200/60 dark:border-stone-800/60 flex items-center justify-between transition-colors"
         >
           <span>Home</span>
           <svg class="w-4 h-4 text-stone-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
@@ -154,9 +154,9 @@
         </a>
         <a
           routerLink="/about"
-          routerLinkActive="text-[#ea1c24] dark:text-[#ea1c24] font-black"
+          routerLinkActive="text-[#d3121a] dark:text-[#f87171] font-black"
           (click)="closeMobileMenu()"
-          class="text-base sm:text-lg font-bold text-stone-900 dark:text-stone-100 hover:text-[#ea1c24] dark:hover:text-[#ea1c24] py-2.5 border-b border-stone-200/60 dark:border-stone-800/60 flex items-center justify-between transition-colors"
+          class="text-base sm:text-lg font-bold text-stone-900 dark:text-stone-100 hover:text-[#d3121a] dark:hover:text-[#f87171] py-2.5 border-b border-stone-200/60 dark:border-stone-800/60 flex items-center justify-between transition-colors"
         >
           <span>About AStar</span>
           <svg class="w-4 h-4 text-stone-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
@@ -165,9 +165,9 @@
         </a>
         <a
           routerLink="/services"
-          routerLinkActive="text-[#ea1c24] dark:text-[#ea1c24] font-black"
+          routerLinkActive="text-[#d3121a] dark:text-[#f87171] font-black"
           (click)="closeMobileMenu()"
-          class="text-base sm:text-lg font-bold text-stone-900 dark:text-stone-100 hover:text-[#ea1c24] dark:hover:text-[#ea1c24] py-2.5 border-b border-stone-200/60 dark:border-stone-800/60 flex items-center justify-between transition-colors"
+          class="text-base sm:text-lg font-bold text-stone-900 dark:text-stone-100 hover:text-[#d3121a] dark:hover:text-[#f87171] py-2.5 border-b border-stone-200/60 dark:border-stone-800/60 flex items-center justify-between transition-colors"
         >
           <span>Commercial Services</span>
           <svg class="w-4 h-4 text-stone-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
@@ -176,9 +176,9 @@
         </a>
         <a
           routerLink="/safety-quality"
-          routerLinkActive="text-[#ea1c24] dark:text-[#ea1c24] font-black"
+          routerLinkActive="text-[#d3121a] dark:text-[#f87171] font-black"
           (click)="closeMobileMenu()"
-          class="text-base sm:text-lg font-bold text-stone-900 dark:text-stone-100 hover:text-[#ea1c24] dark:hover:text-[#ea1c24] py-2.5 border-b border-stone-200/60 dark:border-stone-800/60 flex items-center justify-between transition-colors"
+          class="text-base sm:text-lg font-bold text-stone-900 dark:text-stone-100 hover:text-[#d3121a] dark:hover:text-[#f87171] py-2.5 border-b border-stone-200/60 dark:border-stone-800/60 flex items-center justify-between transition-colors"
         >
           <span>Safety & Quality</span>
           <svg class="w-4 h-4 text-stone-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
@@ -187,9 +187,9 @@
         </a>
         <a
           routerLink="/projects"
-          routerLinkActive="text-[#ea1c24] dark:text-[#ea1c24] font-black"
+          routerLinkActive="text-[#d3121a] dark:text-[#f87171] font-black"
           (click)="closeMobileMenu()"
-          class="text-base sm:text-lg font-bold text-stone-900 dark:text-stone-100 hover:text-[#ea1c24] dark:hover:text-[#ea1c24] py-2.5 border-b border-stone-200/60 dark:border-stone-800/60 flex items-center justify-between transition-colors"
+          class="text-base sm:text-lg font-bold text-stone-900 dark:text-stone-100 hover:text-[#d3121a] dark:hover:text-[#f87171] py-2.5 border-b border-stone-200/60 dark:border-stone-800/60 flex items-center justify-between transition-colors"
         >
           <span>Commercial Projects</span>
           <svg class="w-4 h-4 text-stone-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
@@ -198,9 +198,9 @@
         </a>
         <a
           routerLink="/contact"
-          routerLinkActive="text-[#ea1c24] dark:text-[#ea1c24] font-black"
+          routerLinkActive="text-[#d3121a] dark:text-[#f87171] font-black"
           (click)="closeMobileMenu()"
-          class="text-base sm:text-lg font-bold text-stone-900 dark:text-stone-100 hover:text-[#ea1c24] dark:hover:text-[#ea1c24] py-2.5 flex items-center justify-between transition-colors"
+          class="text-base sm:text-lg font-bold text-stone-900 dark:text-stone-100 hover:text-[#d3121a] dark:hover:text-[#f87171] py-2.5 flex items-center justify-between transition-colors"
         >
           <span>Contact & Inquiries</span>
           <svg class="w-4 h-4 text-stone-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
@@ -214,7 +214,7 @@
           [href]="'tel:' + content.brand.phoneRaw"
           class="text-sm font-semibold text-stone-900 dark:text-white flex items-center gap-3 py-1"
         >
-          <span class="w-8 h-8 rounded-full bg-stone-200/80 dark:bg-stone-800 flex items-center justify-center text-[#ea1c24] shrink-0 leading-none">
+          <span class="w-8 h-8 rounded-full bg-stone-200/80 dark:bg-stone-800 flex items-center justify-center text-[#d3121a] dark:text-[#f87171] shrink-0 leading-none">
             <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
             </svg>
@@ -224,7 +224,7 @@
         <a
           routerLink="/contact"
           (click)="closeMobileMenu()"
-          class="w-full h-11 bg-[#ea1c24] hover:bg-[#b91c1c] text-white font-semibold rounded-full shadow-md flex items-center justify-center transition leading-none text-sm"
+          class="w-full h-11 bg-[#d3121a] hover:bg-[#b91c1c] text-white font-semibold rounded-full shadow-md flex items-center justify-center transition leading-none text-sm"
         >
           Contact
         </a>
