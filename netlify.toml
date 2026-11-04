@@ -7,6 +7,24 @@
   NPM_FLAGS = "--legacy-peer-deps"
 
 [[redirects]]
+  from = "/.well-known/ard.json"
+  to = "/well-known/ard.json"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/.well-known/*"
+  to = "/well-known/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/ard.json"
+  to = "/well-known/ard.json"
+  status = 200
+  force = true
+
+[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
@@ -23,3 +41,24 @@
   for = "/robots.txt"
   [headers.values]
     Content-Type = "text/plain; charset=utf-8"
+
+[[headers]]
+  for = "/well-known/ard.json"
+  [headers.values]
+    Content-Type = "application/json; charset=UTF-8"
+    Access-Control-Allow-Origin = "*"
+    Cache-Control = "public, max-age=86400, stale-while-revalidate=3600"
+
+[[headers]]
+  for = "/.well-known/ard.json"
+  [headers.values]
+    Content-Type = "application/json; charset=UTF-8"
+    Access-Control-Allow-Origin = "*"
+    Cache-Control = "public, max-age=86400, stale-while-revalidate=3600"
+
+[[headers]]
+  for = "/ard.json"
+  [headers.values]
+    Content-Type = "application/json; charset=UTF-8"
+    Access-Control-Allow-Origin = "*"
+    Cache-Control = "public, max-age=86400, stale-while-revalidate=3600"

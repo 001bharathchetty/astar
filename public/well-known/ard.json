@@ -1,0 +1,31 @@
+{
+  "$schema": "https://agenticresourcediscovery.org/spec/schemas/ai-catalog.schema.json",
+  "version": "1.0",
+  "provider": {
+    "name": "AStar Electricals",
+    "url": "https://astarelectricals.com"
+  },
+  "entries": [
+    {
+      "id": "llms-txt",
+      "name": "LLM Context and Architectural Documentation",
+      "type": "documentation",
+      "description": "Plaintext LLM and AI agent architectural overview and service summary of AStar Electricals.",
+      "url": "https://astarelectricals.com/llms.txt"
+    },
+    {
+      "id": "full-contents-markdown",
+      "name": "Complete Website Contents",
+      "type": "content",
+      "description": "Structured Markdown containing complete text, business details, services, compliance, and contact info.",
+      "url": "https://astarelectricals.com/contents.md"
+    },
+    {
+      "id": "commercial-electrical-catalog",
+      "name": "Commercial Electrical Contracting Services",
+      "type": "service-catalog",
+      "description": "Comprehensive scope of commercial electrical contracting, LV distribution, panels, containment, and handover.",
+      "url": "https://astarelectricals.com/services"
+    }
+  ]
+}

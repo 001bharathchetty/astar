@@ -328,7 +328,7 @@ src/
 
 | Category | Audit Error / Warning | Root Cause | Why Standard Checks Missed It | Production Resolution Pattern |
 | :--- | :--- | :--- | :--- | :--- |
-| **Agent Discovery** | `Malformed JSON in manifest: SyntaxError: Unexpected token '<', "<!DOCTYPE "... is not valid JSON` | SPA fallback (`/* -> /index.html 200`) catches requests to `/.well-known/ard.json` when the file is missing or unmapped, returning HTML instead of JSON. | The browser loads the site fine; only external AI agents/validators request `/.well-known/ard.json`. | Place static JSON in `public/.well-known/ard.json` AND configure `public/_headers` with `Content-Type: application/json; charset=UTF-8` and `Access-Control-Allow-Origin: *`. |
+| **Agent Discovery** | `Malformed JSON in manifest: SyntaxError: Unexpected token '<', "<!DOCTYPE "... is not valid JSON` | 1. Netlify CDN deployment ignores and strips folders starting with a dot (like `.well-known`).<br>2. The SPA fallback (`/* -> /index.html 200`) catches the unmapped path and returns HTML instead of JSON. | The browser loads the site fine; only external AI agents/validators request `/.well-known/ard.json`. | 1. Store the file in a non-dot folder: `public/well-known/ard.json` (and `public/ard.json`).<br>2. Add rewrite rule: `/.well-known/* /well-known/:splat 200` in both `_redirects` and `netlify.toml` (`force = true`).<br>3. Set explicit MIME headers for all paths in `_headers`. |
 | **WCAG AA Contrast** | `Background and foreground colors do not have a sufficient contrast ratio` on buttons, badges, and red text | Brand red `#ea1c24` has relative luminance $0.1858$, yielding **4.453:1** against white `#ffffff`. WCAG AA strictly requires **4.50:1**. | To the naked human eye, `#ea1c24` looks vivid, bold, and high-contrast against white. Automated accessibility scanners fail it by $0.047:1$. | Shift light-surface red to **`#d3121a`** (contrast **5.53:1** on `#ffffff`, **5.24:1** on `stone-50`). On dark surfaces, shift to **`text-red-400` (`#f87171`)** (contrast **6.73:1**). |
 | **Document Landmarks** | `Document does not have a main landmark` | Root Angular shell placed `<router-outlet />` inside an un-semantic `<div>`. | Screen readers and Lighthouse accessibility audits require a primary `<main>` element to define the document body. | Wrap the router outlet in `<main id="main-content" class="flex-1"><router-outlet /></main>`. |
 | **Touch Targets** | `Tap targets are not sized appropriately` (< 48px/44px) | Action pills, quick contact links, and footer links were styled with visual padding (e.g. `py-2`) resulting in ~32px–36px physical height on mobile. | Looked proportionate on desktop, but failed mobile viewport tap target compliance tests. | Explicitly add `min-h-[44px]` (or `min-h-[48px]`) with `inline-flex items-center justify-center`. |
@@ -361,22 +361,28 @@ src/
       to = "/index.html"
       status = 200
     ```
-  - When an AI agent crawler requests `GET /.well-known/ard.json`, the web server rewrites unmatched paths to `/index.html` and responds with HTTP status 200.
-  - The crawler expects JSON, but receives:
-    ```html
-    <!DOCTYPE html><html lang="en">...
-    ```
-  - The JSON parser immediately throws: `SyntaxError: Unexpected token '<', "<!DOCTYPE "... is not valid JSON`.
+  - **Netlify Specific Behavior**: Netlify's deployment engine ignores and strips directories starting with a dot (like `.well-known`) during CDN deployment.
+  - When an AI agent crawler requests `GET /.well-known/ard.json`, the web server cannot find the static file, rewrites to `/index.html`, and responds with HTTP status 200 containing `<!DOCTYPE html><html lang="en">...`.
+  - The crawler expects JSON, but receives HTML:
+    `SyntaxError: Unexpected token '<', "<!DOCTYPE "... is not valid JSON`.
 * **The Permanent Solution**:
-  1. Store the JSON file directly in `public/.well-known/ard.json` (so build tools copy it to `dist/<app>/browser/.well-known/ard.json`).
-  2. Create a `public/_headers` file with explicit content types and CORS headers:
+  1. Store the JSON file in a non-dot folder: `public/well-known/ard.json` (and `public/ard.json`), as well as `public/.well-known/ard.json`.
+  2. In `_redirects` and `netlify.toml`, configure a rewrite rule mapping dot-paths to non-dot paths with `force = true`:
+     ```text
+     /.well-known/ard.json    /well-known/ard.json    200
+     /.well-known/*           /well-known/:splat      200
+     /ard.json                /well-known/ard.json    200
      ```
-     /.well-known/ard.json
-       Content-Type: application/json; charset=UTF-8
-       Access-Control-Allow-Origin: *
-       Cache-Control: public, max-age=3600
+  3. In `netlify.toml`:
+     ```toml
+     [[redirects]]
+       from = "/.well-known/*"
+       to = "/well-known/:splat"
+       status = 200
+       force = true
      ```
-  3. Verify with `curl -i https://<domain>/.well-known/ard.json` ensuring `Content-Type: application/json` is returned.
+  4. Create a `public/_headers` file with explicit content types and CORS headers for both `.well-known` and `well-known` paths.
+  5. Verify with `curl -iL https://<domain>/.well-known/ard.json` ensuring `Content-Type: application/json` and valid JSON payload are returned.
 
 #### 3. Font Stylesheet Render-Blocking Penalty
 * **The Performance Bottleneck**:

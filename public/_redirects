@@ -4,5 +4,10 @@ http://astarelectricals.com/*    https://astarelectricals.com/:splat    301!
 https://www.astarelectricals.com/*    https://astarelectricals.com/:splat    301!
 http://www.astarelectricals.com/*    https://astarelectricals.com/:splat    301!
 
+# ARD Manifest & AI Agent Discovery (Netlify ignores dotfiles like .well-known on deploy)
+/.well-known/ard.json    /well-known/ard.json    200
+/.well-known/*           /well-known/:splat      200
+/ard.json                /well-known/ard.json    200
+
 # SPA Prerender / Fallback for client-side routing & custom 404
 /*    /index.html   200
