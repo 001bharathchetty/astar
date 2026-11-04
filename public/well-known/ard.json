@@ -1,5 +1,5 @@
 {
-  "$schema": "https://agenticresourcediscovery.org/spec/schemas/ai-catalog.schema.json",
+  "$schema": "https://raw.githubusercontent.com/ards-project/ard-spec/main/spec/schemas/ard-entry.schema.json",
   "version": "1.0",
   "provider": {
     "name": "AStar Electricals",
@@ -7,25 +7,40 @@
   },
   "entries": [
     {
-      "id": "llms-txt",
-      "name": "LLM Context and Architectural Documentation",
-      "type": "documentation",
+      "identifier": "urn:air:astarelectricals.com:docs:llms-txt",
+      "displayName": "LLM Context and Architectural Documentation",
+      "type": "text/markdown",
       "description": "Plaintext LLM and AI agent architectural overview and service summary of AStar Electricals.",
-      "url": "https://astarelectricals.com/llms.txt"
+      "url": "https://astarelectricals.com/llms.txt",
+      "representativeQueries": [
+        "AStar Electricals LLM context and documentation",
+        "commercial electrical contractor specifications Bangalore",
+        "AStar engineering capabilities and standards"
+      ]
     },
     {
-      "id": "full-contents-markdown",
-      "name": "Complete Website Contents",
-      "type": "content",
+      "identifier": "urn:air:astarelectricals.com:docs:full-contents",
+      "displayName": "Complete Website Contents",
+      "type": "text/markdown",
       "description": "Structured Markdown containing complete text, business details, services, compliance, and contact info.",
-      "url": "https://astarelectricals.com/contents.md"
+      "url": "https://astarelectricals.com/contents.md",
+      "representativeQueries": [
+        "AStar Electricals complete company information",
+        "licensed electrical contractors South India compliance",
+        "commercial electrical installations contact Bengaluru"
+      ]
     },
     {
-      "id": "commercial-electrical-catalog",
-      "name": "Commercial Electrical Contracting Services",
-      "type": "service-catalog",
+      "identifier": "urn:air:astarelectricals.com:services:commercial-electrical",
+      "displayName": "Commercial Electrical Contracting Services",
+      "type": "text/html",
       "description": "Comprehensive scope of commercial electrical contracting, LV distribution, panels, containment, and handover.",
-      "url": "https://astarelectricals.com/services"
+      "url": "https://astarelectricals.com/services",
+      "representativeQueries": [
+        "commercial electrical contracting services Bangalore",
+        "HT LV distribution substation installation contractors",
+        "cable tray containment busbar trunking contractors South India"
+      ]
     }
   ]
 }

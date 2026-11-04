@@ -235,18 +235,60 @@ src/
     `Malformed JSON in manifest: SyntaxError: Unexpected token '<', "<!DOCTYPE "... is not valid JSON`.
   * Always place the static `ard.json` file inside `public/.well-known/ard.json` so build tools copy it to `dist/<app>/browser/.well-known/ard.json`.
   * Ensure the server emits `Content-Type: application/json; charset=UTF-8` and `Access-Control-Allow-Origin: *`.
-* **Standard Manifest Schema**:
+* **Standard Manifest Schema & Requirements**:
+  The manifest served at `/.well-known/ard.json` must conform to the [ARD Formal Schema Specification](https://agenticresourcediscovery.org/spec/#appendix-d-formal-schema-definitions).
+
+  > [!TIP]
+  > If an application has no agentic resources to declare yet, `entries: []` is structurally valid as an empty catalog. However, when entries are declared, each entry MUST strictly follow the ARD schema rules below.
+
   ```json
   {
+    "$schema": "https://raw.githubusercontent.com/ards-project/ard-spec/main/spec/schemas/ard-entry.schema.json",
     "version": "1.0",
-    "name": "Application Name",
-    "description": "Commercial capabilities & catalog",
-    "resources": [
-      { "id": "llms-txt", "name": "LLMs.txt", "url": "/llms.txt", "format": "text/markdown" },
-      { "id": "catalog", "name": "Catalog", "url": "/services", "format": "text/html" }
+    "provider": {
+      "name": "Application Name",
+      "url": "https://example.com"
+    },
+    "entries": [
+      {
+        "identifier": "urn:air:example.com:docs:llms-txt",
+        "displayName": "LLM Context and Documentation",
+        "type": "text/markdown",
+        "description": "Plaintext LLM and AI agent architectural overview and service summary.",
+        "url": "https://example.com/llms.txt",
+        "representativeQueries": [
+          "example domain services overview",
+          "agent context and technical documentation",
+          "engineering capabilities and standards"
+        ]
+      },
+      {
+        "identifier": "urn:air:example.com:services:catalog",
+        "displayName": "Services and Products Catalog",
+        "type": "text/html",
+        "description": "Complete product catalog and commercial service specifications.",
+        "url": "https://example.com/services",
+        "representativeQueries": [
+          "commercial services catalog",
+          "commercial equipment installation",
+          "enterprise solutions pricing"
+        ]
+      }
     ]
   }
   ```
+
+* **Normative ARD Entry Terms (§4.2)**:
+
+  | Term | Requirement | Specification Notes |
+  | :--- | :--- | :--- |
+  | **`identifier`** | **MUST** | Globally unique discovery handle. Domain-anchored URN form: `urn:air:<publisher>:[<namespace>:]<agent-name>` matching `^urn:air:[a-zA-Z0-9.-]+(:[a-zA-Z0-9._-]+)+$`. The `<publisher>` segment is the authority anchor. Do NOT use plain IDs (e.g. `"llms-txt"` or `"1"`). |
+  | **`displayName`** | **MUST** | Human-readable name string (e.g. `"LLM Context and Architectural Documentation"`). Do NOT use `"name"` or `"title"`. |
+  | **`type`** | **MUST** | Artifact type as an **IANA Media Type** (`type/subtype`, e.g. `text/markdown`, `text/html`, `application/mcp-server-card+json`). Custom labels like `"documentation"`, `"content"`, or `"service-catalog"` trigger IANA validation errors. |
+  | **`url`** *or* **`data`** | **MUST** (exactly one) | Value-or-reference: either `url` (fully qualified HTTPS URI string) or `data` (inline JSON document object). Must not supply both. |
+  | **`representativeQueries`** | **SHOULD** | Array of 2 to 5 sample natural-language queries. The registry semantic search index is built from this term. Omission or counts outside 2–5 trigger conformance warnings (`No 'representativeQueries'`). |
+  | **`description`** | OPTIONAL | Short natural-language summary contributing to semantic indexing and agent card displays. |
+  | **`capabilities`** | OPTIONAL | Short skill or tool tokens (e.g. `["ElectricalEngineering", "SubstationDesign"]`) for structured filtering. |
 
 ---
 
@@ -328,7 +370,8 @@ src/
 
 | Category | Audit Error / Warning | Root Cause | Why Standard Checks Missed It | Production Resolution Pattern |
 | :--- | :--- | :--- | :--- | :--- |
-| **Agent Discovery** | `Malformed JSON in manifest: SyntaxError: Unexpected token '<', "<!DOCTYPE "... is not valid JSON` | 1. Netlify CDN deployment ignores and strips folders starting with a dot (like `.well-known`).<br>2. The SPA fallback (`/* -> /index.html 200`) catches the unmapped path and returns HTML instead of JSON. | The browser loads the site fine; only external AI agents/validators request `/.well-known/ard.json`. | 1. Store the file in a non-dot folder: `public/well-known/ard.json` (and `public/ard.json`).<br>2. Add rewrite rule: `/.well-known/* /well-known/:splat 200` in both `_redirects` and `netlify.toml` (`force = true`).<br>3. Set explicit MIME headers for all paths in `_headers`. |
+| **Agent Discovery (Path)** | `Malformed JSON in manifest: SyntaxError: Unexpected token '<', "<!DOCTYPE "... is not valid JSON` | 1. Netlify CDN deployment ignores and strips folders starting with a dot (like `.well-known`).<br>2. The SPA fallback (`/* -> /index.html 200`) catches the unmapped path and returns HTML instead of JSON. | The browser loads the site fine; only external AI agents/validators request `/.well-known/ard.json`. | 1. Store the file in a non-dot folder: `public/well-known/ard.json` (and `public/ard.json`).<br>2. Add rewrite rule: `/.well-known/* /well-known/:splat 200` in both `_redirects` and `netlify.toml` (`force = true`).<br>3. Set explicit MIME headers for all paths in `_headers`. |
+| **ARD Schema Conformance** | `ArdManifest validation failed: 'identifier' is a required property at path 'entries.0'`, `Missing displayName`, `Invalid IANA media type`, `No representativeQueries` | Ad-hoc fields like `id`, `name`, `type: "documentation"` were used instead of the formal ARD schema specification (`identifier: urn:air:...`, `displayName`, IANA media types, `representativeQueries`). | Empty manifests (`entries: []`, e.g. initial skeletons) skip entry schema validation with zero errors. Populating entries immediately triggers strict `ArdEntry` schema and discovery constraint checks. | 1. Use domain-anchored URN: `identifier: "urn:air:<domain>:<namespace>:<name>"`.<br>2. Use `displayName` string.<br>3. Use valid IANA MIME types: `text/markdown`, `text/html`.<br>4. Add 2–5 `representativeQueries` for semantic search indexing. |
 | **WCAG AA Contrast** | `Background and foreground colors do not have a sufficient contrast ratio` on buttons, badges, and red text | Brand red `#ea1c24` has relative luminance $0.1858$, yielding **4.453:1** against white `#ffffff`. WCAG AA strictly requires **4.50:1**. | To the naked human eye, `#ea1c24` looks vivid, bold, and high-contrast against white. Automated accessibility scanners fail it by $0.047:1$. | Shift light-surface red to **`#d3121a`** (contrast **5.53:1** on `#ffffff`, **5.24:1** on `stone-50`). On dark surfaces, shift to **`text-red-400` (`#f87171`)** (contrast **6.73:1**). |
 | **Document Landmarks** | `Document does not have a main landmark` | Root Angular shell placed `<router-outlet />` inside an un-semantic `<div>`. | Screen readers and Lighthouse accessibility audits require a primary `<main>` element to define the document body. | Wrap the router outlet in `<main id="main-content" class="flex-1"><router-outlet /></main>`. |
 | **Touch Targets** | `Tap targets are not sized appropriately` (< 48px/44px) | Action pills, quick contact links, and footer links were styled with visual padding (e.g. `py-2`) resulting in ~32px–36px physical height on mobile. | Looked proportionate on desktop, but failed mobile viewport tap target compliance tests. | Explicitly add `min-h-[44px]` (or `min-h-[48px]`) with `inline-flex items-center justify-center`. |
@@ -449,9 +492,40 @@ src/
 * **The Rule**:
   - When buttons repeat identical text, disambiguate with `aria-label`:
     ```html
-    <a [href]="whatsappUrl" aria-label="Start WhatsApp chat with Commercial Priority Desk">Start Chat &rarr;</a>
-    <a [href]="'mailto:' + email" aria-label="Compose email to Official Contracting Inbox">Compose &rarr;</a>
+#### 7. ARD Manifest Schema Conformance (Empty vs Populated Catalogs)
+* **The Schema Validation Trap**:
+  - In an initial skeleton or sister repository (like `chintap`), an ARD manifest may simply define:
+    ```json
+    {
+      "$schema": "https://raw.githubusercontent.com/ards-project/ard-spec/main/spec/schemas/ard-entry.schema.json",
+      "version": "1.0",
+      "provider": { "name": "Brand", "url": "https://brand.com" },
+      "entries": []
+    }
     ```
+    An empty array `entries: []` satisfies the schema validator vacuously because there are zero entries to validate.
+  - When real resources are published (e.g. `llms.txt`, full markdown contents, or service catalogs), the ARD specification activates strict schema validation across every element in `entries[]`:
+    1. Using `"id"` instead of `"identifier"` triggers: `'identifier' is a required property at path 'entries.0'`.
+    2. Using `"name"` instead of `"displayName"` triggers: `Missing required 'displayName'`.
+    3. Using informal type categories like `"documentation"` or `"content"` triggers: `Media type 'documentation' is not a valid IANA media type. Expected 'type/subtype'`.
+    4. Omitting sample queries triggers: `No 'representativeQueries'. The semantic index is built from this term, so the entry will not be found by search`.
+* **The Universal Resolution Pattern**:
+  - Every entry must strictly adhere to the normative ARD schema:
+    ```json
+    {
+      "identifier": "urn:air:domain.com:namespace:resource-name",
+      "displayName": "Human Readable Resource Name",
+      "type": "text/markdown",
+      "url": "https://domain.com/resource.md",
+      "description": "Short natural-language summary contributing to indexing.",
+      "representativeQueries": [
+        "representative search query 1",
+        "representative search query 2"
+      ]
+    }
+    ```
+  - Domain-anchored URN regex: `^urn:air:[a-zA-Z0-9.-]+(:[a-zA-Z0-9._-]+)+$` where the first segment matches the publisher's domain name.
+  - Media types MUST be official IANA types (e.g. `text/markdown`, `text/html`, `application/json`, `application/mcp-server-card+json`).
 
 ---
 
