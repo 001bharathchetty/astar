@@ -316,3 +316,148 @@ src/
    git tag -a vX.Y.Z -m "Release vX.Y.Z"
    git push origin main --tags
    ```
+
+---
+
+## 14. Lessons Learned & Audit Post-Mortem Matrix (PageSpeed, WCAG & AI Discovery)
+
+> [!NOTE]
+> This section captures real-world engineering pitfalls uncovered during PageSpeed Insights, Axe Core, and AI Agent Discovery audits. Any modern frontend project (including client sister apps like `chintap`) can reference this matrix to prevent repeating these failures.
+
+### 14.1 Audit Post-Mortem Quick Reference Matrix
+
+| Category | Audit Error / Warning | Root Cause | Why Standard Checks Missed It | Production Resolution Pattern |
+| :--- | :--- | :--- | :--- | :--- |
+| **Agent Discovery** | `Malformed JSON in manifest: SyntaxError: Unexpected token '<', "<!DOCTYPE "... is not valid JSON` | SPA fallback (`/* -> /index.html 200`) catches requests to `/.well-known/ard.json` when the file is missing or unmapped, returning HTML instead of JSON. | The browser loads the site fine; only external AI agents/validators request `/.well-known/ard.json`. | Place static JSON in `public/.well-known/ard.json` AND configure `public/_headers` with `Content-Type: application/json; charset=UTF-8` and `Access-Control-Allow-Origin: *`. |
+| **WCAG AA Contrast** | `Background and foreground colors do not have a sufficient contrast ratio` on buttons, badges, and red text | Brand red `#ea1c24` has relative luminance $0.1858$, yielding **4.453:1** against white `#ffffff`. WCAG AA strictly requires **4.50:1**. | To the naked human eye, `#ea1c24` looks vivid, bold, and high-contrast against white. Automated accessibility scanners fail it by $0.047:1$. | Shift light-surface red to **`#d3121a`** (contrast **5.53:1** on `#ffffff`, **5.24:1** on `stone-50`). On dark surfaces, shift to **`text-red-400` (`#f87171`)** (contrast **6.73:1**). |
+| **Document Landmarks** | `Document does not have a main landmark` | Root Angular shell placed `<router-outlet />` inside an un-semantic `<div>`. | Screen readers and Lighthouse accessibility audits require a primary `<main>` element to define the document body. | Wrap the router outlet in `<main id="main-content" class="flex-1"><router-outlet /></main>`. |
+| **Touch Targets** | `Tap targets are not sized appropriately` (< 48px/44px) | Action pills, quick contact links, and footer links were styled with visual padding (e.g. `py-2`) resulting in ~32px–36px physical height on mobile. | Looked proportionate on desktop, but failed mobile viewport tap target compliance tests. | Explicitly add `min-h-[44px]` (or `min-h-[48px]`) with `inline-flex items-center justify-center`. |
+| **Link Disambiguation** | `Links do not have a discernible name` or identical links go to different channels | Multiple buttons on the page share identical text (e.g. "Start Chat", "Compose", or repeating phone numbers). | Sighted users understand context from card headings; screen reader users navigating by link lists hear repetitive, ambiguous names. | Add unique, descriptive `aria-label` attributes (e.g. `aria-label="Direct call to AStar Electricals desk"` vs `aria-label="Start WhatsApp chat with Priority Desk"`). |
+| **PageSpeed Performance** | `Eliminate render-blocking resources` (FCP & LCP penalty) | Standard `<link rel="stylesheet">` tags for Google Fonts and Material Icons in `<head>` block the parser during network fetch. | In local development, cached fonts hide the critical request chain delay. Mobile 3G/4G simulations penalize it heavily. | Convert to asynchronous preloads: `<link rel="preload" as="style" href="..." onload="this.onload=null;this.rel='stylesheet'">` with `<noscript>` fallback and `&display=swap`. |
+
+---
+
+### 14.2 Detailed Breakdown of the 6 Hard-Learned Lessons
+
+#### 1. The "Looks Good to Me" Contrast Trap (Luminance Math vs Human Vision)
+* **The Physics**: WCAG 2.2 contrast ratio is calculated using relative luminance $L$:
+  $$\text{Contrast Ratio} = \frac{L_1 + 0.05}{L_2 + 0.05}$$
+  where $L = 0.2126 \times R_{\text{linear}} + 0.7152 \times G_{\text{linear}} + 0.0722 \times B_{\text{linear}}$.
+* **The Failure**:
+  - `#ea1c24` (`rgb(234, 28, 36)`) has $L \approx 0.1858$.
+  - Against white (`#ffffff`, $L=1.0$):
+    $$\frac{1.0 + 0.05}{0.1858 + 0.05} = \frac{1.05}{0.2358} = 4.453:1 \quad (\text{FAILS } 4.50:1)$$
+  - Missing the cutoff by a mere $0.047:1$ triggers a red audit failure across every button, eyebrow tag, and icon on the page.
+* **The Dual-Surface Remedy**:
+  - **Light Surfaces**: Use **`#d3121a`** (`rgb(211, 18, 26)`). $L \approx 0.1398 \implies \frac{1.05}{0.1898} = \mathbf{5.53:1}$ (PASSES on white) and $\mathbf{5.24:1}$ (PASSES on `stone-50`).
+  - **Dark Surfaces**: Never use `#d3121a` on dark backgrounds (`#1c1917`, $L=0.015$). It gives $\frac{0.1898}{0.065} = 2.92:1$ (FAILS). Always switch dark-surface red to Tailwind's **`text-red-400` (`#f87171`)** which yields $\mathbf{6.73:1}$ (PASSES).
+
+#### 2. The SPA Fallback Trap for AI Manifests (`ard.json`)
+* **The Architecture Trap**:
+  - In Angular single-page applications hosted on Netlify, Cloudflare Pages, or Vercel, the standard redirect rule is:
+    ```toml
+    [[redirects]]
+      from = "/*"
+      to = "/index.html"
+      status = 200
+    ```
+  - When an AI agent crawler requests `GET /.well-known/ard.json`, the web server rewrites unmatched paths to `/index.html` and responds with HTTP status 200.
+  - The crawler expects JSON, but receives:
+    ```html
+    <!DOCTYPE html><html lang="en">...
+    ```
+  - The JSON parser immediately throws: `SyntaxError: Unexpected token '<', "<!DOCTYPE "... is not valid JSON`.
+* **The Permanent Solution**:
+  1. Store the JSON file directly in `public/.well-known/ard.json` (so build tools copy it to `dist/<app>/browser/.well-known/ard.json`).
+  2. Create a `public/_headers` file with explicit content types and CORS headers:
+     ```
+     /.well-known/ard.json
+       Content-Type: application/json; charset=UTF-8
+       Access-Control-Allow-Origin: *
+       Cache-Control: public, max-age=3600
+     ```
+  3. Verify with `curl -i https://<domain>/.well-known/ard.json` ensuring `Content-Type: application/json` is returned.
+
+#### 3. Font Stylesheet Render-Blocking Penalty
+* **The Performance Bottleneck**:
+  - A traditional `<link rel="stylesheet" href="https://fonts.googleapis.com/css2?...">` halts the browser's HTML parser until the stylesheet is completely fetched and parsed.
+  - Under Lighthouse's simulated mobile throttling (slow 4G), this blocks First Contentful Paint (FCP) by 800ms–1500ms.
+* **The Modern Preload Pattern**:
+  ```html
+  <!-- Preconnect to eliminate DNS/TLS latency -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Asynchronous stylesheet load with swap -->
+  <link
+    rel="preload"
+    as="style"
+    href="https://fonts.googleapis.com/css2?family=...&display=swap"
+    onload="this.onload=null;this.rel='stylesheet'"
+  />
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=...&display=swap" />
+  </noscript>
+  ```
+  - `onload="this.onload=null;this.rel='stylesheet'"` converts the preload into an active stylesheet without blocking initial rendering.
+  - `&display=swap` ensures text remains visible immediately using system fallback fonts until web fonts finish loading.
+
+#### 4. The Invisible Scaffold Landmark (Missing `<main>`)
+* **The Architectural Oversight**:
+  - Angular applications often start with a blank shell:
+    ```html
+    <!-- BAD: Fails Axe / Lighthouse Accessibility -->
+    <app-header />
+    <div class="flex-1">
+      <router-outlet />
+    </div>
+    <app-footer />
+    ```
+  - Screen reader users and search engine bots cannot identify where chrome navigation ends and page content begins.
+* **The Standard**:
+  ```html
+  <!-- GOOD: Fully accessible landmark hierarchy -->
+  <a href="#main-content" class="sr-only focus:not-sr-only ...">Skip to content</a>
+  <app-header />
+  <main id="main-content" class="flex-1">
+    <router-outlet />
+  </main>
+  <app-footer />
+  ```
+
+#### 5. Visual Padding vs Physical Touch Targets
+* **The Mobile Usability Trap**:
+  - Designers often specify sleek badges or pills with `py-1.5 px-3` or `py-2 px-4`.
+  - While visually balanced on desktop, on high-DPI smartphone touchscreens, the target measures only 28px–34px in height.
+  - Users with larger fingers frequently mis-click or encounter target overlap errors. PageSpeed Insights flags this with a dedicated audit penalty.
+* **The Rule**:
+  - Always enforce `min-h-[44px]` (or `min-h-[48px]`) on any clickable element:
+    ```html
+    <a href="..." class="min-h-[44px] px-4 py-2.5 inline-flex items-center justify-center ...">
+    ```
+
+#### 6. Identical Link Anchor Ambiguity
+* **The Assistive Technology Trap**:
+  - If a page has three cards that each have a button labeled "Start Chat", a sighted user knows which card it belongs to.
+  - A screen reader user navigating via the rotor/links menu hears: *"Start Chat, link; Start Chat, link; Start Chat, link"*.
+* **The Rule**:
+  - When buttons repeat identical text, disambiguate with `aria-label`:
+    ```html
+    <a [href]="whatsappUrl" aria-label="Start WhatsApp chat with Commercial Priority Desk">Start Chat &rarr;</a>
+    <a [href]="'mailto:' + email" aria-label="Compose email to Official Contracting Inbox">Compose &rarr;</a>
+    ```
+
+---
+
+### 14.3 Universal Pre-Launch Audit Checklist
+
+Before releasing any frontend application to staging or production, execute this copy-pasteable audit checklist:
+
+- [ ] **Contrast Check**: Test all primary buttons and accent text against both light (`#ffffff`, `stone-50`) and dark (`bg-stone-900`) surfaces using a contrast calculator. Minimum ratio: **4.5:1** (normal text) and **3.0:1** (large text / icons).
+- [ ] **ARD Manifest Check**: Run `curl -i https://<domain>/.well-known/ard.json` and verify `HTTP 200 OK`, `Content-Type: application/json; charset=UTF-8`, and valid JSON payload.
+- [ ] **Font Preload Check**: Verify Google Fonts and Material Icons in `index.html` use `<link rel="preload" as="style" ...>` with `&display=swap` and `<noscript>` fallbacks.
+- [ ] **Landmark Check**: Inspect the root DOM and verify `<main id="main-content">` wraps `<router-outlet />` and connects to `<a href="#main-content">`.
+- [ ] **Touch Target Check**: Verify all mobile buttons, links, drawer menu items, and pills have `min-h-[44px]`.
+- [ ] **Disambiguation Check**: Verify repeated generic action links ("Start Chat", "Compose", "Call") have distinct `aria-label` attributes.
+- [ ] **Test & Build Verification**: Run `npm test -- --watch=false` and `npm run build` to confirm clean compilation and full route prerendering.
+
