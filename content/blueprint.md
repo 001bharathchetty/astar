@@ -6,5 +6,6 @@
 **Markets:** Bengaluru · Chennai · Hyderabad · South India  
 **Phone / WhatsApp:** +91 98800 57744  
 **GSTIN:** 29ACPFA5825L1ZR  
-**Address:** Ground Floor, #7, 3rd Cross, 3rd Main Road, Near Javeria School, Saraipalya, Thanisandra, Bengaluru, Karnataka – 560077, India  
+**Address:** Door#2, 2nd Floor, Krishna Reddy Layout, HBR Layout, 3rd Block, 80 Feet Main Road, Kalyan Nagar, Bengaluru, Karnataka – 560043, India  
+**Email:** info@astarelectricals.com  
 **Hours:** Monday – Saturday, 9:30 AM – 8:30 PM IST  

@@ -40,7 +40,7 @@ export class ContactPageComponent implements OnInit {
   ngOnInit(): void {
     this.seo.setSeoData({
       title: 'Contact AStar Electricals | Project Inquiries',
-      description: 'Contact AStar Electricals to discuss commercial electrical contracting requirements. Direct phone and WhatsApp: +91 98800 57744. Ground Floor, Thanisandra, Bengaluru.',
+      description: 'Contact AStar Electricals to discuss commercial electrical contracting requirements. Direct phone and WhatsApp: +91 98800 57744. Kalyan Nagar, Bengaluru.',
       url: '/contact'
     });
 

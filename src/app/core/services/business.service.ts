@@ -6,6 +6,7 @@ export interface BusinessDetails {
   description: string;
   phone: string;
   phoneRaw: string;
+  email: string;
   gstin: string;
   address: {
     street: string;
@@ -29,16 +30,17 @@ export class BusinessService {
     description: 'Your trusted partner for electrical supplies, industrial components, wholesale wiring, and residential electrical fittings in Bengaluru.',
     phone: '+91 9880057744',
     phoneRaw: '+919880057744',
+    email: 'info@astarelectricals.com',
     gstin: '29ACPFA5825L1ZR',
     address: {
-      street: 'Ground floor, #7, 3rd cross, 3rd main road',
-      landmark: 'Near Javeria School',
-      area: 'Saraipalya, Thanisandra',
+      street: 'Door#2, 2nd Floor, Krishna Reddy Layout',
+      landmark: '3rd Block, 80 Feet Main Road',
+      area: 'HBR Layout, Kalyan Nagar',
       city: 'Bengaluru',
       state: 'Karnataka',
-      pincode: '560077',
+      pincode: '560043',
       country: 'India',
-      full: 'Ground floor, #7, 3rd cross, 3rd main road, Near Javeria School, Saraipalya, Thanisandra, Bengaluru - Karnataka, 560077'
+      full: 'Door#2, 2nd Floor, Krishna Reddy Layout, HBR Layout, 3rd Block, 80 Feet Main Road, Kalyan Nagar, Bengaluru - Karnataka, 560043'
     }
   };
 }

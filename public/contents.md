@@ -6,10 +6,10 @@
 **Markets:** Bengaluru · Chennai · Hyderabad · South India  
 **Legal Entity:** AStar Electricals  
 **GSTIN:** 29ACPFA5825L1ZR  
-**Address:** Ground Floor, #7, 3rd Cross, 3rd Main Road, Near Javeria School, Saraipalya, Thanisandra, Bengaluru, Karnataka – 560077, India  
-**Coordinates (GEO):** 13.0558° N, 77.6322° E  
+**Address:** Door#2, 2nd Floor, Krishna Reddy Layout, HBR Layout, 3rd Block, 80 Feet Main Road, Kalyan Nagar, Bengaluru, Karnataka – 560043, India  
+**Coordinates (GEO):** 13.0225° N, 77.6425° E  
 **Phone:** +91 98800 57744  
-**Email:** contact@astarelectricals.com  
+**Email:** info@astarelectricals.com  
 **Hours:** Monday – Saturday, 9:30 AM – 8:30 PM IST  
 
 ---
@@ -157,10 +157,10 @@
 - **Lead:** We work with property developers, builders, project managers, and consultants on commercial electrical contracting requirements. Get in touch to discuss an upcoming project.
 
 ### Contact Information
-- **Office Location:** Ground Floor, #7, 3rd Cross, 3rd Main Road, Near Javeria School, Saraipalya, Thanisandra, Bengaluru, Karnataka – 560077, India
+- **Office Location:** Door#2, 2nd Floor, Krishna Reddy Layout, HBR Layout, 3rd Block, 80 Feet Main Road, Kalyan Nagar, Bengaluru, Karnataka – 560043, India
 - **Operating Hours:** Monday to Saturday, 9:30 AM to 8:30 PM IST
 - **Phone:** +91 98800 57744
-- **Email:** contact@astarelectricals.com
+- **Email:** info@astarelectricals.com
 - **GSTIN:** 29ACPFA5825L1ZR
 - **Markets Covered:** Bengaluru · Chennai · Hyderabad · South India
 

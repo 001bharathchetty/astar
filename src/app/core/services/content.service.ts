@@ -34,25 +34,26 @@ export class ContentService {
     marketsArray: ['Bengaluru', 'Chennai', 'Hyderabad'],
     phone: '+91 98800 57744',
     phoneRaw: '+919880057744',
+    email: 'info@astarelectricals.com',
     whatsappUrl: 'https://wa.me/919880057744?text=Hello%20AStar%20Electricals%2C%20I%20would%20like%20to%20discuss%20a%20commercial%20project.',
     gstin: '29ACPFA5825L1ZR',
     hours: 'Monday – Saturday, 9:30 AM – 8:30 PM',
     address: {
-      floor: 'Ground Floor, #7, 3rd Cross, 3rd Main Road',
-      landmark: 'Near Javeria School',
-      area: 'Saraipalya, Thanisandra',
+      floor: 'Door#2, 2nd Floor, Krishna Reddy Layout',
+      landmark: '3rd Block, 80 Feet Main Road',
+      area: 'HBR Layout, Kalyan Nagar',
       city: 'Bengaluru',
       state: 'Karnataka',
-      pincode: '560077',
+      pincode: '560043',
       country: 'India',
       lines: [
-        'Ground Floor, #7, 3rd Cross, 3rd Main Road',
-        'Near Javeria School, Saraipalya, Thanisandra',
-        'Bengaluru, Karnataka – 560077, India'
+        'Door#2, 2nd Floor, Krishna Reddy Layout',
+        '3rd Block, 80 Feet Main Road, HBR Layout',
+        'Kalyan Nagar, Bengaluru, Karnataka – 560043, India'
       ],
-      full: 'Ground Floor, #7, 3rd Cross, 3rd Main Road, Near Javeria School, Saraipalya, Thanisandra, Bengaluru, Karnataka – 560077, India'
+      full: 'Door#2, 2nd Floor, Krishna Reddy Layout, HBR Layout, 3rd Block, 80 Feet Main Road, Kalyan Nagar, Bengaluru - Karnataka, 560043'
     },
-    googleMapsUrl: 'https://maps.google.com/?q=Ground+Floor+7+3rd+Cross+3rd+Main+Road+Near+Javeria+School+Saraipalya+Thanisandra+Bengaluru+560077'
+    googleMapsUrl: 'https://maps.google.com/?q=Door%232+2nd+Floor+Krishna+Reddy+Layout+HBR+Layout+3rd+Block+80+Feet+Main+Road+Kalyan+Nagar+Bengaluru+560043'
   };
 
   // 1. Home Page

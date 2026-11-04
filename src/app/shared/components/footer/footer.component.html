@@ -84,6 +84,15 @@
               <span>&rarr;</span>
             </a>
           </div>
+          <div class="flex items-center gap-2">
+            <span class="text-stone-300">Email:</span>
+            <a
+              [href]="'mailto:' + content.brand.email"
+              class="font-mono text-white font-bold hover:text-[#ea1c24] transition"
+            >
+              {{ content.brand.email }}
+            </a>
+          </div>
           <p class="text-stone-300 font-mono text-[11px]">
             {{ content.brand.hours }}
           </p>

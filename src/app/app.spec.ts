@@ -30,20 +30,24 @@ describe('AStar Electricals Application Tests', () => {
       expect(businessService.business.phoneRaw).toBe('+919880057744');
     });
 
+    it('should define official contact email', () => {
+      expect(businessService.business.email).toBe('info@astarelectricals.com');
+    });
+
     it('should define government registered GSTIN', () => {
       expect(businessService.business.gstin).toBe('29ACPFA5825L1ZR');
     });
 
     it('should define verified physical address in Bengaluru', () => {
       const addr = businessService.business.address;
-      expect(addr.street).toContain('Ground floor, #7, 3rd cross, 3rd main road');
-      expect(addr.landmark).toBe('Near Javeria School');
-      expect(addr.area).toBe('Saraipalya, Thanisandra');
+      expect(addr.street).toContain('Door#2, 2nd Floor, Krishna Reddy Layout');
+      expect(addr.landmark).toBe('3rd Block, 80 Feet Main Road');
+      expect(addr.area).toBe('HBR Layout, Kalyan Nagar');
       expect(addr.city).toBe('Bengaluru');
       expect(addr.state).toBe('Karnataka');
-      expect(addr.pincode).toBe('560077');
-      expect(addr.full).toContain('Saraipalya');
-      expect(addr.full).toContain('560077');
+      expect(addr.pincode).toBe('560043');
+      expect(addr.full).toContain('Kalyan Nagar');
+      expect(addr.full).toContain('560043');
     });
   });
 
@@ -95,6 +99,13 @@ describe('AStar Electricals Application Tests', () => {
       expect(phoneLink?.textContent).toContain('+91 98800 57744');
     });
 
+    it('should display email link matching business details', () => {
+      const compiled = fixture.nativeElement as HTMLElement;
+      const emailLink = compiled.querySelector('a[href="mailto:info@astarelectricals.com"]');
+      expect(emailLink).toBeTruthy();
+      expect(emailLink?.textContent).toContain('info@astarelectricals.com');
+    });
+
     it('should display GSTIN', () => {
       const compiled = fixture.nativeElement as HTMLElement;
       expect(compiled.textContent).toContain('29ACPFA5825L1ZR');
@@ -102,9 +113,9 @@ describe('AStar Electricals Application Tests', () => {
 
     it('should display address with landmark', () => {
       const compiled = fixture.nativeElement as HTMLElement;
-      expect(compiled.textContent).toContain('Near Javeria School');
-      expect(compiled.textContent).toContain('Saraipalya, Thanisandra');
-      expect(compiled.textContent).toContain('560077');
+      expect(compiled.textContent).toContain('3rd Block, 80 Feet Main Road');
+      expect(compiled.textContent).toContain('HBR Layout, Kalyan Nagar');
+      expect(compiled.textContent).toContain('560043');
     });
   });
 
